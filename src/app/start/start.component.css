@@ -1,0 +1,37 @@
+.top-menu {
+    background: darkred;
+}
+
+section.left-top-menu, section.right-top-menu {
+    display: inline-block;
+}
+
+.right-top-menu {
+    float: right;
+    padding-right: 50px;
+}
+
+.left-top-button {
+    background: darkred;
+    border: none;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    padding: 15px 25px;
+}
+
+.left-top-button:hover {
+    background: #5b0000;
+}
+
+#search-icon {
+    padding-left: 10px;
+    height: 18px;
+}
+
+
+div {
+    background: bisque;
+}
+
+
