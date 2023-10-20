@@ -41,4 +41,20 @@ main, div {
     background: var(--background-color);
 }
 
+.main_window {
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    background-color: var(--main-window-color);
+    border-radius: 60px;
+    width: 65%;
+    height: 65%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
+.main_window > h1 {
+    text-align: center;
+    padding-top: 20px;
+}
