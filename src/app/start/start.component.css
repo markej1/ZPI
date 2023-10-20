@@ -1,5 +1,5 @@
 .top-menu {
-    background: darkred;
+    background: var(--primary-color);
 }
 
 section.left-top-menu, section.right-top-menu {
@@ -12,7 +12,7 @@ section.left-top-menu, section.right-top-menu {
 }
 
 .left-top-button {
-    background: darkred;
+    background: var(--primary-color);
     border: none;
     color: white;
     text-align: center;
@@ -21,7 +21,7 @@ section.left-top-menu, section.right-top-menu {
 }
 
 .left-top-button:hover {
-    background: #5b0000;
+    background: var(--accent-color);
 }
 
 #study-programs-icon, #search-icon {
@@ -30,9 +30,15 @@ section.left-top-menu, section.right-top-menu {
     position: absolute;
 }
 
+main, div {
+    height: 100%;
+    overflow: hidden;
+}
 
-div {
-    background: bisque;
+.content {
+    height: 100%;
+    overflow: hidden;
+    background: var(--background-color);
 }
 
 
