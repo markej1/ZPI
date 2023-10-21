@@ -54,7 +54,24 @@ main, div {
     transform: translate(-50%, -50%);
 }
 
-.main_window > h1 {
+h1, h2 {
     text-align: center;
-    padding-top: 20px;
 }
+
+h1 {
+    padding-top: 50px;
+}
+
+h2 {
+    padding-top: 30px;
+}
+
+select {
+    background-color: var(--background-color);
+    border-radius: 6px;
+    font-size: 14px;
+    display: block;
+    margin: 0 auto;
+}
+
+
