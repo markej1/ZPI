@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Jura;
+    src: url("src/fonts/Jura/Jura-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Amiko;
+    src: url("src/fonts/Amiko/Amiko-Regular.ttf");
+}
+
 .top-menu {
     background: var(--primary-color);
 }
@@ -16,6 +26,7 @@ section.left-top-menu, section.right-top-menu {
     border: none;
     color: white;
     text-align: center;
+    font-family: Amiko, serif;
     font-size: 18px;
     padding: 15px 50px 15px 25px;
 }
@@ -56,14 +67,18 @@ main, div {
 
 h1, h2 {
     text-align: center;
+    font-family: Jura, serif;
 }
 
 h1 {
-    padding-top: 50px;
+    padding-top: 40px;
+    font-size: 32px;
+    font-weight: bold;
 }
 
 h2 {
-    padding-top: 30px;
+    padding-top: 20px;
+    font-size: 20px;
 }
 
 select {
@@ -72,6 +87,15 @@ select {
     font-size: 14px;
     display: block;
     margin: 0 auto;
+    font-family: "Jura", serif;
+    font-weight: 900;
+    padding-left: 5px;
+    color: var(--smooth-text);
 }
+
+option {
+    font-weight: 900;
+}
+
 
 
