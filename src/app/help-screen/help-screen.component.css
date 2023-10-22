@@ -1,0 +1,35 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid2 {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.column {
+    display: grid;
+    align-items: center;
+    grid-template-columns: auto 1fr;
+}
+
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.rectangle {
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    height: 150px;
+    width: 300px;
+    background-color: #ffed80;
+    margin-right: 20px;
+}
+
+.text {
+    padding-left: 10px;
+}
