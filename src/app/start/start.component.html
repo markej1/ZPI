@@ -30,10 +30,12 @@
 
             <label>
                 <select>
-                    <option>Informatyka Stosowana - I st.</option>
-                    <option>Informatyka Stosowana - II st.</option>
-                    <option>Informatyka Stosowana Ang. - I st.</option>
-                    <option>Informatyka Stosowana Ang. - II st.</option>
+                    <option
+                        *ngFor="let program of programs"
+                        [value]="program.name"
+                    >
+                        {{ program.name }}
+                    </option>
                 </select>
             </label>
 
