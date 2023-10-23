@@ -26,18 +26,39 @@
         <section class="main_window">
 
             <h1>Programy studiów</h1>
-            <h2>Wybierz kierunek studiów</h2>
 
-            <label>
-                <select>
-                    <option
-                        *ngFor="let program of programs"
-                        [value]="program.name"
-                    >
-                        {{ program.name }}
-                    </option>
-                </select>
-            </label>
+            <section id="degree_choice">
+
+                <h2>Wybierz kierunek studiów</h2>
+
+                <label>
+                    <select [(ngModel)]="degreeName">
+                        <option
+                            *ngFor="let program of programs"
+                            [value]="program.name"
+                        >
+                            {{ program.name }}
+                        </option>
+                    </select>
+                </label>
+
+            </section>
+
+            <section id="cycle_choice" *ngIf="degreeName != null">
+
+                <h2>Wybierz cykl kształcenia</h2>
+
+                <label>
+                    <select>
+                        <option
+
+                        >
+
+                        </option>
+                    </select>
+                </label>
+
+            </section>
 
         </section>
 

@@ -38,4 +38,12 @@ export class StartComponent {
         }
     ]
 
+    degreeSelected = false;
+    degreeName?: string;
+
+    onChooseDegree(degreeName: string) {
+        this.degreeSelected = true;
+        this.degreeName = degreeName;
+    }
+
 }
