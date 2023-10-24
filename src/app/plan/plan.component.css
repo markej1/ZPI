@@ -16,7 +16,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: rgb(255, 243, 243);
+    background-color: var(--footer-color);
     text-align: left;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }

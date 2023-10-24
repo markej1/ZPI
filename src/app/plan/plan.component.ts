@@ -1,16 +1,9 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
-import {MatButtonModule} from '@angular/material/button';
+import {MatDialog} from '@angular/material/dialog';
 import {HelpScreenComponent} from "../help-screen/help-screen.component";
-import {MatIconModule} from '@angular/material/icon';
-import {MatInputModule} from "@angular/material/input";
-import {MatSelectModule} from "@angular/material/select";
 
 @Component({
   selector: 'app-plan',
-  standalone: true,
-    imports: [CommonModule, MatButtonModule, MatDialogModule, MatIconModule, MatInputModule, MatSelectModule],
   template: `
       <div class="header">
           <p>
@@ -32,8 +25,6 @@ import {MatSelectModule} from "@angular/material/select";
           <button mat-icon-button (click)="openDialog()">
               <mat-icon>help</mat-icon>
           </button>
-
-
       </div>
   `,
   styleUrls: ['./plan.component.css']

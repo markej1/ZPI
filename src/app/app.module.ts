@@ -9,20 +9,27 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {SubjectComponent} from "./subject/subject.component";
 import { StartComponent } from './start/start.component';
 import {FormsModule} from "@angular/forms";
+import {CommonModule} from "@angular/common";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
     declarations: [
         AppComponent,
-        StartComponent
+        StartComponent,
+        HelpScreenComponent,
+        PlanComponent,
+        SubjectComponent
     ],
     imports: [
         BrowserModule,
-        HelpScreenComponent,
-        PlanComponent,
         BrowserAnimationsModule,
         MatDialogModule,
-        SubjectComponent,
-        FormsModule
+        FormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatSelectModule
     ],
     providers: [],
     bootstrap: [AppComponent]

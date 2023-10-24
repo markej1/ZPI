@@ -3,6 +3,20 @@
     --accent-color: #5b0000;
     --background-color: #ede5e2;
     --main-window-color: #ffffff;
+    --footer-color: #f4f1f1;
+
+    --przedmiot-kierunkowy: #FEE5A5;
+    --przedmiot-nauk-podstawowych: #A5D9FE;
+    --przedmiot-ksztalcenia-ogolnego: #85DD88;
+    --przedmiot-specjalnosciowy: #FCA8A3;
+    --praca-dyplomowa: #E7A1FF;
+    --praktyka: #57CBE5;
+    --blok-specjalnosciowy: #FF675E;
+    --blok-ksztalcenia-ogolnego: #4DA524;
+    --blok-kierunkowy: #DCB142;
+    --blok-nauk-podstawowych: #1494BC;
 
     --smooth-text: rgba(94,70,70,80%)
+
+
 }
