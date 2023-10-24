@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Program } from "../interfaces/program";
 
 @Component({
   selector: 'app-start',
@@ -8,42 +7,26 @@ import { Program } from "../interfaces/program";
 })
 export class StartComponent {
 
-    programs: Program[] = [
-        {
-            id: 0,
-            name: "Informatyka Stosowana - I st.",
-            educationCycles: [
-                "2018/2019",
-                "2019/2020",
-                "2020/2021",
-                "2021/2022",
-                "2022/2023",
-                "2023/2024"
-            ],
-            specializations: []
-        },
-        {
-            id: 0,
-            name: "Informatyka Stosowana - II st.",
-            educationCycles: [
-                "2021/2022",
-                "2022/2023",
-                "2023/2024"
-            ],
-            specializations: [
-                "ZSTI",
-                "PSI",
-                "IO"
-            ]
-        }
+    degrees: string[] = [
+        "Informatyka Stosowana - I st.",
+        "Informatyka Stosowana - II st."
     ]
 
-    degreeSelected = false;
-    degreeName?: string;
+    cycles: string[] = [
+        "2020/2021",
+        "2021/2022",
+        "2022/2023",
+        "2023/2024"
+    ]
 
-    onChooseDegree(degreeName: string) {
-        this.degreeSelected = true;
-        this.degreeName = degreeName;
-    }
+    specializations: string[] = [
+        "ZSTI",
+        "PSI",
+        "IO"
+    ]
+
+    degreeSelected?: string;
+    cycleSelected?: string;
+    specializationSelected?: string;
 
 }
