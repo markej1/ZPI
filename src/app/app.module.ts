@@ -9,7 +9,6 @@ import { MatDialogModule } from '@angular/material/dialog';
 import {SubjectComponent} from "./subject/subject.component";
 import { StartComponent } from './start/start.component';
 import {FormsModule} from "@angular/forms";
-import {CommonModule} from "@angular/common";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
