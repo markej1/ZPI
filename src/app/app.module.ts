@@ -5,7 +5,6 @@ import {AppComponent} from './app.component';
 import {HelpScreenComponent} from "./help-screen/help-screen.component";
 import {PlanComponent} from "./plan/plan.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-// import {SubjectComponent} from "./subject/subject.component";
 import { MatDialogModule } from '@angular/material/dialog';
 import {SubjectComponent} from "./subject/subject.component";
 
@@ -18,7 +17,6 @@ import {SubjectComponent} from "./subject/subject.component";
         HelpScreenComponent,
         PlanComponent,
         BrowserAnimationsModule,
-        // SubjectComponent
         MatDialogModule,
         SubjectComponent
     ],
