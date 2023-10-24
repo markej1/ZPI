@@ -12,6 +12,7 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
+import {NgOptimizedImage} from "@angular/common";
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import {MatSelectModule} from "@angular/material/select";
         FormsModule,
         MatButtonModule,
         MatIconModule,
-        MatSelectModule
+        MatSelectModule,
+        NgOptimizedImage
     ],
     providers: [],
     bootstrap: [AppComponent]
