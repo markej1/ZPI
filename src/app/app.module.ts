@@ -7,10 +7,13 @@ import {PlanComponent} from "./plan/plan.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {SubjectComponent} from "./subject/subject.component";
+import { StartComponent } from './start/start.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        StartComponent    
     ],
     imports: [
         BrowserModule,
@@ -18,7 +21,8 @@ import {SubjectComponent} from "./subject/subject.component";
         PlanComponent,
         BrowserAnimationsModule,
         MatDialogModule,
-        SubjectComponent
+        SubjectComponent,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
