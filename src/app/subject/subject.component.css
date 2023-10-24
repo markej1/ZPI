@@ -1,0 +1,33 @@
+.container {
+    background-color: blueviolet;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 20px;
+    row-gap: 10px;
+}
+
+.first-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.top-left {
+    text-align: left;
+}
+
+.top-right {
+    text-align: right;
+}
+
+.row {
+    text-align: center;
+    padding: 10px;
+}
+
+.subject {
+    font-weight: bold;
+}

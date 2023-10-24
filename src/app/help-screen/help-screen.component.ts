@@ -1,12 +1,20 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
     selector: 'app-help-screen',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, MatDialogModule, MatButtonModule, MatIconModule],
     template: `
-    <h3>Zajęcia obowiązkowe</h3>
+    <div class="header">
+        <h3 mat-dialog-title>Zajęcia obowiązkowe</h3>
+        <button mat-icon-button mat-dialog-close>
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
     <div class="grid">
       <div class="column">
         <div class="circle" style="background-color: #ffed80"></div>
@@ -25,7 +33,7 @@ import { CommonModule } from '@angular/common';
         <p class="text">praktyka</p>
       </div>
     </div>
-    <h3>Bloki wybieralne</h3>
+    <h3 mat-dialog-title>Bloki wybieralne</h3>
     <div class="grid">
       <div class="column">
         <div class="circle" style="background-color: #d2b60d"></div>
