@@ -1,0 +1,29 @@
+.header {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: rgb(255, 243, 243);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 10fr auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: rgb(255, 243, 243);
+    text-align: left;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.help-button {
+    width: 100px;
+    right: 0;
+    float: right;
+}
+
