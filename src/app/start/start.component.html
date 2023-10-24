@@ -17,6 +17,9 @@
 
         <section class="right-top-menu">
             <button>Język</button>
+            <button [routerLink]="['/program', degreeSelected, cycleSelected, specializationSelected]">
+                Go to menu
+            </button>
         </section>
 
     </header>
@@ -61,12 +64,17 @@
 
             </section>
 
-            <section id="specialization_choice" *ngIf="cycleSelected != null && specializations != []">
+            <section id="specialization_choice"
+                     *ngIf="cycleSelected != null && specializations != []"
+            >
 
                 <h2>Wybierz specjalizację</h2>
 
                 <label>
-                    <select [(ngModel)]="specializationSelected">
+                    <select
+                        [(ngModel)]="specializationSelected"
+                        (ngModelChange)="navigateTo()"
+                    >
                         <option
                             *ngFor="let specialization of specializations"
                             [value]="specialization"
@@ -74,6 +82,7 @@
                             {{ specialization }}
                         </option>
                     </select>
+
                 </label>
 
             </section>
