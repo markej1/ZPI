@@ -30,7 +30,11 @@ export class StartComponent {
     cycleSelected?: string;
     specializationSelected?: string;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router) {
+        localStorage.removeItem('degreeChosen');
+        localStorage.removeItem('cycleChosen');
+        localStorage.removeItem('specializationChosen');
+    }
 
     replaceWrongSigns(text?: string): string | undefined {
         if (text!=null) {
@@ -44,9 +48,17 @@ export class StartComponent {
 
     navigateTo(endOfQuestions: boolean) {
         if (this.specializations.length === 0 || endOfQuestions) {
+
+            localStorage.setItem('degreeChosen', this.degreeSelected!);
+            localStorage.setItem('cycleChosen', this.cycleSelected!);
+            if (this.specializationSelected != null) {
+                localStorage.setItem('specializationChosen', this.specializationSelected!)
+            }
+
             const url: string = '/program/' + this.replaceWrongSigns(this.degreeSelected)
                 + '/' + this.replaceWrongSigns(this.cycleSelected)
                 + '/' + this.replaceWrongSigns(this.specializationSelected);
+
             this.router.navigateByUrl(url);
         }
     }
