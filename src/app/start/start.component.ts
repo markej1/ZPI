@@ -42,11 +42,13 @@ export class StartComponent {
         } else return undefined;
     }
 
-    navigateTo() {
-        const url: string = '/program/' + this.replaceWrongSigns(this.degreeSelected)
-            + '/' + this.replaceWrongSigns(this.cycleSelected)
-            + '/' + this.replaceWrongSigns(this.specializationSelected);
-        this.router.navigateByUrl(url);
+    navigateTo(endOfQuestions: boolean) {
+        if (this.specializations.length === 0 || endOfQuestions) {
+            const url: string = '/program/' + this.replaceWrongSigns(this.degreeSelected)
+                + '/' + this.replaceWrongSigns(this.cycleSelected)
+                + '/' + this.replaceWrongSigns(this.specializationSelected);
+            this.router.navigateByUrl(url);
+        }
     }
 
 }
