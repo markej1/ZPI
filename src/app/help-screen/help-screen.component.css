@@ -1,5 +1,17 @@
+@font-face {
+    font-family: Jura;
+    src: url("src/fonts/Jura/Jura-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Amiko;
+    src: url("src/fonts/Amiko/Amiko-Regular.ttf");
+}
+
 .container {
     margin: 15px;
+    font-family: "Amiko", serif;
+    font-size: 14px;
 }
 
 .grid {
@@ -30,7 +42,7 @@
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     height: 130px;
     width: 250px;
-    background-color: #ffed80;
+    background-color: var(--przedmiot-kierunkowy);
     margin-right: 20px;
 }
 
@@ -42,5 +54,7 @@
     display: grid;
     grid-template-columns: 1fr auto;
 }
+
+
 
 

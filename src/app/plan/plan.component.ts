@@ -12,6 +12,17 @@ export class PlanComponent {
     constructor(public dialog: MatDialog) {
     }
 
+    semesters: string[] = [
+        'Semestr 1.',
+        'Semestr 2.',
+        'Semestr 3.',
+        'Semestr 4.',
+        'Semestr 5.',
+        'Semestr 6.',
+        'Semestr 7.',
+        'Wszystko'
+    ]
+
     openDialog() {
         const dialogRef = this.dialog.open(HelpScreenComponent);
 
