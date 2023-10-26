@@ -1,0 +1,58 @@
+@font-face {
+    font-family: Jura;
+    src: url("src/fonts/Jura/Jura-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Amiko;
+    src: url("src/fonts/Amiko/Amiko-Regular.ttf");
+}
+
+.header {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background-color: var(--footer-color);
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+}
+
+#logo {
+    max-height: 50px;
+    max-width: 230px;
+}
+
+.footer {
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 11fr auto;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: var(--footer-color);
+    text-align: left;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-text {
+    display: grid;
+    grid-auto-rows: 1fr 1fr;
+    font-family: "Amiko", serif;
+}
+
+.field-of-study {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.year {
+    font-size: 16px;
+}
+
+
+
+
