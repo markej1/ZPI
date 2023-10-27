@@ -6,7 +6,7 @@
 div {
     height: 100%;
     overflow: hidden;
-    padding-top: 125px;
+    padding-top: 100px;
 }
 
 #information {
@@ -58,4 +58,10 @@ button {
 
 #website_button:hover {
     transform: scale(1.2);
+}
+
+fluent-button {
+    display: grid;
+    margin: auto;
+    width: 50px;
 }
