@@ -1,13 +1,20 @@
+@font-face {
+    font-family: Alata;
+    src: url("src/fonts/Alata/Alata-Regular.ttf");
+}
+
 div {
     height: 100%;
     overflow: hidden;
+    padding-top: 150px;
 }
 
 #information {
     margin: auto;
-    padding-top: 150px;
 }
 
 table {
     border-spacing: 150px 10px;
+    font-family: Alata, serif;
+    font-size: 18px;
 }
