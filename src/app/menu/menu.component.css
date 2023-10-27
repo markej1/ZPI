@@ -6,7 +6,7 @@
 div {
     height: 100%;
     overflow: hidden;
-    padding-top: 150px;
+    padding-top: 125px;
 }
 
 #information {
@@ -34,4 +34,28 @@ button {
     padding: 10px 0;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 15px;
+}
+
+#website_button {
+    display: grid;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    padding-top: 30px;
+    padding-bottom: 0;
+}
+
+#website_img {
+    width: 48px;
+}
+
+#website_img_title {
+    font-family: Jura, serif;
+    font-weight: 900;
+    font-size: 14px;
+    text-align: center;
+}
+
+#website_button:hover {
+    transform: scale(1.2);
 }
