@@ -17,6 +17,7 @@ import {provideRouter, RouterModule} from "@angular/router";
 import routeConfig from "./routes";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {MarginComponent} from "./margin/margin.component";
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
     declarations: [
@@ -26,7 +27,8 @@ import {MarginComponent} from "./margin/margin.component";
         PlanComponent,
         SubjectComponent,
         MenuComponent,
-        MarginComponent
+        MarginComponent,
+        SearchComponent
     ],
     imports: [
         BrowserModule,
