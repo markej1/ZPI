@@ -2,41 +2,43 @@
 
 <div>
 
-    <table id="information">
-        <tr>
-            <td>Kierunek studiów:</td>
-            <td>K</td>
-        </tr>
-        <tr>
-            <td>Specjalność:</td>
-            <td>S</td>
-        </tr>
-        <tr>
-            <td>Profil:</td>
-            <td>P</td>
-        </tr>
-        <tr>
-            <td>Poziom studiów:</td>
-            <td>P</td>
-        </tr>
-        <tr>
-            <td>Forma studiów:</td>
-            <td>F</td>
-        </tr>
-    </table>
+    <section id="information">
 
-    <section id="buttons">
-        <button>Opis ogólny</button>
-        <button>Plan</button>
+        <table id="information_table">
+            <tr>
+                <td>Kierunek studiów:</td>
+                <td>{{chosenProgram.name}}</td>
+            </tr>
+            <tr *ngIf="specializationChosen != null">
+                <td>Specjalność:</td>
+                <td>{{specializationChosen}}</td>
+            </tr>
+            <tr>
+                <td>Profil:</td>
+                <td>{{chosenProgram.profile}}</td>
+            </tr>
+            <tr>
+                <td>Poziom studiów:</td>
+                <td>{{chosenProgram.levelOfStudy}}</td>
+            </tr>
+            <tr>
+                <td>Forma studiów:</td>
+                <td>{{chosenProgram.formOfStudy}}</td>
+            </tr>
+        </table>
+
+        <section id="buttons">
+            <button>Opis ogólny</button>
+            <button>Plan</button>
+        </section>
+
+        <button id="website_button">
+            <a href="https://wit.pwr.edu.pl/studenci/programy-studiow">
+                <img src="assets/go_to_website_icon.png" id="website_img" alt="PWr website">
+            </a>
+        </button>
+        <p id="website_img_title">Przejdź do strony PWr</p>
+
     </section>
-
-    <button id="website_button">
-        <a href="https://wit.pwr.edu.pl/studenci/programy-studiow">
-            <img src="assets/go_to_website_icon.png" id="website_img" alt="PWr website">
-        </a>
-    </button>
-    <p id="website_img_title">Przejdź do strony PWr</p>
-
-
 
 </div>
