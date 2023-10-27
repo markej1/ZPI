@@ -18,6 +18,7 @@ import routeConfig from "./routes";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {MarginComponent} from "./margin/margin.component";
 import { SearchComponent } from './search/search.component';
+import { StartTopMenuComponent } from './start-top-menu/start-top-menu.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,8 @@ import { SearchComponent } from './search/search.component';
         SubjectComponent,
         MenuComponent,
         MarginComponent,
-        SearchComponent
+        SearchComponent,
+        StartTopMenuComponent
     ],
     imports: [
         BrowserModule,
