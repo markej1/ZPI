@@ -1,5 +1,5 @@
 import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, provideProtractorTestingSupport} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {HelpScreenComponent} from "./help-screen/help-screen.component";
@@ -12,7 +12,11 @@ import {FormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
-import {NgOptimizedImage} from "@angular/common";
+import { MenuComponent } from './menu/menu.component';
+import {provideRouter, RouterModule} from "@angular/router";
+import routeConfig from "./routes";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {MarginComponent} from "./margin/margin.component";
 
 @NgModule({
     declarations: [
@@ -20,7 +24,9 @@ import {NgOptimizedImage} from "@angular/common";
         StartComponent,
         HelpScreenComponent,
         PlanComponent,
-        SubjectComponent
+        SubjectComponent,
+        MenuComponent,
+        MarginComponent
     ],
     imports: [
         BrowserModule,
@@ -30,9 +36,14 @@ import {NgOptimizedImage} from "@angular/common";
         MatButtonModule,
         MatIconModule,
         MatSelectModule,
+        RouterModule,
+        CommonModule,
         NgOptimizedImage
     ],
-    providers: [],
+    providers: [
+        provideProtractorTestingSupport(),
+        provideRouter(routeConfig)
+    ],
     bootstrap: [AppComponent]
 })
 
