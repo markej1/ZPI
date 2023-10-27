@@ -25,19 +25,6 @@
     max-width: 230px;
 }
 
-.footer {
-    padding: 15px;
-    display: grid;
-    grid-template-columns: 11fr auto;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--footer-color);
-    text-align: left;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-}
-
 #help-icon {
     margin-right: 25px;
 }

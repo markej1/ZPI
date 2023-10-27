@@ -2,3 +2,12 @@ div {
     height: 100%;
     overflow: hidden;
 }
+
+#information {
+    margin: auto;
+    padding-top: 150px;
+}
+
+table {
+    border-spacing: 150px 10px;
+}

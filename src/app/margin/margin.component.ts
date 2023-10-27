@@ -7,4 +7,7 @@ import { Component } from '@angular/core';
 })
 export class MarginComponent {
 
+    degreeChosen = localStorage.getItem('degreeChosen');
+    cycleChosen = localStorage.getItem('cycleChosen');
+
 }

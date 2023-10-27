@@ -15,7 +15,8 @@ import {MatSelectModule} from "@angular/material/select";
 import { MenuComponent } from './menu/menu.component';
 import {provideRouter, RouterModule} from "@angular/router";
 import routeConfig from "./routes";
-import {CommonModule} from "@angular/common";
+import {CommonModule, NgOptimizedImage} from "@angular/common";
+import {MarginComponent} from "./margin/margin.component";
 
 @NgModule({
     declarations: [
@@ -24,7 +25,8 @@ import {CommonModule} from "@angular/common";
         HelpScreenComponent,
         PlanComponent,
         SubjectComponent,
-        MenuComponent
+        MenuComponent,
+        MarginComponent
     ],
     imports: [
         BrowserModule,
@@ -35,7 +37,8 @@ import {CommonModule} from "@angular/common";
         MatIconModule,
         MatSelectModule,
         RouterModule,
-        CommonModule
+        CommonModule,
+        NgOptimizedImage
     ],
     providers: [
         provideProtractorTestingSupport(),
