@@ -25,3 +25,7 @@
 ::placeholder {
     color: var(--placeholder-color);
 }
+
+mat-option {
+    border-radius: 45px;
+}

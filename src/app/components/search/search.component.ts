@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class SearchComponent {
 
+    subjectList: string[] = [
+        "Analiza matematyczna I",
+        "Algorytmy i struktury danych",
+        "Analiza matematyczna II",
+        "Bazy danych"
+    ]
+
 }

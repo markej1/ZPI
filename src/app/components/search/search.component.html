@@ -1,4 +1,20 @@
 <app-start-top-menu></app-start-top-menu>
 <section id="search_section">
-    <input type="text" id="search_input" name="search_input" placeholder="Wyszukaj kurs, frazę...">
+
+    <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let subject of subjectList" [value]="subject">
+            {{subject}}
+        </mat-option>
+    </mat-autocomplete>
+
+    <input
+        type="text"
+        id="search_input"
+        name="search_input"
+        placeholder="Wyszukaj kurs, frazę..."
+        matInput
+        [matAutocomplete]="auto"
+    >
+
+
 </section>

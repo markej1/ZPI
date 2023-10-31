@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import {SubjectComponent} from "./components/subject/subject.component";
 import { StartComponent } from './components/start/start.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
@@ -19,6 +19,8 @@ import {CommonModule, NgOptimizedImage} from "@angular/common";
 import {MarginComponent} from "./components/margin/margin.component";
 import { SearchComponent } from './components/search/search.component';
 import { StartTopMenuComponent } from './components/start-top-menu/start-top-menu.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
     declarations: [
@@ -42,7 +44,10 @@ import { StartTopMenuComponent } from './components/start-top-menu/start-top-men
         MatSelectModule,
         RouterModule,
         CommonModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatAutocompleteModule,
+        MatInputModule,
+        ReactiveFormsModule
     ],
     providers: [
         provideProtractorTestingSupport(),
