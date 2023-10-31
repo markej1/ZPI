@@ -1,0 +1,27 @@
+@font-face {
+    font-family: Alata;
+    src: url("../../../fonts/Alata/Alata-Regular.ttf");
+}
+
+#search_input {
+    width: 60%;
+    margin: auto;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 45px;
+    filter: drop-shadow(2px 2px 2px var(--shadow-color));
+    padding: 8px 30px;
+    font-family: Alata, serif;
+    font-size: 16px;
+    background-image: url("../../../assets/search_icon_black.png");
+    background-size: 24px;
+    background-position: 99% 50%;
+    background-repeat: no-repeat;
+}
+
+::placeholder {
+    color: var(--placeholder-color);
+}

@@ -5,6 +5,8 @@
     --main-window-color: #ffffff;
     --footer-color: #f4f1f1;
     --semester-select-color: #cbc4c4;
+    --shadow-color: grey;
+    --placeholder-color: rgba(0,0,0,30%);
 
     --przedmiot-kierunkowy: #FEE5A5;
     --przedmiot-nauk-podstawowych: #A5D9FE;
