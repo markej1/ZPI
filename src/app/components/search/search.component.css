@@ -1,13 +1,3 @@
-@font-face {
-    font-family: Alata;
-    src: url("../../../fonts/Alata/Alata-Regular.ttf");
-}
-
-@font-face {
-    font-family: Amiko;
-    src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
-}
-
 #search_input {
     width: 60%;
     margin: auto;
