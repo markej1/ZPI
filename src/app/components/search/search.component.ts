@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl} from "@angular/forms";
 
 @Component({
   selector: 'app-search',
@@ -13,5 +14,7 @@ export class SearchComponent {
         "Analiza matematyczna II",
         "Bazy danych"
     ]
+
+    subjectWritten = new FormControl('');
 
 }

@@ -3,6 +3,11 @@
     src: url("../../../fonts/Alata/Alata-Regular.ttf");
 }
 
+@font-face {
+    font-family: Amiko;
+    src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
+}
+
 #search_input {
     width: 60%;
     margin: auto;
@@ -20,6 +25,14 @@
     background-size: 24px;
     background-position: 99% 50%;
     background-repeat: no-repeat;
+}
+
+p {
+    font-family: Amiko, serif;
+    font-size: 16px;
+    color: var(--search-title-color);
+    margin: 12px 0 3px 0;
+    padding-left: 3%;
 }
 
 ::placeholder {

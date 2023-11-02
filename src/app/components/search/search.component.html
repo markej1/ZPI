@@ -1,10 +1,24 @@
 <app-start-top-menu></app-start-top-menu>
 <section id="search_section">
 
-    <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let subject of subjectList" [value]="subject">
+    <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-search-panel">
+
+        <p>Wyszukiwanie po nazwach:</p>
+        <mat-option
+            class="mat-option-search"
+            *ngFor="let subject of subjectList" [value]="subject"
+        >
             {{subject}}
         </mat-option>
+
+        <p>Wyszukiwanie po treściach:</p>
+        <mat-option
+            class="mat-option-search"
+            *ngFor="let subject of subjectList" [value]="subject"
+        >
+            {{subject}}
+        </mat-option>
+
     </mat-autocomplete>
 
     <input
@@ -14,6 +28,7 @@
         placeholder="Wyszukaj kurs, frazę..."
         matInput
         [matAutocomplete]="auto"
+        [formControl]="subjectWritten"
     >
 
 

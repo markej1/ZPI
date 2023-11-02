@@ -8,3 +8,13 @@ html, body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-autocomplete-search-panel {
+    max-height: 500px !important;
+    border-radius: 30px !important;
+}
+
+.mat-option-search {
+    padding-left: 6% !important;
+}
