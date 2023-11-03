@@ -12,19 +12,20 @@ export class SearchComponent implements OnInit {
         "Analiza matematyczna I",
         "Algorytmy i struktury danych",
         "Analiza matematyczna II",
-        "Bazy danych"
-    ]
+        "Bazy danych",
+        "Aplikacje mobilne na platformę Android"
+    ];
     filteredSubjectList: string[] = [];
 
     subjectWritten = new FormControl('');
 
     constructor() {
-        this.filteredSubjectList = this.subjectList;
+        this.filteredSubjectList = this.subjectList.sort();
     }
 
     ngOnInit() {
         this.subjectWritten.valueChanges.subscribe(value => {
-            this.filteredSubjectList = this.subjectList;
+            this.filteredSubjectList = this.subjectList.sort();
             if (value != null) {
                 this.filteredSubjectList = this.filteredSubjectList.filter(subject =>
                     subject?.toLowerCase().includes(value.toLowerCase())
