@@ -6,9 +6,9 @@
         <p>Wyszukiwanie po nazwach:</p>
         <mat-option
             class="mat-option-search"
-            *ngFor="let subject of subjectList" [value]="subject"
+            *ngFor="let filteredSubject of filteredSubjectList" [value]="filteredSubject"
         >
-            {{subject}}
+            {{filteredSubject}}
         </mat-option>
 
         <p>Wyszukiwanie po treściach:</p>
