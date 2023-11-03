@@ -3,7 +3,7 @@
 
     <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-search-panel">
 
-        <p>Wyszukiwanie po nazwach:</p>
+        <p *ngIf="filteredSubjectList.length !== 0">Wyszukiwanie po nazwach:</p>
         <mat-option
             class="mat-option-search"
             *ngFor="let filteredSubject of filteredSubjectList" [value]="filteredSubject"
@@ -11,7 +11,7 @@
             {{filteredSubject}}
         </mat-option>
 
-        <p>Wyszukiwanie po treściach:</p>
+        <p *ngIf="filteredSubjectList.length !== 0">Wyszukiwanie po treściach:</p>
         <mat-option
             class="mat-option-search"
             *ngFor="let subject of subjectList" [value]="subject"
