@@ -6,17 +6,19 @@
         <p *ngIf="filteredSubjectList.length !== 0">Wyszukiwanie po nazwach:</p>
         <mat-option
             class="mat-option-search"
-            *ngFor="let filteredSubject of filteredSubjectList" [value]="filteredSubject"
+            *ngFor="let filteredSubject of filteredSubjectList"
+            [value]="filteredSubject"
         >
             {{filteredSubject}}
         </mat-option>
 
-        <p *ngIf="filteredSubjectList.length !== 0">Wyszukiwanie po treściach:</p>
+        <p *ngIf="filteredSubjectLectureList.length !== 0">Wyszukiwanie po treściach:</p>
         <mat-option
             class="mat-option-search"
-            *ngFor="let subject of subjectList" [value]="subject"
+            *ngFor="let filteredSubjectLecture of filteredSubjectLectureList"
+            [value]="filteredSubjectLecture.subjectName"
         >
-            {{subject}}
+            {{filteredSubjectLecture.subjectName}}
         </mat-option>
 
     </mat-autocomplete>

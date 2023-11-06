@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ChosenProgram } from "../../model/chosenProgram";
+import { ChosenProgram } from "../../model/chosen-program";
 import { ProgramShortcutService } from "../../services/program-shortcut.service";
 
 @Component({
