@@ -7,7 +7,7 @@
         <table id="information_table">
             <tr>
                 <td>Kierunek studiów:</td>
-                <td>{{chosenProgram.name}}</td>
+                <td>{{chosenProgram.officialName}}</td>
             </tr>
             <tr *ngIf="specializationChosen != null">
                 <td>Specjalność:</td>
@@ -34,7 +34,7 @@
 
         <button id="website_button">
             <a href="https://wit.pwr.edu.pl/studenci/programy-studiow">
-                <img src="assets/go_to_website_icon.png" id="website_img" alt="PWr website">
+                <img src="../../../assets/go_to_website_icon.png" id="website_img" alt="PWr website">
             </a>
         </button>
         <p id="website_img_title">Przejdź do strony PWr</p>

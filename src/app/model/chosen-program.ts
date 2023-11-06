@@ -1,6 +1,6 @@
 export interface ChosenProgram {
 
-    name: string;
+    officialName: string;
     profile: string;
     levelOfStudy: string;
     formOfStudy: string

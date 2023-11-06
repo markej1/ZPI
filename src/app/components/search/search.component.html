@@ -1,0 +1,37 @@
+<app-start-top-menu></app-start-top-menu>
+<section id="search_section">
+
+    <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-search-panel">
+
+        <p *ngIf="filteredSubjectList.length !== 0">Wyszukiwanie po nazwach:</p>
+        <mat-option
+            class="mat-option-search"
+            *ngFor="let filteredSubject of filteredSubjectList"
+            [value]="filteredSubject"
+        >
+            {{filteredSubject}}
+        </mat-option>
+
+        <p *ngIf="filteredSubjectLectureList.length !== 0">Wyszukiwanie po treściach:</p>
+        <mat-option
+            class="mat-option-search"
+            *ngFor="let filteredSubjectLecture of filteredSubjectLectureList"
+            [value]="filteredSubjectLecture.subjectName"
+        >
+            {{filteredSubjectLecture.subjectName}}
+        </mat-option>
+
+    </mat-autocomplete>
+
+    <input
+        type="text"
+        id="search_input"
+        name="search_input"
+        placeholder="Wyszukaj kurs, frazę..."
+        matInput
+        [matAutocomplete]="auto"
+        [formControl]="subjectWritten"
+    >
+
+
+</section>

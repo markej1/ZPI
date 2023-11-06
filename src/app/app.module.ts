@@ -2,21 +2,25 @@ import {NgModule} from '@angular/core';
 import {BrowserModule, provideProtractorTestingSupport} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
-import {HelpScreenComponent} from "./help-screen/help-screen.component";
-import {PlanComponent} from "./plan/plan.component";
+import {HelpScreenComponent} from "./components/help-screen/help-screen.component";
+import {PlanComponent} from "./components/plan/plan.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
-import {SubjectComponent} from "./subject/subject.component";
-import { StartComponent } from './start/start.component';
-import {FormsModule} from "@angular/forms";
+import {SubjectComponent} from "./components/subject/subject.component";
+import { StartComponent } from './components/start/start.component';
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
 import {MatSelectModule} from "@angular/material/select";
-import { MenuComponent } from './menu/menu.component';
+import { MenuComponent } from './components/menu/menu.component';
 import {provideRouter, RouterModule} from "@angular/router";
 import routeConfig from "./routes";
 import {CommonModule, NgOptimizedImage} from "@angular/common";
-import {MarginComponent} from "./margin/margin.component";
+import {MarginComponent} from "./components/margin/margin.component";
+import { SearchComponent } from './components/search/search.component';
+import { StartTopMenuComponent } from './components/start-top-menu/start-top-menu.component';
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatInputModule} from "@angular/material/input";
 
 @NgModule({
     declarations: [
@@ -26,7 +30,9 @@ import {MarginComponent} from "./margin/margin.component";
         PlanComponent,
         SubjectComponent,
         MenuComponent,
-        MarginComponent
+        MarginComponent,
+        SearchComponent,
+        StartTopMenuComponent
     ],
     imports: [
         BrowserModule,
@@ -38,7 +44,10 @@ import {MarginComponent} from "./margin/margin.component";
         MatSelectModule,
         RouterModule,
         CommonModule,
-        NgOptimizedImage
+        NgOptimizedImage,
+        MatAutocompleteModule,
+        MatInputModule,
+        ReactiveFormsModule
     ],
     providers: [
         provideProtractorTestingSupport(),
