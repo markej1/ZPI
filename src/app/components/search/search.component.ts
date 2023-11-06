@@ -81,13 +81,17 @@ export class SearchComponent implements OnInit {
 
     constructor() {
         this.filteredSubjectList = this.subjectList.sort();
-        this.filteredSubjectLectureList = this.createFilteredSubjectLectureList(this.subjectLectureList);
+        this.filteredSubjectLectureList =
+            this.createFilteredSubjectLectureList(this.subjectLectureList)
+                .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
     }
 
     ngOnInit() {
         this.subjectWritten.valueChanges.subscribe(value => {
             this.filteredSubjectList = this.subjectList.sort();
-            this.filteredSubjectLectureList = this.createFilteredSubjectLectureList(this.subjectLectureList);
+            this.filteredSubjectLectureList =
+                this.createFilteredSubjectLectureList(this.subjectLectureList)
+                    .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             if (value != null) {
                 this.filteredSubjectList = this.filteredSubjectList.filter(subject =>
                     subject?.toLowerCase().includes(value.toLowerCase())
