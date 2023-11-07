@@ -21,10 +21,10 @@ a {
     margin: 0 auto;
     padding: 15px;
     border-radius: 20px;
-    font-family: "Amiko", serif;
     font-size: 16px;
     min-height: 150px;
     min-width: 250px;
+    font-family: Alata, serif;
 }
 
 .first-row {

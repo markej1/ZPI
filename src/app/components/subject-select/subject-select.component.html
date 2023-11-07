@@ -1,8 +1,9 @@
-<app-margin></app-margin>
-<div class="block-name">
-    {{ block.name }}
+<div mat-dialog-actions class="header">
+    <button id="close" mat-icon-button mat-dialog-close>
+        <mat-icon>close</mat-icon>
+    </button>
 </div>
-<div class="plan">
+<div class="plan" mat-dialog-content>
     <app-subject *ngFor="let block of tempBlockList" [block]="block">
     </app-subject>
 </div>

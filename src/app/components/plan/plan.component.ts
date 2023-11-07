@@ -4,6 +4,7 @@ import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {SubjectService} from "../../services/subject.service";
 import {Block} from "../../model/block";
 import {last} from "rxjs";
+import {SubjectCardComponent} from "../subject-card/subject-card.component";
 
 @Component({
   selector: 'app-plan',
@@ -39,5 +40,6 @@ export class PlanComponent {
     }
 
 
-    protected readonly last = last;
+
+
 }

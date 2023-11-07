@@ -2,6 +2,8 @@ import {Component, Input} from '@angular/core';
 import {SubjectService} from "../../services/subject.service";
 import {Block} from "../../model/block";
 import {MatDialog} from "@angular/material/dialog";
+import {SubjectCardComponent} from "../subject-card/subject-card.component";
+import {SubjectSelectComponent} from "../subject-select/subject-select.component";
 
 @Component({
   selector: 'app-subject',
@@ -51,14 +53,6 @@ export class SubjectComponent {
         return color;
     }
 
-    // getECTS(subject: Subject): string {
-    //     let sum = 0;
-    //     subject.courses.forEach(function (course: Course) {
-    //         sum += course.ECTS;
-    //     })
-    //     return "ECTS";
-    // }
-
     constructor(private subjectService: SubjectService, public dialog: MatDialog) {
     }
 
@@ -70,16 +64,33 @@ export class SubjectComponent {
         }
     }
 
-    // openBlockSelectDialog() {
-    //     const dialogRef = this.dialog.open(SubjectSelectComponent);
-    // }
-
-    getNavigationRoute(): string[] {
+    openDialog() {
         if(this.isSubject()) {
-            return ['/subject_card', this.block.name];
-        } else
-            return ['/subject_select', this.block.name];
+            this.openSubjectCard()
+        } else {
+            this.openSubjectSelectDialog()
+        }
     }
+
+    openSubjectSelectDialog() {
+        this.sendData();
+        const dialogRef = this.dialog.open(SubjectSelectComponent, {
+            data: this.block
+        });
+    }
+
+    openSubjectCard() {
+        this.sendData();
+        this.dialog.closeAll();
+        const dialogRef = this.dialog.open(SubjectCardComponent);
+    }
+
+    // getNavigationRoute(): string[] {
+    //     if(this.isSubject()) {
+    //         return ['/subject_card', this.block.name];
+    //     } else
+    //         return ['/subject_select', this.block.name];
+    // }
 
     isSubject(): boolean {
         return this.block.subjects.length == 1;
