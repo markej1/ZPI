@@ -22,6 +22,9 @@ import { StartTopMenuComponent } from './components/start-top-menu/start-top-men
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
     declarations: [
@@ -49,7 +52,15 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
         MatAutocompleteModule,
         MatInputModule,
         ReactiveFormsModule,
-        MatSlideToggleModule
+        MatSlideToggleModule,
+        HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: httpTranslateLoader,
+                deps: [HttpClient]
+            }
+        })
     ],
     providers: [
         provideProtractorTestingSupport(),
@@ -59,4 +70,8 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 })
 
 export class AppModule {
+}
+
+export function httpTranslateLoader(http: HttpClient) {
+    return new TranslateHttpLoader(http);
 }

@@ -1,4 +1,5 @@
-import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AppComponent} from "../../app.component";
 
 @Component({
     selector: 'app-start-top-menu',
@@ -16,4 +17,11 @@ export class StartTopMenuComponent implements AfterViewInit {
             this.element.nativeElement.querySelector('.mdc-switch__icon--off').firstChild.setAttribute('d', this.noIcon);
         }
     }
+
+    constructor(private appComponent: AppComponent) {}
+
+    switchLanguage(lang: string) {
+        this.appComponent.switchLanguage(lang);
+    }
+
 }

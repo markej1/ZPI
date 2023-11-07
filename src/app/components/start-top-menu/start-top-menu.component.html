@@ -3,7 +3,7 @@
     <section class="left-top-menu">
 
         <button class="left-top-button" [routerLink]="['']">
-            Programy studiów
+            {{'AppTitle' | translate}}
             <img src="../../../assets/study_programs_icon.png" id="study-programs-icon" alt="">
         </button>
 
@@ -19,6 +19,8 @@
         PL
         <mat-slide-toggle #darkModeSwitch></mat-slide-toggle>
         EN
+
+        <button (click)="switchLanguage('en')">EN</button>
 
     </section>
 
