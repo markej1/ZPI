@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @font-face {
     font-family: Jura;
     src: url("../../../fonts/Jura/Jura-VariableFont_wght.ttf");
@@ -9,8 +8,6 @@
     src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
 }
 
-=======
->>>>>>> 245bb49a934683b8dde7a5f94a22ba34c410794f
 .container {
     margin: 15px;
     font-family: "Amiko", serif;
