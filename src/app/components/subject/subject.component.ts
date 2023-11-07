@@ -3,13 +3,13 @@ import {SubjectService} from "../../services/subject.service";
 import {Block} from "../../model/block";
 import {MatDialog} from "@angular/material/dialog";
 
-
 @Component({
   selector: 'app-subject',
   templateUrl: './subject.component.html',
   styleUrls: ['./subject.component.css']
 })
 export class SubjectComponent {
+
     @Input() block!: Block;
     changeColor(): string {
         let color = ""

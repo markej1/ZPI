@@ -1,5 +1,20 @@
 @import url("app/ui/colors.css");
 
+@font-face {
+    font-family: Jura;
+    src: url("fonts/Jura/Jura-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Amiko;
+    src: url("fonts/Amiko/Amiko-Regular.ttf");
+}
+
+@font-face {
+    font-family: Alata;
+    src: url("fonts/Alata/Alata-Regular.ttf");
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -8,3 +23,27 @@ html, body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-autocomplete-search-panel {
+    max-height: 500px !important;
+    border-radius: 30px !important;
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--scrollbar-thumb-color);
+        border-radius: 8px;
+    }
+    &::-webkit-scrollbar-track {
+        background: var(--scrollbar-track-color);
+        border-radius: 8px;
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+}
+
+.mat-option-search {
+    padding-left: 6% !important;
+    font-family: Alata, serif !important;
+}

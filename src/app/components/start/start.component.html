@@ -1,25 +1,6 @@
 <div>
-    <header class="top-menu">
 
-        <section class="left-top-menu">
-
-            <button class="left-top-button">
-                Programy studiów
-                <img src="assets/study_programs_icon.png" id="study-programs-icon" alt="">
-            </button>
-
-            <button class="left-top-button">
-                Wyszukaj
-                <img src="../../../assets/search_icon.png" id="search-icon" alt="">
-            </button>
-
-        </section>
-
-        <section class="right-top-menu">
-            <button>Język</button>
-        </section>
-
-    </header>
+    <app-start-top-menu></app-start-top-menu>
 
     <section class="content">
 
@@ -49,7 +30,10 @@
                 <h2>Wybierz cykl kształcenia</h2>
 
                 <label>
-                    <select [(ngModel)]="cycleSelected">
+                    <select
+                        [(ngModel)]="cycleSelected"
+                        (ngModelChange)="navigateTo(false)"
+                    >
                         <option
                             *ngFor="let cycle of cycles"
                             [value]="cycle"
@@ -61,12 +45,17 @@
 
             </section>
 
-            <section id="specialization_choice" *ngIf="cycleSelected != null && specializations != []">
+            <section id="specialization_choice"
+                     *ngIf="cycleSelected != null && specializations != []"
+            >
 
                 <h2>Wybierz specjalizację</h2>
 
                 <label>
-                    <select [(ngModel)]="specializationSelected">
+                    <select
+                        [(ngModel)]="specializationSelected"
+                        (ngModelChange)="navigateTo(true)"
+                    >
                         <option
                             *ngFor="let specialization of specializations"
                             [value]="specialization"
@@ -74,6 +63,7 @@
                             {{ specialization }}
                         </option>
                     </select>
+
                 </label>
 
             </section>

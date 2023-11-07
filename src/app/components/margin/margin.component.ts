@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {ProgramShortcutService} from "../../services/program-shortcut.service";
+
 
 @Component({
   selector: 'app-margin',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class MarginComponent {
 
+    degreeChosen?: string;
+    cycleChosen?: string;
+
+    constructor(private programShortcutService: ProgramShortcutService) {
+        this.programShortcutService.getDegreeSelected.subscribe(
+            degree => this.degreeChosen = degree
+        );
+        this.programShortcutService.getCycleSelected.subscribe(
+            cycle => this.cycleChosen = cycle
+        );
+    }
 }

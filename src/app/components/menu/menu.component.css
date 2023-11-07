@@ -1,0 +1,65 @@
+div {
+    height: 100%;
+    overflow: hidden;
+}
+
+#information {
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+table {
+    border-spacing: 150px 10px;
+    font-family: Alata, serif;
+    font-size: 18px;
+    white-space: nowrap;
+}
+
+td:nth-child(2) {
+    text-align: right;
+}
+
+#buttons {
+    display: grid;
+    width: 30%;
+    margin: auto;
+    padding-top: 50px;
+}
+
+button {
+    margin-bottom: 5px;
+    font-family: Jura, serif;
+    font-weight: 900;
+    font-size: 18px;
+    padding: 10px 0;
+    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+}
+
+#website_button {
+    display: grid;
+    margin: auto;
+    background-color: transparent;
+    border: none;
+    padding-top: 30px;
+    padding-bottom: 0;
+}
+
+#website_img {
+    width: 48px;
+}
+
+#website_img_title {
+    font-family: Jura, serif;
+    font-weight: 900;
+    font-size: 14px;
+    text-align: center;
+}
+
+#website_button:hover {
+    transform: scale(1.2);
+}
+
