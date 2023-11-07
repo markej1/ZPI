@@ -10,7 +10,7 @@
 
             <section id="degree_choice">
 
-                <h2>Wybierz kierunek studiów</h2>
+                <h2>{{'ChooseDegree' | translate}}</h2>
 
                 <label>
                     <select [(ngModel)]="degreeSelected">
@@ -27,7 +27,7 @@
 
             <section id="cycle_choice" *ngIf="degreeSelected != null">
 
-                <h2>Wybierz cykl kształcenia</h2>
+                <h2>{{'ChooseCycle' | translate}}</h2>
 
                 <label>
                     <select
@@ -49,7 +49,7 @@
                      *ngIf="cycleSelected != null && specializations != []"
             >
 
-                <h2>Wybierz specjalizację</h2>
+                <h2>{{'ChooseSpecialization' | translate}}</h2>
 
                 <label>
                     <select
