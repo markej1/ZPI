@@ -1,5 +1,6 @@
-import {AfterViewInit, Component, ElementRef, Input, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild} from '@angular/core';
 import {AppComponent} from "../../app.component";
+import {LanguageService} from "../../services/language.service";
 
 @Component({
     selector: 'app-start-top-menu',
@@ -7,9 +8,11 @@ import {AppComponent} from "../../app.component";
     styleUrls: ['./start-top-menu.component.css']
 })
 export class StartTopMenuComponent implements AfterViewInit {
-    @ViewChild('darkModeSwitch', {read: ElementRef}) element: ElementRef | undefined;
+    @ViewChild('languageSwitch', {read: ElementRef}) element: ElementRef | undefined;
 
     noIcon = '';
+
+    languageChanged?: boolean;
 
     ngAfterViewInit() {
         if (this.element) {
@@ -18,10 +21,19 @@ export class StartTopMenuComponent implements AfterViewInit {
         }
     }
 
-    constructor(private appComponent: AppComponent) {}
+    constructor(private appComponent: AppComponent, private languageService: LanguageService) {
+        this.languageService.getLanguageChanged.subscribe(
+            isLanguageChanged => this.languageChanged = isLanguageChanged
+        );
+    }
 
-    switchLanguage(lang: string) {
-        this.appComponent.switchLanguage(lang);
+    switchLanguage() {
+        this.languageService.setLanguageChanged(this.languageChanged);
+        if (this.languageChanged) {
+            this.appComponent.switchLanguage('en');
+        } else {
+            this.appComponent.switchLanguage('pl');
+        }
     }
 
 }

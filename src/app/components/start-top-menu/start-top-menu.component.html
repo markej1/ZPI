@@ -17,10 +17,12 @@
     <section class="right-top-menu">
 
         PL
-        <mat-slide-toggle #darkModeSwitch></mat-slide-toggle>
+        <mat-slide-toggle
+            #languageSwitch
+            (change)="switchLanguage()"
+            [(ngModel)]="languageChanged"
+        ></mat-slide-toggle>
         EN
-
-        <button (click)="switchLanguage('en')">EN</button>
 
     </section>
 
