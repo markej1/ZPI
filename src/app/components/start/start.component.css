@@ -1,11 +1,11 @@
 @font-face {
     font-family: Jura;
-    src: url("src/fonts/Jura/Jura-VariableFont_wght.ttf");
+    src: url("../../../fonts/Jura/Jura-VariableFont_wght.ttf");
 }
 
 @font-face {
     font-family: Amiko;
-    src: url("src/fonts/Amiko/Amiko-Regular.ttf");
+    src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
 }
 
 .top-menu {

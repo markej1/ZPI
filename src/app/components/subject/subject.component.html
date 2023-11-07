@@ -1,0 +1,18 @@
+
+<a [routerLink]="getNavigationRoute()" (click)="sendData()">
+    <div class="container" matRipple [matRippleCentered]="true" [ngStyle]="{'background-color': changeColor()}">
+
+    <div class="first-row">
+        <div class="top-left">
+            {{ block.ects }} ECTS<br>
+            (2 + 2)
+        </div>
+        <div class="top-right">
+            {{ block.exam }}
+        </div>
+    </div>
+    <div class="row"><div class="subject">{{ block.name }}</div></div>
+    <div class="row" id="bottom-row">{{ block.hours }}</div>
+</div>
+</a>
+
