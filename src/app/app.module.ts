@@ -21,6 +21,7 @@ import { SearchComponent } from './components/search/search.component';
 import { StartTopMenuComponent } from './components/start-top-menu/start-top-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
     declarations: [
@@ -47,7 +48,8 @@ import {MatInputModule} from "@angular/material/input";
         NgOptimizedImage,
         MatAutocompleteModule,
         MatInputModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        MatSlideToggleModule
     ],
     providers: [
         provideProtractorTestingSupport(),
