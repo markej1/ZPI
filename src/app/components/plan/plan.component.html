@@ -1,24 +1,33 @@
-<div class="header">
-    <div class="header-text">
-        <div class="field-of-study">Informatyka stosowana - I st.</div>
-        <div class="year">Start 2021/2022</div>
+<div class="container">
+    <div class="header">
+        <div class="header-text">
+            <div class="field-of-study">Informatyka stosowana - I st.</div>
+            <div class="year">Start 2021/2022</div>
+        </div>
+
+        <div class="custom-select">
+        <select [(ngModel)]="semesters">
+            <option
+                *ngFor="let semester of semesters"
+                [value]="semester"
+                [selected]="semester"
+            >
+                {{ semester }}
+            </option>
+        </select>
+        </div>
+    </div>
+    <div class="plan">
+        <app-subject *ngFor="let block of subjectList" [block]="block">
+        </app-subject>
     </div>
 
-    <div class="custom-select">
-    <select [(ngModel)]="semesters">
-        <option
-            *ngFor="let semester of semesters"
-            [value]="semester"
-        >
-            {{ semester }}
-        </option>
-    </select>
+    <div class="footer">
+        <img ngSrc="../../../assets/logo_PWr.png" alt="logo PWr" id="logo" height="223" width="1045">
+
+        <button mat-icon-button (click)="openDialog()" id="help-icon">
+            <mat-icon>help</mat-icon>
+        </button>
     </div>
 </div>
-<div class="footer">
-    <img ngSrc="../../../assets/logo_PWr.png" alt="logo PWr" id="logo" height="223" width="1045">
 
-    <button mat-icon-button (click)="openDialog()" id="help-icon">
-        <mat-icon>help</mat-icon>
-    </button>
-</div>

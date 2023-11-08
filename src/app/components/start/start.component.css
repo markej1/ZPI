@@ -1,3 +1,46 @@
+@font-face {
+    font-family: Jura;
+    src: url("../../../fonts/Jura/Jura-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Amiko;
+    src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
+}
+
+.top-menu {
+    background: var(--primary-color);
+}
+
+section.left-top-menu, section.right-top-menu {
+    display: inline-block;
+}
+
+.right-top-menu {
+    float: right;
+    padding-right: 50px;
+}
+
+.left-top-button {
+    background: var(--primary-color);
+    border: none;
+    color: white;
+    text-align: center;
+    font-family: Amiko, serif;
+    font-size: 18px;
+    padding: 15px 50px 15px 25px;
+}
+
+.left-top-button:hover {
+    background: var(--accent-color);
+}
+
+#study-programs-icon, #search-icon {
+    padding-left: 10px;
+    height: 22px;
+    position: absolute;
+}
+
 main, div {
     height: 100%;
     overflow: hidden;

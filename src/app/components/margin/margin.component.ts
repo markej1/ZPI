@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 
+
 @Component({
   selector: 'app-margin',
   templateUrl: './margin.component.html',
@@ -19,5 +20,4 @@ export class MarginComponent {
             cycle => this.cycleChosen = cycle
         );
     }
-
 }

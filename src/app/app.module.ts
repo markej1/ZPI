@@ -21,10 +21,6 @@ import { SearchComponent } from './components/search/search.component';
 import { StartTopMenuComponent } from './components/start-top-menu/start-top-menu.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatInputModule} from "@angular/material/input";
-import {MatSlideToggleModule} from "@angular/material/slide-toggle";
-import {TranslateLoader, TranslateModule} from "@ngx-translate/core";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 @NgModule({
     declarations: [
@@ -51,16 +47,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
         NgOptimizedImage,
         MatAutocompleteModule,
         MatInputModule,
-        ReactiveFormsModule,
-        MatSlideToggleModule,
-        HttpClientModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: httpTranslateLoader,
-                deps: [HttpClient]
-            }
-        })
+        ReactiveFormsModule
     ],
     providers: [
         provideProtractorTestingSupport(),
@@ -70,8 +57,4 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 })
 
 export class AppModule {
-}
-
-export function httpTranslateLoader(http: HttpClient) {
-    return new TranslateHttpLoader(http);
 }

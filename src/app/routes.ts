@@ -1,9 +1,15 @@
-import {Routes} from "@angular/router";
+import { Routes } from '@angular/router';
+import {PlanComponent} from "./components/plan/plan.component";
 import {StartComponent} from "./components/start/start.component";
 import {MenuComponent} from "./components/menu/menu.component";
 import {SearchComponent} from "./components/search/search.component";
 
 const routeConfig: Routes = [
+    {
+        path: 'plan/:semester',
+        component: PlanComponent,
+        title: 'Plan studiów'
+    },
     {
         path: "",
         component: StartComponent,

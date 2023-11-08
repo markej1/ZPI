@@ -1,13 +1,19 @@
-<div class="container">
+<!--<a [routerLink]="getNavigationRoute()" (click)="sendData()">-->
+<a (click)="openDialog()">
+    <div class="container" matRipple [matRippleCentered]="true" [ngStyle]="{'background-color': changeColor()}">
+
     <div class="first-row">
         <div class="top-left">
-            4 ECTS <br>
+            {{ block.ects }} ECTS<br>
             (2 + 2)
         </div>
         <div class="top-right">
-            E
+            {{ block.exam }}
         </div>
     </div>
-    <div class="row"><div class="subject">Programowanie baz danych</div></div>
-    <div class="row">22000</div>
+    <div class="row"><div class="subject">{{ block.name }}</div></div>
+    <div class="row" id="bottom-row">{{ block.hours }}</div>
 </div>
+</a>
+
+

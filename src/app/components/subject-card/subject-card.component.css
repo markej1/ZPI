@@ -1,0 +1,67 @@
+@font-face {
+    font-family: Jura;
+    src: url("../../../fonts/Jura/Jura-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: Amiko;
+    src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
+}
+
+.container {
+    display: grid;
+    justify-content: center;
+    font-family: "Amiko", serif;
+    padding: 20px;
+    row-gap: 5%;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 5%;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 20px;
+    border-style: hidden;
+    box-shadow: 0 0 0 1px #b9b9b9;
+}
+
+td, th {
+    border: 1px solid #b9b9b9;
+    padding: 8px;
+    text-align: center;
+}
+
+.table-header {
+    background-color: #eeeeee;
+    font-weight: bold;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 20px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 20px;
+}
+
+table tr:first-child td:first-child {
+    border-top-left-radius: 20px;
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 20px;
+}
+
+.title {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.left-text {
+    float: right;
+}
+
+
+
