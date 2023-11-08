@@ -24,7 +24,7 @@ const routeConfig: Routes = [
     {
         path: "program/:name/:cycle/:specialization/description",
         component: GeneralDescriptionComponent,
-        title: "Description"
+        title: "Opis"
     },
     {
         path: "search",
