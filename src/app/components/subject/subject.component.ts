@@ -6,13 +6,14 @@ import {SubjectCardComponent} from "../subject-card/subject-card.component";
 import {SubjectSelectComponent} from "../subject-select/subject-select.component";
 
 @Component({
-  selector: 'app-subject',
-  templateUrl: './subject.component.html',
-  styleUrls: ['./subject.component.css']
+    selector: 'app-subject',
+    templateUrl: './subject.component.html',
+    styleUrls: ['./subject.component.css']
 })
 export class SubjectComponent {
 
     @Input() block!: Block;
+
     changeColor(): string {
         let color = ""
         switch (this.block.block_type) {
@@ -57,7 +58,7 @@ export class SubjectComponent {
     }
 
     sendData() {
-        if(this.isSubject()) {
+        if (this.isSubject()) {
             this.subjectService.selectSubject(this.block.subjects[0]);
         } else {
             this.subjectService.selectBlock(this.block);
@@ -65,7 +66,7 @@ export class SubjectComponent {
     }
 
     openDialog() {
-        if(this.isSubject()) {
+        if (this.isSubject()) {
             this.openSubjectCard()
         } else {
             this.openSubjectSelectDialog()
