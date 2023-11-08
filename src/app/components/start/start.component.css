@@ -28,20 +28,23 @@ h1, h2 {
 }
 
 h1 {
-    padding-top: 30px;
-    font-size: 32px;
+    padding-top: 3.5%;
+    /*font-size: 32px;*/
+    font-size: 2em;
     font-weight: bold;
 }
 
 h2 {
     padding-top: 20px;
-    font-size: 20px;
+    /*font-size: 20px;*/
+    font-size: 1.2em;
 }
 
 select {
     background-color: var(--background-color);
     border-radius: 6px;
-    font-size: 14px;
+    /*font-size: 14px;*/
+    font-size: 0.9em;
     display: block;
     margin: 0 auto;
     font-family: Jura, serif;
