@@ -28,6 +28,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {MatRippleModule} from "@angular/material/core";
 import { SubjectSelectComponent } from './components/subject-select/subject-select.component';
 import {SubjectCardComponent} from "./components/subject-card/subject-card.component";
+import { GeneralDescriptionComponent } from './components/general-description/general-description.component';
 
 @NgModule({
     declarations: [
@@ -41,7 +42,8 @@ import {SubjectCardComponent} from "./components/subject-card/subject-card.compo
         SearchComponent,
         StartTopMenuComponent,
         SubjectCardComponent,
-        SubjectSelectComponent
+        SubjectSelectComponent,
+        GeneralDescriptionComponent
     ],
     imports: [
         BrowserModule,
