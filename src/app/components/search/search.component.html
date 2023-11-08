@@ -3,7 +3,7 @@
 
     <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-search-panel">
 
-        <p *ngIf="filteredSubjectList.length !== 0">Wyszukiwanie po nazwach:</p>
+        <p *ngIf="filteredSubjectList.length !== 0">{{'SearchName' | translate}}:</p>
         <mat-option
             class="mat-option-search"
             *ngFor="let filteredSubject of filteredSubjectList"
@@ -12,7 +12,7 @@
             {{filteredSubject}}
         </mat-option>
 
-        <p *ngIf="filteredSubjectLectureList.length !== 0">Wyszukiwanie po treściach:</p>
+        <p *ngIf="filteredSubjectLectureList.length !== 0">{{'SearchLectures' | translate}}:</p>
         <mat-option
             class="mat-option-search"
             *ngFor="let filteredSubjectLecture of filteredSubjectLectureList"
@@ -27,7 +27,7 @@
         type="text"
         id="search_input"
         name="search_input"
-        placeholder="Wyszukaj kurs, frazę..."
+        placeholder="{{'SearchPlaceholder' | translate }}"
         matInput
         [matAutocomplete]="auto"
         [formControl]="subjectWritten"

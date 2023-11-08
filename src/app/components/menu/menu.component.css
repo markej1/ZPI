@@ -14,7 +14,8 @@ div {
 table {
     border-spacing: 150px 10px;
     font-family: Alata, serif;
-    font-size: 18px;
+    /*font-size: 18px;*/
+    font-size: 1.2em;
     white-space: nowrap;
 }
 
@@ -26,14 +27,16 @@ td:nth-child(2) {
     display: grid;
     width: 30%;
     margin: auto;
-    padding-top: 50px;
+    /*padding-top: 50px;*/
+    padding-top: 6%;
 }
 
 button {
     margin-bottom: 5px;
     font-family: Jura, serif;
     font-weight: 900;
-    font-size: 18px;
+    /*font-size: 18px;*/
+    font-size: 1.1em;
     padding: 10px 0;
     border: 1px solid rgba(0, 0, 0, 0.3);
     border-radius: 15px;
@@ -44,7 +47,8 @@ button {
     margin: auto;
     background-color: transparent;
     border: none;
-    padding-top: 30px;
+    /*padding-top: 30px;*/
+    padding-top: 4%;
     padding-bottom: 0;
 }
 

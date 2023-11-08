@@ -8,7 +8,10 @@ section.left-top-menu, section.right-top-menu {
 
 .right-top-menu {
     float: right;
-    padding-right: 50px;
+    padding: 15px 50px 15px 25px;
+    font-family: Amiko, serif;
+    font-size: 18px;
+    color: white;
 }
 
 .left-top-button {
@@ -29,4 +32,25 @@ section.left-top-menu, section.right-top-menu {
     padding-left: 10px;
     height: 22px;
     position: absolute;
+}
+
+::ng-deep .mdc-switch:enabled .mdc-switch__track::before {
+    background: var(--slide-track-color) !important;
+}
+
+::ng-deep .mdc-switch:enabled .mdc-switch__track::after {
+    background: var(--slide-track-color) !important;
+}
+
+::ng-deep .mat-mdc-slide-toggle.mat-accent {
+    --mdc-switch-selected-focus-state-layer-color: var(--slide-track-activated-color);
+    --mdc-switch-selected-handle-color: var(--slide-track-button-color);
+    --mdc-switch-selected-hover-state-layer-color: var(--slide-track-hover-button-color);
+    --mdc-switch-selected-pressed-state-layer-color: var(--slide-track-button-color);
+    --mdc-switch-selected-focus-handle-color: var(--slide-track-activated-color);
+    --mdc-switch-selected-hover-handle-color: var(--slide-track-hover-button-color);
+    --mdc-switch-selected-pressed-handle-color: var(--slide-track-button-color);
+    --mdc-switch-unselected-hover-handle-color: var(--slide-track-hover-button-color);
+    --mdc-switch-unselected-focus-handle-color: var(--slide-track-activated-color);
+    --mdc-switch-unselected-handle-color: var(--slide-track-button-color);
 }

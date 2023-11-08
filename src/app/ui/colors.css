@@ -10,6 +10,10 @@
     --search-title-color: #958686;
     --scrollbar-thumb-color: #b6afaf;
     --scrollbar-track-color: #eee7e7;
+    --slide-track-button-color: #a88836;
+    --slide-track-activated-color: #835e06;
+    --slide-track-hover-button-color: var(--slide-track-activated-color);
+    --slide-track-color: #d7caca;
 
     --przedmiot-kierunkowy: #FEE5A5;
     --przedmiot-nauk-podstawowych: #A5D9FE;

@@ -6,30 +6,30 @@
 
         <table id="information_table">
             <tr>
-                <td>Kierunek studiów:</td>
+                <td>{{'Degree' | translate}}:</td>
                 <td>{{chosenProgram.officialName}}</td>
             </tr>
             <tr *ngIf="specializationChosen != null">
-                <td>Specjalność:</td>
+                <td>{{'Specialization' | translate}}:</td>
                 <td>{{specializationChosen}}</td>
             </tr>
             <tr>
-                <td>Profil:</td>
+                <td>{{'Profile' | translate}}:</td>
                 <td>{{chosenProgram.profile}}</td>
             </tr>
             <tr>
-                <td>Poziom studiów:</td>
+                <td>{{'Level' | translate}}:</td>
                 <td>{{chosenProgram.levelOfStudy}}</td>
             </tr>
             <tr>
-                <td>Forma studiów:</td>
+                <td>{{'Form' | translate}}:</td>
                 <td>{{chosenProgram.formOfStudy}}</td>
             </tr>
         </table>
 
         <section id="buttons">
-            <button>Opis ogólny</button>
-            <button [routerLink]="['/plan/all']">Plan</button>
+            <button>{{'GeneralDescription' | translate}}</button>
+            <button [routerLink]="['/plan/all']">{{'Plan' | translate}}</button>
         </section>
 
         <button id="website_button">
@@ -37,7 +37,7 @@
                 <img src="../../../assets/go_to_website_icon.png" id="website_img" alt="PWr website">
             </a>
         </button>
-        <p id="website_img_title">Przejdź do strony PWr</p>
+        <p id="website_img_title">{{'ToPWrWebsite' | translate}}</p>
 
     </section>
 
