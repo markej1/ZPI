@@ -15,5 +15,8 @@
   "ToPWrWebsite": "Go to PWr website",
   "SearchName": "Search by names",
   "SearchLectures": "Search by lectures",
-  "SearchPlaceholder": "Find subject, phrase..."
+  "SearchPlaceholder": "Find subject, phrase...",
+  "Prerequirements": "Prerequirements",
+  "Title": "Title after studies",
+  "Figure": "Figure of graduate, possibilities of employment"
 }

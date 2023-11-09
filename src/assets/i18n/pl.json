@@ -15,5 +15,8 @@
   "ToPWrWebsite": "Przejdź do strony PWr",
   "SearchName": "Wyszukiwanie po nazwach",
   "SearchLectures": "Wyszukiwanie po treściach",
-  "SearchPlaceholder": "Wyszukaj kurs, frazę..."
+  "SearchPlaceholder": "Wyszukaj kurs, frazę...",
+  "Prerequirements": "Wymagania wstępne",
+  "Title": "Tytuł zawodowy nadawany po zakończeniu studiów",
+  "Figure": "Sylwetka absolwenta, możliwości zatrudnienia"
 }
