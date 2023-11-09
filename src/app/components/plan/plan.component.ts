@@ -16,27 +16,8 @@ export class PlanComponent {
     subjectList: Block[] = [];
     subjectService: SubjectService = inject(SubjectService);
 
-    constructor(public dialog: MatDialog) {
+    constructor() {
         this.subjectList = this.subjectService.getAllBlocks();
-    }
-
-    semesters: string[] = [
-        'Semestr 1.',
-        'Semestr 2.',
-        'Semestr 3.',
-        'Semestr 4.',
-        'Semestr 5.',
-        'Semestr 6.',
-        'Semestr 7.',
-        'Wszystko'
-    ]
-
-    openDialog() {
-        const dialogRef = this.dialog.open(HelpScreenComponent);
-
-        dialogRef.afterClosed().subscribe(result => {
-            console.log(`Dialog result: ${result}`);
-        });
     }
 
 
