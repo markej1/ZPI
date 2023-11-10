@@ -1,20 +1,22 @@
 import {Component, OnInit} from '@angular/core';
-import { ChosenProgram } from "../../model/chosen-program";
-import { ProgramShortcutService } from "../../services/program-shortcut.service";
+import {ChosenProgram} from "../../model/chosen-program";
+import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {Router} from "@angular/router";
+import {SemestersAmountService} from "../../services/semesters-amount.service";
 
 @Component({
-  selector: 'app-menu',
-  templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+    selector: 'app-menu',
+    templateUrl: './menu.component.html',
+    styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit{
+export class MenuComponent implements OnInit {
 
     chosenProgram: ChosenProgram = {
         officialName: "Informatyka Stosowana",
         profile: "ogólnoakademicki",
         levelOfStudy: "pierwszy",
-        formOfStudy: "stacjonarna"
+        formOfStudy: "stacjonarna",
+        semestersAmount: 7
     }
 
     specializationChosen?: string;
@@ -22,10 +24,15 @@ export class MenuComponent implements OnInit{
     menuUrl: string = "";
     navigateUrl?: string;
 
-    constructor(private programShortcutService: ProgramShortcutService, private router: Router) {
+    constructor(
+        private programShortcutService: ProgramShortcutService,
+        private semestersAmountService: SemestersAmountService,
+        private router: Router
+    ) {
         this.programShortcutService.getSpecialization.subscribe(
             specialization => this.specializationChosen = specialization
         );
+        this.semestersAmountService.setSemestersAmount(this.chosenProgram.semestersAmount);
     }
 
     ngOnInit() {

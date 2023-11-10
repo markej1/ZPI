@@ -9,11 +9,14 @@
         <div class="select_semester">
             <select [(ngModel)]="chosenSemester">
                 <option
-                        *ngFor="let semester of semesters"
-                        [value]="semester"
-                        [selected]="semester"
+                        *ngFor="let number of semesterNumbers"
+                        [value]="number"
+                        [selected]="number"
                 >
-                    {{ semester }}
+                    Semestr {{ number }}
+                </option>
+                <option>
+                    Wszystko
                 </option>
             </select>
         </div>
