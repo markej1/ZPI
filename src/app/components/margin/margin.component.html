@@ -27,7 +27,12 @@
 
         <img ngSrc="../../../assets/logo_PWr.png" alt="logo PWr" id="logo" height="223" width="1045">
 
-        <button mat-icon-button (click)="openDialog()" id="help-icon">
+        <button
+                mat-icon-button
+                (click)="openDialog()"
+                id="help-icon"
+                *ngIf="displayedSemester === true"
+        >
             <mat-icon>help</mat-icon>
         </button>
 
