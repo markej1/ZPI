@@ -1,7 +1,6 @@
 .header {
     padding: 15px;
-    display: grid;
-    grid-template-columns: 5fr 1fr;
+    /*grid-template-columns: 5fr 1fr;*/
     position: fixed;
     left: 0;
     top: 0;
@@ -10,16 +9,19 @@
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
 }
 
+.left_margin, .select_semester {
+    display: inline-block;
+}
+
 .left_margin {
-    display: grid;
-    grid-auto-rows: 1fr 1fr;
+    /*grid-auto-rows: 1fr 1fr;*/
     font-family: "Amiko", serif;
 }
 
 .select_semester {
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: 0;
     float: right;
+    padding-right: 50px;
 }
 
 select {
