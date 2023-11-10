@@ -1,13 +1,41 @@
 <div class="container">
     <div class="header">
-        <div class="header-text">
+
+        <div class="left_margin">
             <div class="degree">{{degreeChosen}}</div>
             <div class="year">{{'Start' | translate}} {{cycleChosen}}</div>
         </div>
+
+        <div class="select_semester" *ngIf="displayedSemester === true">
+            <select [(ngModel)]="chosenSemester">
+                <option
+                        *ngFor="let number of semesterNumbers"
+                        [value]="number"
+                        [selected]="number"
+                >
+                    {{'Semester' | translate}} {{ number }}
+                </option>
+                <option>
+                    {{'All' | translate}}
+                </option>
+            </select>
+        </div>
+
     </div>
 
     <div class="footer">
+
         <img ngSrc="../../../assets/logo_PWr.png" alt="logo PWr" id="logo" height="223" width="1045">
+
+        <button
+                mat-icon-button
+                (click)="openDialog()"
+                id="help-icon"
+                *ngIf="displayedSemester === true"
+        >
+            <mat-icon>help</mat-icon>
+        </button>
+
     </div>
 </div>
 
