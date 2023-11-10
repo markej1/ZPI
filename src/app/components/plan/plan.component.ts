@@ -5,6 +5,7 @@ import {SubjectService} from "../../services/subject.service";
 import {Block} from "../../model/block";
 import {last} from "rxjs";
 import {SubjectCardComponent} from "../subject-card/subject-card.component";
+import {SemesterService} from "../../services/semester.service";
 
 @Component({
   selector: 'app-plan',
@@ -16,8 +17,9 @@ export class PlanComponent {
     subjectList: Block[] = [];
     subjectService: SubjectService = inject(SubjectService);
 
-    constructor() {
+    constructor(private semesterService: SemesterService) {
         this.subjectList = this.subjectService.getAllBlocks();
+        this.semesterService.setDisplayedSemesters(true);
     }
 
 

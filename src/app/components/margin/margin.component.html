@@ -6,7 +6,7 @@
             <div class="year">{{'Start' | translate}} {{cycleChosen}}</div>
         </div>
 
-        <div class="select_semester">
+        <div class="select_semester" *ngIf="displayedSemester === true">
             <select [(ngModel)]="chosenSemester">
                 <option
                         *ngFor="let number of semesterNumbers"

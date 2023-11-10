@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ChosenProgram} from "../../model/chosen-program";
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {Router} from "@angular/router";
-import {SemestersAmountService} from "../../services/semesters-amount.service";
+import {SemesterService} from "../../services/semester.service";
 
 @Component({
     selector: 'app-menu',
@@ -26,13 +26,14 @@ export class MenuComponent implements OnInit {
 
     constructor(
         private programShortcutService: ProgramShortcutService,
-        private semestersAmountService: SemestersAmountService,
+        private semesterService: SemesterService,
         private router: Router
     ) {
         this.programShortcutService.getSpecialization.subscribe(
             specialization => this.specializationChosen = specialization
         );
-        this.semestersAmountService.setSemestersAmount(this.chosenProgram.semestersAmount);
+        this.semesterService.setSemestersAmount(this.chosenProgram.semestersAmount);
+        this.semesterService.setDisplayedSemesters(false);
     }
 
     ngOnInit() {
