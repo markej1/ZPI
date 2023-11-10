@@ -15,5 +15,35 @@
   "ToPWrWebsite": "Go to PWr website",
   "SearchName": "Search by names",
   "SearchLectures": "Search by lectures",
-  "SearchPlaceholder": "Find subject, phrase..."
+  "SearchPlaceholder": "Find subject, phrase...",
+    "SubjectCard": "Subject Card",
+    "SubjectName": "Subject name: ",
+    "SubjectKind": "Kind of subject: ",
+    "GroupOfCourses": "Group of courses: ",
+    "Lecture": "Lecture",
+    "Classes": "Classes",
+    "Laboratory": "Laboratory",
+    "Seminar": "Seminar",
+    "Project": "Project",
+    "ZZUHours": "ZZU hours",
+    "FormOfCrediting": "Form of crediting",
+    "ECTSPoints": "ECTS points",
+    "CNPSHours": "CNPS hours",
+    "ProgrammeContent": "Programme content: ",
+    "Link": "Link: ",
+    "ObligatorySubjects": "Obligatory subjects",
+    "OptionalBlocks": "Optional blocks",
+    "GeneralEducation": "general education",
+    "BasicScience": "basic science",
+    "MainFieldOfStudy": "main field of study",
+    "PracticalTraining": "practical training",
+    "SpecializationBlock": "specialization",
+    "Diploma": "diploma",
+    "ECTSPointsSplit": "Number of ECTS points",
+    "SubjectNameHelp": "Subject name",
+    "Exam": "Exam"
+
+
+
+
 }

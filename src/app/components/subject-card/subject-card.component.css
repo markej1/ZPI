@@ -63,5 +63,9 @@ table tr:first-child th:last-child {
     float: right;
 }
 
+button {
+    margin-right: 0px;
+    margin-left: auto;
+}
 
 

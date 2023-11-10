@@ -3,8 +3,9 @@
         <mat-icon>close</mat-icon>
     </button>
 </div>
-<div class="plan" mat-dialog-content>
+<div mat-dialog-content class="plan">
     <app-subject *ngFor="let block of tempBlockList" [block]="block">
     </app-subject>
 </div>
+<div mat-dialog-actions></div>
 

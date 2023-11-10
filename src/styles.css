@@ -46,6 +46,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 
+.mat-dialog-container {
+    border-radius: 20px !important;
+}
+
 .mat-dialog {
     &::-webkit-scrollbar {
         width: 10px;

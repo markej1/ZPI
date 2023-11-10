@@ -1,6 +1,6 @@
 <div class="container">
     <div class="header">
-        <h3 mat-dialog-title>Zajęcia obowiązkowe</h3>
+        <h3 mat-dialog-title>{{ 'ObligatorySubjects' | translate }}</h3>
         <button mat-icon-button mat-dialog-close>
             <mat-icon>close</mat-icon>
         </button>
@@ -8,34 +8,34 @@
     <div class="grid">
         <div class="column">
             <div class="circle" style="background-color: var(--przedmiot-kierunkowy)"></div>
-            <p class="text">kierunkowe</p>
+            <p class="text">{{ 'MainFieldOfStudy' | translate }}</p>
             <div class="circle" style="background-color: var(--przedmiot-specjalnosciowy)"></div>
-            <p class="text">specjalnościowe</p>
-            <div class="circle" style="background-color: var(--praca-dyplomowa)"></div>
-            <p class="text">praca dyplomowa</p>
+            <p class="text">{{ 'SpecializationBlock' | translate }}</p>
+<!--            <div class="circle" style="background-color: var(&#45;&#45;praca-dyplomowa)"></div>-->
+<!--            <p class="text">{{ 'Diploma' | translate }}</p>-->
         </div>
         <div class="column">
             <div class="circle" style="background-color: var(--przedmiot-nauk-podstawowych)"></div>
-            <p class="text">z zakresu nauk podstawowych</p>
+            <p class="text">{{ 'BasicScience' | translate }}</p>
             <div class="circle" style="background-color: var(--przedmiot-ksztalcenia-ogolnego)"></div>
-            <p class="text">kształcenia ogólnego</p>
-            <div class="circle" style="background-color: var(--praktyka)"></div>
-            <p class="text">praktyka</p>
+            <p class="text">{{ 'GeneralEducation' | translate }}</p>
+<!--            <div class="circle" style="background-color: var(&#45;&#45;praktyka)"></div>-->
+<!--            <p class="text">{{ 'PracticalTraining' | translate }}</p>-->
         </div>
     </div>
-    <h3 mat-dialog-title>Bloki wybieralne</h3>
+    <h3 mat-dialog-title>{{ 'OptionalBlocks' | translate }}</h3>
     <div class="grid">
         <div class="column">
             <div class="circle" style="background-color: var(--blok-kierunkowy)"></div>
-            <p class="text">kierunkowe</p>
+            <p class="text">{{ 'MainFieldOfStudy' | translate }}</p>
             <div class="circle" style="background-color: var(--blok-specjalnosciowy)"></div>
-            <p class="text">specjalnościowe</p>
+            <p class="text">{{ 'SpecializationBlock' | translate }}</p>
         </div>
         <div class="column">
             <div class="circle" style="background-color: var(--blok-nauk-podstawowych)"></div>
-            <p class="text">z zakresu nauk podstawowych</p>
+            <p class="text">{{ 'BasicScience' | translate }}</p>
             <div class="circle" style="background-color: var(--blok-ksztalcenia-ogolnego)"></div>
-            <p class="text">kształcenia ogólnego</p>
+            <p class="text">{{ 'GeneralEducation' | translate }}</p>
         </div>
     </div>
     <div class="bottom_grid">
@@ -44,18 +44,18 @@
         </div>
         <div class="grid2">
             <div>
-                liczba punktów ECTS z podziałem na formy kształcenia <br>
-                nazwa przedmiotu
+                {{ 'ECTSPointsSplit' | translate }}<br>
+                {{ 'SubjectNameHelp' | translate }}
             </div>
             <div class="rectangle"></div>
 <!--            <app-subject></app-subject>-->
             <div>
-                przedmiot kończy się egzaminem <br>
-                2h - wykład <br>
-                2h - ćwiczenia <br>
-                0h - laboratorium <br>
-                0h - projekt <br>
-                0h - seminarium <br>
+                {{ 'Exam' | translate }} <br>
+                2h - {{ 'Lecture' | translate }} <br>
+                2h - {{ 'Classes' | translate }} <br>
+                0h - {{ 'Laboratory' | translate }} <br>
+                0h - {{ 'Project' | translate }} <br>
+                0h - {{ 'Seminar' | translate }} <br>
             </div>
         </div>
     </div>

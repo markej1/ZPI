@@ -1,19 +1,25 @@
 .plan {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-    position: relative;
-    margin: 15px;
+    display: inline-flex;
+    padding-top: 1px;
+}
+
+app-subject:last-child {
+    margin-right: 1px;
+}
+
+app-subject {
+    margin-right: 20px;
 }
 
 #close {
-
-}
-
-.header {
-    display: flex;
+    margin-right: 1px;
+    margin-left: auto;
     float: right;
 }
+
+
+
+
 
 
 

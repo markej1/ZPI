@@ -29,12 +29,6 @@ export class SubjectComponent {
             case "przedmiot kształcenia ogólnego":
                 color = "#85DD88";
                 break;
-            case "praca dyplomowa":
-                color = "#E7A1FF";
-                break;
-            case "praktyka":
-                color = "#57CBE5";
-                break;
             case "blok kierunkowy":
                 color = "#DCB142";
                 break;
@@ -83,7 +77,9 @@ export class SubjectComponent {
     openSubjectCard() {
         this.sendData();
         this.dialog.closeAll();
-        const dialogRef = this.dialog.open(SubjectCardComponent);
+        const dialogRef = this.dialog.open(SubjectCardComponent, {
+            height: '85%'
+        });
     }
 
     // getNavigationRoute(): string[] {
@@ -96,5 +92,4 @@ export class SubjectComponent {
     isSubject(): boolean {
         return this.block.subjects.length == 1;
     }
-
 }
