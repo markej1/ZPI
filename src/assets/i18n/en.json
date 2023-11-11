@@ -1,6 +1,7 @@
 {
   "AppTitle": "Programs of studies",
   "Search": "Search",
+  "ChooseLevel": "Choose level",
   "ChooseDegree": "Choose degree",
   "ChooseCycle": "Choose cycle",
   "ChooseSpecialization": "Choose specialization",
@@ -8,7 +9,7 @@
   "Degree": "Degree of studies",
   "Specialization": "Specialization",
   "Profile": "Profile",
-  "Level": "Level of studies",
+  "LevelStudy": "Level of studies",
   "Form": "Form",
   "GeneralDescription": "General description",
   "Plan": "Plan",
@@ -16,9 +17,9 @@
   "SearchName": "Search by names",
   "SearchLectures": "Search by lectures",
   "SearchPlaceholder": "Find subject, phrase...",
-  "Prerequirements": "Prerequirements",
-  "Title": "Title after studies",
-  "Figure": "Figure of graduate, possibilities of employment",
   "Semester": "Semester",
-  "All": "All"
+  "All": "All",
+  "Level": "level",
+  "First": "1st",
+  "Second": "2nd"
 }

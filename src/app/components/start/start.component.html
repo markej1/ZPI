@@ -8,7 +8,20 @@
 
             <h1>{{'AppTitle' | translate}}</h1>
 
-            <section id="degree_choice">
+            <section id="level_choice">
+
+                <h2>{{'ChooseLevel' | translate}}</h2>
+
+                <label>
+                    <select [(ngModel)]="levelSelected">
+                        <option>{{'First' | translate}} {{'Level' | translate}}</option>
+                        <option>{{'Second' | translate}} {{'Level' | translate}}</option>
+                    </select>
+                </label>
+
+            </section>
+
+            <section id="degree_choice" *ngIf="levelSelected != null">
 
                 <h2>{{'ChooseDegree' | translate}}</h2>
 
