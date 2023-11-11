@@ -8,78 +8,82 @@
 
             <h1>{{'AppTitle' | translate}}</h1>
 
-            <section id="level_choice">
+            <div id="grid_options_layout">
 
-                <h2>{{'ChooseLevel' | translate}}</h2>
+                <section class="grid_options_item" id="level_choice">
 
-                <label>
-                    <select [(ngModel)]="levelSelected">
-                        <option>{{'First' | translate}} {{'Level' | translate}}</option>
-                        <option>{{'Second' | translate}} {{'Level' | translate}}</option>
-                    </select>
-                </label>
+                    <h2>{{'ChooseLevel' | translate}}</h2>
 
-            </section>
+                    <label>
+                        <select [(ngModel)]="levelSelected">
+                            <option>{{'First' | translate}} {{'Level' | translate}}</option>
+                            <option>{{'Second' | translate}} {{'Level' | translate}}</option>
+                        </select>
+                    </label>
 
-            <section id="degree_choice" *ngIf="levelSelected != null">
+                </section>
 
-                <h2>{{'ChooseDegree' | translate}}</h2>
+                <section class="grid_options_item" id="degree_choice"  *ngIf="levelSelected != null">
 
-                <label>
-                    <select [(ngModel)]="degreeSelected">
-                        <option
-                            *ngFor="let degree of degrees"
-                            [value]="degree"
+                    <h2>{{'ChooseDegree' | translate}}</h2>
+
+                    <label>
+                        <select [(ngModel)]="degreeSelected">
+                            <option
+                                    *ngFor="let degree of degrees"
+                                    [value]="degree"
+                            >
+                                {{ degree }}
+                            </option>
+                        </select>
+                    </label>
+
+                </section>
+
+                <section class="grid_options_item" id="cycle_choice" *ngIf="degreeSelected != null">
+
+                    <h2>{{'ChooseCycle' | translate}}</h2>
+
+                    <label>
+                        <select
+                                [(ngModel)]="cycleSelected"
+                                (ngModelChange)="navigateTo(false)"
                         >
-                            {{ degree }}
-                        </option>
-                    </select>
-                </label>
+                            <option
+                                    *ngFor="let cycle of cycles"
+                                    [value]="cycle"
+                            >
+                                {{ cycle }}
+                            </option>
+                        </select>
+                    </label>
 
-            </section>
+                </section>
 
-            <section id="cycle_choice" *ngIf="degreeSelected != null">
+                <section class="grid_options_item"
+                         id="specialization_choice"
+                         *ngIf="cycleSelected != null && specializations != []"
+                >
 
-                <h2>{{'ChooseCycle' | translate}}</h2>
+                    <h2>{{'ChooseSpecialization' | translate}}</h2>
 
-                <label>
-                    <select
-                        [(ngModel)]="cycleSelected"
-                        (ngModelChange)="navigateTo(false)"
-                    >
-                        <option
-                            *ngFor="let cycle of cycles"
-                            [value]="cycle"
+                    <label>
+                        <select
+                                [(ngModel)]="specializationSelected"
+                                (ngModelChange)="navigateTo(true)"
                         >
-                            {{ cycle }}
-                        </option>
-                    </select>
-                </label>
+                            <option
+                                    *ngFor="let specialization of specializations"
+                                    [value]="specialization"
+                            >
+                                {{ specialization }}
+                            </option>
+                        </select>
 
-            </section>
+                    </label>
 
-            <section id="specialization_choice"
-                     *ngIf="cycleSelected != null && specializations != []"
-            >
-
-                <h2>{{'ChooseSpecialization' | translate}}</h2>
-
-                <label>
-                    <select
-                        [(ngModel)]="specializationSelected"
-                        (ngModelChange)="navigateTo(true)"
-                    >
-                        <option
-                            *ngFor="let specialization of specializations"
-                            [value]="specialization"
-                        >
-                            {{ specialization }}
-                        </option>
-                    </select>
-
-                </label>
-
-            </section>
+                </section>
+            </div>
 
         </section>
 

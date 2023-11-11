@@ -90,6 +90,16 @@ option {
     font-weight: 900;
 }
 
+#grid_options_layout {
+    display: grid;
+    grid-template-rows: 120px 120px;
+    grid-template-columns: auto auto;
+}
+
+.grid_options_item {
+    padding: 0;
+}
+
 #logo {
     position: fixed;
     left: 20px;
