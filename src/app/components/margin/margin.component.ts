@@ -13,6 +13,7 @@ import {SemesterService} from "../../services/semester.service";
 })
 export class MarginComponent {
 
+    levelChosen?: string;
     degreeChosen?: string;
     cycleChosen?: string;
 
@@ -27,6 +28,9 @@ export class MarginComponent {
         private semesterService: SemesterService
     ) {
 
+        this.programShortcutService.getLevelSelected.subscribe(
+            level => this.levelChosen = level
+        );
         this.programShortcutService.getDegreeSelected.subscribe(
             degree => this.degreeChosen = degree
         );

@@ -40,14 +40,4 @@ export class MenuComponent implements OnInit {
         this.menuUrl = this.router.url;
     }
 
-    navigateTo(componentName: string) {
-        switch (componentName) {
-            case "GeneralDescription": {
-                this.navigateUrl = this.menuUrl + "/description";
-                this.router.navigateByUrl(this.navigateUrl);
-                break;
-            }
-        }
-    }
-
 }

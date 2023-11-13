@@ -6,15 +6,23 @@ import {BehaviorSubject} from 'rxjs';
 })
 export class ProgramShortcutService {
 
+    private levelSelected = new BehaviorSubject('');
     private degreeSelected = new BehaviorSubject('');
     private cycleSelected = new BehaviorSubject('');
     private specializationSelected = new BehaviorSubject('');
 
+    getLevelSelected = this.levelSelected.asObservable();
     getDegreeSelected = this.degreeSelected.asObservable();
     getCycleSelected = this.cycleSelected.asObservable();
     getSpecialization = this.specializationSelected.asObservable();
 
     constructor() {
+    }
+
+    setLevelSelected(level?: string) {
+        if (level != null) {
+            this.levelSelected.next(level);
+        }
     }
 
     setDegreeSelected(degree?: string) {

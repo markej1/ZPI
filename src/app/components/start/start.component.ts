@@ -10,8 +10,7 @@ import { ProgramShortcutService } from "../../services/program-shortcut.service"
 export class StartComponent {
 
     degrees: string[] = [
-        "Informatyka Stosowana - I st.",
-        "Informatyka Stosowana - II st."
+        "Informatyka Stosowana"
     ]
 
     cycles: string[] = [
@@ -27,6 +26,7 @@ export class StartComponent {
         "IO"
     ]
 
+    levelSelected?: string;
     degreeSelected?: string;
     cycleSelected?: string;
     specializationSelected?: string;
@@ -46,6 +46,7 @@ export class StartComponent {
     navigateTo(endOfQuestions: boolean) {
         if (this.specializations.length === 0 || endOfQuestions) {
 
+            this.programShortcutService.setLevelSelected(this.levelSelected);
             this.programShortcutService.setDegreeSelected(this.degreeSelected);
             this.programShortcutService.setCycleSelected(this.cycleSelected);
             this.programShortcutService.setSpecialization(this.specializationSelected);
