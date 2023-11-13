@@ -2,7 +2,6 @@ import {Component} from '@angular/core';
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {MatDialog} from "@angular/material/dialog";
-import {TranslateService} from "@ngx-translate/core";
 import {SemesterService} from "../../services/semester.service";
 
 
@@ -28,15 +27,9 @@ export class MarginComponent {
         private semesterService: SemesterService
     ) {
 
-        this.programShortcutService.getLevelSelected.subscribe(
-            level => this.levelChosen = level
-        );
-        this.programShortcutService.getDegreeSelected.subscribe(
-            degree => this.degreeChosen = degree
-        );
-        this.programShortcutService.getCycleSelected.subscribe(
-            cycle => this.cycleChosen = cycle
-        );
+        this.levelChosen = this.programShortcutService.getLevelSelected();
+        this.degreeChosen = this.programShortcutService.getDegreeSelected();
+        this.cycleChosen = this.programShortcutService.getCycleSelected();
 
         this.semesterService.getSemestersAmount.subscribe(
             amount => this.semestersAmount = amount
