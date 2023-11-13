@@ -6,9 +6,13 @@
 
         <section class="main_window">
 
-            <h1>{{'AppTitle' | translate}}</h1>
+            <section id="title_section">
 
-            <div id="grid_options_layout">
+                <h1>{{'AppTitle' | translate}}</h1>
+
+            </section>
+
+            <section id="grid_options_layout">
 
                 <section class="grid_options_item" id="level_choice">
 
@@ -23,7 +27,7 @@
 
                 </section>
 
-                <section class="grid_options_item" id="degree_choice"  *ngIf="levelSelected != null">
+                <section class="grid_options_item" id="degree_choice" *ngIf="levelSelected != null">
 
                     <h2>{{'ChooseDegree' | translate}}</h2>
 
@@ -83,7 +87,7 @@
                     </label>
 
                 </section>
-            </div>
+            </section>
 
         </section>
 
