@@ -2,8 +2,8 @@ import {Component} from '@angular/core';
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {MatDialog} from "@angular/material/dialog";
-import {TranslateService} from "@ngx-translate/core";
 import {SemesterService} from "../../services/semester.service";
+import {TranslateService} from "@ngx-translate/core";
 
 
 @Component({
@@ -18,38 +18,30 @@ export class MarginComponent {
     cycleChosen?: string;
 
     semesterNumbers: number[] = [];
-    chosenSemester?: string;
+    semesterChosen?: string;
     semestersAmount?: number;
     displayedSemester?: boolean;
 
     constructor(
         private programShortcutService: ProgramShortcutService,
         public dialog: MatDialog,
-        private semesterService: SemesterService
+        private semesterService: SemesterService,
+        private translate: TranslateService
     ) {
 
-        this.programShortcutService.getLevelSelected.subscribe(
-            level => this.levelChosen = level
-        );
-        this.programShortcutService.getDegreeSelected.subscribe(
-            degree => this.degreeChosen = degree
-        );
-        this.programShortcutService.getCycleSelected.subscribe(
-            cycle => this.cycleChosen = cycle
-        );
+        this.levelChosen = this.programShortcutService.getLevelSelected();
+        this.degreeChosen = this.programShortcutService.getDegreeSelected();
+        this.cycleChosen = this.programShortcutService.getCycleSelected();
 
-        this.semesterService.getSemestersAmount.subscribe(
-            amount => this.semestersAmount = amount
-        );
+        this.semestersAmount = this.semesterService.getSemestersAmount();
         if (this.semestersAmount != null) {
             for (let i = 0; i < this.semestersAmount; i++) {
                 this.semesterNumbers.push(i+1);
             }
         }
 
-        this.semesterService.getDisplayedSemesters.subscribe(
-            displayed => this.displayedSemester = displayed
-        );
+        this.displayedSemester = this.semesterService.getDisplayedSemesters();
+        this.semesterChosen = this.translate.instant("All");
 
     }
 
@@ -59,6 +51,10 @@ export class MarginComponent {
         dialogRef.afterClosed().subscribe(result => {
             console.log(`Dialog result: ${result}`);
         });
+    }
+
+    changeSemester() {
+        this.semesterService.setSemesterChosen(this.semesterChosen!);
     }
 
 }

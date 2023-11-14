@@ -22,18 +22,13 @@ export class StartTopMenuComponent implements AfterViewInit {
     }
 
     constructor(private appComponent: AppComponent, private languageService: LanguageService) {
-        this.languageService.getLanguageChanged.subscribe(
-            isLanguageChanged => this.languageChanged = isLanguageChanged
-        );
+        const languageChosen = this.languageService.getLanguageChanged();
+        this.languageChanged = languageChosen !== 'pl';
     }
 
     switchLanguage() {
         this.languageService.setLanguageChanged(this.languageChanged);
-        if (this.languageChanged) {
-            this.appComponent.switchLanguage('en');
-        } else {
-            this.appComponent.switchLanguage('pl');
-        }
+        this.appComponent.switchLanguage(this.languageService);
     }
 
 }

@@ -96,11 +96,6 @@ option {
     grid-template-columns: auto auto;
 }
 
-#title_section {
-    border: 1px solid grey;
-    border-radius: 60px;
-}
-
 .grid_options_item {
     padding: 0;
 }

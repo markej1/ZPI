@@ -7,10 +7,12 @@
         </div>
 
         <div class="select_semester" *ngIf="displayedSemester === true">
-            <select [(ngModel)]="chosenSemester">
+            <select
+                    [(ngModel)]="semesterChosen"
+                    (ngModelChange)="changeSemester()"
+            >
                 <option
                         *ngFor="let number of semesterNumbers"
-                        [value]="number"
                         [selected]="number"
                 >
                     {{'Semester' | translate}} {{ number }}
