@@ -31,18 +31,14 @@ export class MarginComponent {
         this.degreeChosen = this.programShortcutService.getDegreeSelected();
         this.cycleChosen = this.programShortcutService.getCycleSelected();
 
-        this.semesterService.getSemestersAmount.subscribe(
-            amount => this.semestersAmount = amount
-        );
+        this.semestersAmount = this.semesterService.getSemestersAmount();
         if (this.semestersAmount != null) {
             for (let i = 0; i < this.semestersAmount; i++) {
                 this.semesterNumbers.push(i+1);
             }
         }
 
-        this.semesterService.getDisplayedSemesters.subscribe(
-            displayed => this.displayedSemester = displayed
-        );
+        this.displayedSemester = this.semesterService.getDisplayedSemesters();
 
     }
 
