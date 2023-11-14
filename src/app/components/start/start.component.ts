@@ -10,23 +10,19 @@ import { ProgramShortcutService } from "../../services/program-shortcut.service"
 export class StartComponent {
 
     degrees: string[] = [
-        "Informatyka Stosowana - I st.",
-        "Informatyka Stosowana - II st."
-    ]
+        "Informatyka Stosowana"
+    ];
 
     cycles: string[] = [
         "2020/2021",
         "2021/2022",
         "2022/2023",
         "2023/2024"
-    ]
+    ];
 
-    specializations: string[] = [
-        "ZSTI",
-        "PSI",
-        "IO"
-    ]
+    specializations: string[] = [];
 
+    levelSelected?: string;
     degreeSelected?: string;
     cycleSelected?: string;
     specializationSelected?: string;
@@ -46,6 +42,9 @@ export class StartComponent {
     navigateTo(endOfQuestions: boolean) {
         if (this.specializations.length === 0 || endOfQuestions) {
 
+            sessionStorage.removeItem("specializationSelected");
+
+            this.programShortcutService.setLevelSelected(this.levelSelected);
             this.programShortcutService.setDegreeSelected(this.degreeSelected);
             this.programShortcutService.setCycleSelected(this.cycleSelected);
             this.programShortcutService.setSpecialization(this.specializationSelected);
@@ -55,6 +54,7 @@ export class StartComponent {
                 + '/' + this.replaceWrongSigns(this.specializationSelected);
 
             this.router.navigateByUrl(url);
+
         }
     }
 }

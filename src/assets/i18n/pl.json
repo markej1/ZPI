@@ -1,6 +1,7 @@
 {
   "AppTitle": "Programy studiów",
   "Search": "Wyszukaj",
+  "ChooseLevel": "Wybierz stopień studiów",
   "ChooseDegree": "Wybierz kierunek studiów",
   "ChooseCycle": "Wybierz cykl kształcenia",
   "ChooseSpecialization": "Wybierz specjalizację",
@@ -8,7 +9,7 @@
   "Degree": "Kierunek studiów",
   "Specialization": "Specjalność",
   "Profile": "Profil",
-  "Level": "Poziom studiów",
+  "LevelStudy": "Poziom studiów",
   "Form": "Forma studiów",
   "GeneralDescription": "Opis ogólny",
   "Plan": "Plan",
@@ -46,5 +47,8 @@
   "Title": "Tytuł zawodowy nadawany po zakończeniu studiów",
   "Figure": "Sylwetka absolwenta, możliwości zatrudnienia",
   "Semester": "Semestr",
-  "All": "Wszystko"
+  "All": "Wszystko",
+  "Level": "stopień",
+  "First": "I",
+  "Second": "II"
 }

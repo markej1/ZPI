@@ -1,36 +1,43 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class SemesterService {
+    getSemestersAmount(): number | undefined {
+        const semestersAmount = sessionStorage.getItem("semestersAmount");
+        if (semestersAmount != null) {
+            return parseInt(semestersAmount);
+        } else return undefined;
+    }
 
-    private semestersAmount = new BehaviorSubject(0);
-    private displayedSemesters = new BehaviorSubject(false);
-    private chosenSemester = new BehaviorSubject("All");
+    getDisplayedSemesters(): boolean {
+        const displayed = sessionStorage.getItem("semestersDisplayed");
+        return displayed === "true";
+    }
 
-    getSemestersAmount = this.semestersAmount.asObservable();
-    getDisplayedSemesters = this.displayedSemesters.asObservable();
-    getChosenSemester = this.chosenSemester.asObservable();
-
+    getSemesterChosen(): string | undefined {
+        const semesterChosen = sessionStorage.getItem("semesterChosen");
+        if (semesterChosen != null) {
+            return semesterChosen;
+        } else return undefined;
+    }
 
     constructor() {}
 
     setSemestersAmount(amount: number) {
-        if (amount != null) {
-            this.semestersAmount.next(amount);
-        }
+        sessionStorage.setItem("semestersAmount", amount.toString());
     }
 
     setDisplayedSemesters(displayed: boolean) {
-        if (displayed != null) {
-            this.displayedSemesters.next(displayed);
+        if (displayed) {
+            sessionStorage.setItem("semestersDisplayed", "true");
+        } else {
+            sessionStorage.setItem("semestersDisplayed", "false");
         }
     }
 
-    setChosenSemester(semester: string) {
-        this.chosenSemester.next(semester);
+    setSemesterChosen(semester: string) {
+        sessionStorage.setItem("semesterChosen", semester);
     }
-
 }

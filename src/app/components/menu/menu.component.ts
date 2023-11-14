@@ -22,32 +22,19 @@ export class MenuComponent implements OnInit {
     specializationChosen?: string;
 
     menuUrl: string = "";
-    navigateUrl?: string;
 
     constructor(
         private programShortcutService: ProgramShortcutService,
         private semesterService: SemesterService,
         private router: Router
     ) {
-        this.programShortcutService.getSpecialization.subscribe(
-            specialization => this.specializationChosen = specialization
-        );
+        this.specializationChosen = this.programShortcutService.getSpecialization();
         this.semesterService.setSemestersAmount(this.chosenProgram.semestersAmount);
         this.semesterService.setDisplayedSemesters(false);
     }
 
     ngOnInit() {
         this.menuUrl = this.router.url;
-    }
-
-    navigateTo(componentName: string) {
-        switch (componentName) {
-            case "GeneralDescription": {
-                this.navigateUrl = this.menuUrl + "/description";
-                this.router.navigateByUrl(this.navigateUrl);
-                break;
-            }
-        }
     }
 
 }
