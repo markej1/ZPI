@@ -1,23 +1,27 @@
 import {Injectable} from '@angular/core';
-import {BehaviorSubject} from "rxjs";
 
 @Injectable({
     providedIn: 'root'
 })
 export class SemesterService {
 
-    private semestersAmount = new BehaviorSubject(0);
-
     getSemestersAmount(): number | undefined {
-        const semestersAmountStorage = sessionStorage.getItem("semestersAmount");
-        if (semestersAmountStorage != null) {
-            return parseInt(semestersAmountStorage);
+        const semestersAmount = sessionStorage.getItem("semestersAmount");
+        if (semestersAmount != null) {
+            return parseInt(semestersAmount);
         } else return undefined;
     }
 
     getDisplayedSemesters(): boolean {
         const displayed = sessionStorage.getItem("semestersDisplayed");
         return displayed === "true";
+    }
+
+    getSemesterChosen(): string | undefined {
+        const semesterChosen = sessionStorage.getItem("semesterChosen");
+        if (semesterChosen != null) {
+            return semesterChosen;
+        } else return undefined;
     }
 
     constructor() {}
@@ -32,6 +36,10 @@ export class SemesterService {
         } else {
             sessionStorage.setItem("semestersDisplayed", "false");
         }
+    }
+
+    setSemesterChosen(semester: string) {
+        sessionStorage.setItem("semesterChosen", semester);
     }
 
 }

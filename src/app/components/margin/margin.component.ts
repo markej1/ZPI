@@ -3,6 +3,7 @@ import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {MatDialog} from "@angular/material/dialog";
 import {SemesterService} from "../../services/semester.service";
+import {TranslateService} from "@ngx-translate/core";
 
 
 @Component({
@@ -17,14 +18,15 @@ export class MarginComponent {
     cycleChosen?: string;
 
     semesterNumbers: number[] = [];
-    chosenSemester?: string;
+    semesterChosen?: string;
     semestersAmount?: number;
     displayedSemester?: boolean;
 
     constructor(
         private programShortcutService: ProgramShortcutService,
         public dialog: MatDialog,
-        private semesterService: SemesterService
+        private semesterService: SemesterService,
+        private translate: TranslateService
     ) {
 
         this.levelChosen = this.programShortcutService.getLevelSelected();
@@ -39,6 +41,7 @@ export class MarginComponent {
         }
 
         this.displayedSemester = this.semesterService.getDisplayedSemesters();
+        this.semesterChosen = this.translate.instant("All");
 
     }
 
@@ -48,6 +51,10 @@ export class MarginComponent {
         dialogRef.afterClosed().subscribe(result => {
             console.log(`Dialog result: ${result}`);
         });
+    }
+
+    changeSemester() {
+        this.semesterService.setSemesterChosen(this.semesterChosen!);
     }
 
 }
