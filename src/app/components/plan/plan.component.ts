@@ -5,6 +5,7 @@ import {SubjectService} from "../../services/subject.service";
 import {Block} from "../../model/block";
 import {last} from "rxjs";
 import {SubjectCardComponent} from "../subject-card/subject-card.component";
+import {SemesterService} from "../../services/semester.service";
 
 @Component({
   selector: 'app-plan',
@@ -15,28 +16,11 @@ import {SubjectCardComponent} from "../subject-card/subject-card.component";
 export class PlanComponent {
     subjectList: Block[] = [];
     subjectService: SubjectService = inject(SubjectService);
+    allSemesters = false;
 
-    constructor(public dialog: MatDialog) {
+    constructor(private semesterService: SemesterService) {
         this.subjectList = this.subjectService.getAllBlocks();
-    }
-
-    semesters: string[] = [
-        'Semestr 1.',
-        'Semestr 2.',
-        'Semestr 3.',
-        'Semestr 4.',
-        'Semestr 5.',
-        'Semestr 6.',
-        'Semestr 7.',
-        'Wszystko'
-    ]
-
-    openDialog() {
-        const dialogRef = this.dialog.open(HelpScreenComponent);
-
-        dialogRef.afterClosed().subscribe(result => {
-            console.log(`Dialog result: ${result}`);
-        });
+        this.semesterService.setDisplayedSemesters(true);
     }
 
 

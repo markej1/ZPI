@@ -41,5 +41,10 @@
     "Diploma": "praca dyplomowa",
     "ECTSPointsSplit": "Liczba punktów ECTS z podziałem na formy",
     "SubjectNameHelp": "Nazwa przedmiotu",
-    "Exam": "Przedmiot kończy się egzaminem"
+    "Exam": "Przedmiot kończy się egzaminem",
+  "Prerequirements": "Wymagania wstępne",
+  "Title": "Tytuł zawodowy nadawany po zakończeniu studiów",
+  "Figure": "Sylwetka absolwenta, możliwości zatrudnienia",
+  "Semester": "Semestr",
+  "All": "Wszystko"
 }

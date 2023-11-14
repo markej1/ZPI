@@ -66,6 +66,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     }
 }
 
+.mat-mdc-dialog-container .mdc-dialog__surface {
+    border-radius: 20px !important;
+}
+
 .mat-option-search {
     padding-left: 6% !important;
     font-family: Alata, serif !important;

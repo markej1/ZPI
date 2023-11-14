@@ -41,9 +41,11 @@
     "Diploma": "diploma",
     "ECTSPointsSplit": "Number of ECTS points",
     "SubjectNameHelp": "Subject name",
-    "Exam": "Exam"
-
-
-
+    "Exam": "Exam",
+  "Prerequirements": "Prerequirements",
+  "Title": "Title after studies",
+  "Figure": "Figure of graduate, possibilities of employment",
+  "Semester": "Semester",
+  "All": "All"
 
 }

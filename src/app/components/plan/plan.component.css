@@ -1,91 +1,17 @@
-@font-face {
-    font-family: Jura;
-    src: url("../../../fonts/Jura/Jura-VariableFont_wght.ttf");
-}
-
-@font-face {
-    font-family: Amiko;
-    src: url("../../../fonts/Amiko/Amiko-Regular.ttf");
+.plan-all-semesters {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 15px;
+    position: relative;
+    top: 80px;
+    margin: 15px;
 }
 
 .plan {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-gap: 15px;
     position: relative;
     top: 90px;
     margin: 15px;
 }
-
-.header {
-    z-index: 98;
-    padding: 15px;
-    display: grid;
-    grid-template-columns: 5fr 1fr;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    background-color: var(--footer-color);
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
-}
-
-.footer {
-    padding: 15px;
-    display: grid;
-    grid-template-columns: 11fr auto;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: var(--footer-color);
-    text-align: left;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-}
-
-#logo {
-    max-height: 50px;
-    max-width: 230px;
-}
-
-#help-icon {
-    margin-right: 25px;
-}
-
-select {
-    background-color: var(--semester-select-color);
-    border-radius: 6px;
-    height: 30px;
-    font-size: 14px;
-    display: block;
-    margin: 0 auto;
-    font-family: "Amiko", serif;
-    font-weight: 500;
-    padding-left: 5px;
-    padding-top: 3px;
-    cursor: pointer;
-}
-
-option {
-    background-color: var(--background-color);
-    font-weight:500;
-}
-
-.header-text {
-    display: grid;
-    grid-auto-rows: 1fr 1fr;
-    font-family: "Amiko", serif;
-}
-
-.degree {
-    font-size: 18px;
-    font-weight: bold;
-}
-
-.year {
-    font-size: 16px;
-}
-
-
-
-

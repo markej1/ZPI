@@ -29,6 +29,7 @@ import {MatRippleModule} from "@angular/material/core";
 import { SubjectSelectComponent } from './components/subject-select/subject-select.component';
 import {SubjectCardComponent} from "./components/subject-card/subject-card.component";
 import { GeneralDescriptionComponent } from './components/general-description/general-description.component';
+import { SubjectAllComponent } from './components/subject-all/subject-all.component';
 
 @NgModule({
     declarations: [
@@ -43,7 +44,8 @@ import { GeneralDescriptionComponent } from './components/general-description/ge
         StartTopMenuComponent,
         SubjectCardComponent,
         SubjectSelectComponent,
-        GeneralDescriptionComponent
+        GeneralDescriptionComponent,
+        SubjectAllComponent
     ],
     imports: [
         BrowserModule,

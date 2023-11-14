@@ -1,0 +1,24 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.container {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 5/3;
+    padding: 15px;
+    border-radius: 20px;
+    font-size: 16px;
+    height: 60px;
+    width: 100px;
+    font-family: Alata, serif;
+}
+
+.subject {
+    text-align: center;
+    font-family: Alata, serif;
+    font-size: 13px;
+}

@@ -1,10 +1,10 @@
 .plan {
     display: inline-flex;
-    padding-top: 1px;
+    padding-top: 0;
 }
 
 app-subject:last-child {
-    margin-right: 1px;
+    margin-right: 0;
 }
 
 app-subject {
@@ -12,7 +12,7 @@ app-subject {
 }
 
 #close {
-    margin-right: 1px;
+    margin-right: 0;
     margin-left: auto;
     float: right;
 }
