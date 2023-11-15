@@ -7,6 +7,7 @@
     width: 100%;
     background-color: var(--footer-color);
     box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
 .left_margin, .select_semester {
@@ -58,6 +59,7 @@ option {
     background-color: var(--footer-color);
     text-align: left;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    z-index: 100;
 }
 
 .degree {

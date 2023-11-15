@@ -28,7 +28,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {MatRippleModule} from "@angular/material/core";
 import { SubjectSelectComponent } from './components/subject-select/subject-select.component';
 import {SubjectCardComponent} from "./components/subject-card/subject-card.component";
-// import { GeneralDescriptionComponent } from './components/general-description/general-description.component';
 import { SubjectAllComponent } from './components/subject-all/subject-all.component';
 
 @NgModule({
@@ -44,7 +43,6 @@ import { SubjectAllComponent } from './components/subject-all/subject-all.compon
         StartTopMenuComponent,
         SubjectCardComponent,
         SubjectSelectComponent,
-        // GeneralDescriptionComponent,
         SubjectAllComponent
     ],
     imports: [

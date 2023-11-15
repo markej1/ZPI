@@ -2,16 +2,42 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 15px;
-    position: relative;
-    top: 80px;
+    position: absolute;
+    top: 75px;
     margin: 15px;
 }
 
 .plan {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: 15px;
-    position: relative;
-    top: 90px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 12px;
+    position: absolute;
+    top: 75px;
+    bottom: 75px;
     margin: 15px;
+    right: 0;
+    left: 0;
+    overflow: auto;
 }
+
+@media only screen and (min-width: 972px) {
+    .plan {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (min-width: 1275px) {
+    .plan {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media only screen and (min-height: 796px) {
+    .plan {
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+
+

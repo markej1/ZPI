@@ -4,6 +4,7 @@ import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {MatDialog} from "@angular/material/dialog";
 import {SemesterService} from "../../services/semester.service";
 import {TranslateService} from "@ngx-translate/core";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -26,7 +27,8 @@ export class MarginComponent {
         private programShortcutService: ProgramShortcutService,
         public dialog: MatDialog,
         private semesterService: SemesterService,
-        private translate: TranslateService
+        private translate: TranslateService,
+        private router: Router
     ) {
 
         this.levelChosen = this.programShortcutService.getLevelSelected();
