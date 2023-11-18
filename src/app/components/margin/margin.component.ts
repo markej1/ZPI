@@ -1,10 +1,9 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {MatDialog} from "@angular/material/dialog";
 import {SemesterService} from "../../services/semester.service";
 import {TranslateService} from "@ngx-translate/core";
-import {Router} from "@angular/router";
 
 
 @Component({
@@ -12,7 +11,7 @@ import {Router} from "@angular/router";
     templateUrl: './margin.component.html',
     styleUrls: ['./margin.component.css']
 })
-export class MarginComponent {
+export class MarginComponent implements OnInit {
 
     levelChosen?: string;
     degreeChosen?: string;
@@ -28,7 +27,6 @@ export class MarginComponent {
         public dialog: MatDialog,
         private semesterService: SemesterService,
         private translate: TranslateService,
-        private router: Router
     ) {
 
         this.levelChosen = this.programShortcutService.getLevelSelected();
@@ -43,9 +41,12 @@ export class MarginComponent {
         }
 
         this.displayedSemester = this.semesterService.getDisplayedSemesters();
-        this.semesterChosen = this.translate.instant("All");
 
+    }
 
+    ngOnInit() {
+        this.semesterService.setSemesterChosen(this.translate.instant("All"));
+        this.semesterChosen = this.semesterService.getSemesterChosen();
     }
 
     openDialog() {
