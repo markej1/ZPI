@@ -3,9 +3,9 @@
     <app-margin></app-margin>
 
     <div *ngIf="!allSemesters" class="plan">
-        <app-subject *ngFor="let block of subjectList" [block]="block"></app-subject>
+        <app-subject class="tile" *ngFor="let block of subjectList" [block]="block"></app-subject>
     </div>
     <div *ngIf="allSemesters" class="plan-all-semesters">
-        <app-subject-all *ngFor="let block of subjectList" [block]="block"></app-subject-all>
+        <app-subject-all class="tile" *ngFor="let block of subjectList" [block]="block"></app-subject-all>
     </div>
 </div>
