@@ -12,15 +12,14 @@ export class StartService {
         return this.http.get<string[]>("https://susel.pythonanywhere.com/list-field/" + level + "/");
     }
 
-    getCycles(degree: string) {
-        return this.http.get<string[]>("https://susel.pythonanywhere.com/list-cycles/" + degree + "/");
+    getCycles(level: number, degree: string) {
+        return this.http.get<string[]>("https://susel.pythonanywhere.com/list-cycle/" + level + "/" + degree + "/");
     }
 
-    getSpecializations(field: string, cycle: string) {
+    getSpecializations(level: number, field: string, cycle: string) {
         return this.http.get<string[]>(
-            "https://susel.pythonanywhere.com/list-field/" + field + "/" + cycle + "/"
+            "https://susel.pythonanywhere.com/list-specialization/" + level + "/" + field + "/" + cycle + "/"
         );
     }
-//     cycle has '/' inside
 
 }
