@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {ChosenProgram} from "../../model/chosen-program";
 
 @Injectable({
     providedIn: 'root'
@@ -20,6 +21,11 @@ export class StartService {
         return this.http.get<string[]>(
             "https://susel.pythonanywhere.com/list-specialization/" + level + "/" + field + "/" + cycle + "/"
         );
+    }
+
+    getChosenProgram(level: number, degree: string, cycle: string, specialization: string) {
+        return this.http.get<ChosenProgram>("https://susel.pythonanywhere.com/chosen-program/" + level + "/"
+            + degree + "/" + cycle + "/" + specialization)
     }
 
 }

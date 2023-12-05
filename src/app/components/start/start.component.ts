@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
-import { Router } from "@angular/router";
-import { ProgramShortcutService } from "../../services/program-shortcut.service";
+import {Component} from '@angular/core';
+import {Router} from "@angular/router";
+import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {StartService} from "../../services/http/start.service";
+import {ChosenProgram} from "../../model/chosen-program";
 
 @Component({
-  selector: 'app-start',
-  templateUrl: './start.component.html',
-  styleUrls: ['./start.component.css']
+    selector: 'app-start',
+    templateUrl: './start.component.html',
+    styleUrls: ['./start.component.css']
 })
 export class StartComponent {
 
@@ -29,9 +30,12 @@ export class StartComponent {
     cycleSelected?: string;
     specializationSelected?: string;
 
+    chosenProgram?: ChosenProgram;
+
     constructor(private router: Router,
                 private programShortcutService: ProgramShortcutService,
-                private startService: StartService) {}
+                private startService: StartService) {
+    }
 
     getDegrees() {
         if (this.levelSelected != null) {
@@ -56,17 +60,22 @@ export class StartComponent {
 
     getCycles() {
         if (this.degreeSelected != null) {
-            this.startService.getCycles(this.level!, this.degreeSelected).subscribe({
-                next: cyclesGiven => {
-                    cyclesGiven.map(cycle => this.cycles.push(cycle));
-                }
-            });
+            this.startService.getCycles(this.level!, this.replaceWrongSigns(this.degreeSelected)!)
+                .subscribe({
+                    next: cyclesGiven => {
+                        cyclesGiven.map(cycle => this.cycles.push(cycle));
+                    }
+                });
         }
     }
 
     getSpecializations() {
         if (this.cycleSelected != null) {
-            this.startService.getSpecializations(this.level!, this.degreeSelected!, this.cycleSelected).subscribe({
+            this.startService.getSpecializations(
+                this.level!,
+                this.replaceWrongSigns(this.degreeSelected)!,
+                this.replaceWrongSigns(this.cycleSelected)!
+            ).subscribe({
                 next: specializationsGiven => {
                     specializationsGiven.map(specialization => this.specializations.push(specialization));
                 }
@@ -88,13 +97,35 @@ export class StartComponent {
                 + '/' + this.replaceWrongSigns(this.cycleSelected)
                 + '/' + this.replaceWrongSigns(this.specializationSelected);
 
+            this.getChosenProgram();
             this.router.navigateByUrl(url);
-
         }
     }
 
+    getChosenProgram() {
+        if (this.specializationSelected == null) {
+            this.specializationSelected = "";
+        }
+        this.startService.getChosenProgram(
+            this.level!,
+            this.replaceWrongSigns(this.degreeSelected)!,
+            this.replaceWrongSigns(this.cycleSelected)!,
+            this.replaceWrongSigns(this.specializationSelected)!
+        ).subscribe({
+            next: chosenProgramGiven => {
+                this.chosenProgram = {
+                    officialName: chosenProgramGiven.officialName,
+                    profile: chosenProgramGiven.profile,
+                    levelOfStudy: chosenProgramGiven.levelOfStudy,
+                    formOfStudy: chosenProgramGiven.formOfStudy,
+                    semestersAmount: chosenProgramGiven.semestersAmount
+                };
+            }
+        })
+    }
+
     replaceWrongSigns(text?: string): string | undefined {
-        if (text!=null) {
+        if (text != null) {
             return text
                 .split(" ")
                 .join("_")
