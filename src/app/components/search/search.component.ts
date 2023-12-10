@@ -19,66 +19,66 @@ export class SearchComponent implements OnInit {
     filteredSubjectList: string[] = [];
 
     subjectLectureList: SubjectLecture[] = [
-        {
-            id: "1",
-            subjectName: "Bazy danych",
-            lectures: [
-                "1. Podstawowe pojęcia i terminologia baz danych. Architektura systemu bazy danych.",
-                "2. Modele danych. Cechy dobrze zaprojektowanej bazy danych.",
-                "3. Projektowanie konceptualne.",
-                "4. Diagram obiektowo-związkowy ERD.",
-                "5. Projektowanie logiczne. Transformacja ERD do schematu baz danych.",
-                "6. Perspektywy. Model fizyczny bazy danych."
-            ]
-        },
-        {
-            id: "2",
-            subjectName: "Aplikacje mobilne na platformę Android",
-            lectures: [
-                "1. Prezentacja organizacji i programu kursu. Wprowadzenie do tematyki przedmiotu. Przedstawienie platformy Android i narzędzi wytwórczych. ",
-                "2. Elementy składowe architektury aplikacji Android i podstawy konstrukcji aplikacji, cykle życia omawianych elementów.",
-                "3. Podstawy interfejsu graficznego aplikacji – układy graficzne, kontrolki obsługa zdarzeń wejściowych interfejsu. ",
-                "4. Przekazywanie akcji i danych – intencje, współdziałanie aktywności,użycie aktywności systemowych. Obsługa zmiany konfiguracji. ",
-                "5. Tworzenie elementów typu menu aplikacji.",
-                "6. Elementy interfejsu wymagające adaptera treści."
-            ]
-        },
-        {
-            id: "3",
-            subjectName: "Architektura komputerów",
-            lectures: [
-                "1. Wprowadzenie do architektury komputerów, klasyfikacja architektur komputerowych. Architektury Harvard, Princeton, Harvard-Princeton, architektura zestawu instrukcji (ISA).",
-                "2. Sposoby reprezentacji danych w systemach komputerowych, kodowanie liczb całkowitych, zmiennoprzecinkowych, IEEE 754, porządek bajtów w słowach.",
-                "3. Architektura RISC vs CISC, podobieństwa, różnice, przykładowe realizacje obu architektur. Architektura i organizacja przykładowego procesora typu RISC.",
-                "4. Wprowadzenie do programowania niskopoziomowego. Kompilacja, asemblacja, linkowanie. Organizacja programu w asemblerze",
-                "5. Programowanie w asemblerze I. ",
-                "6. Programowanie w asemblerze II."
-            ]
-        },
-        {
-            id: "4",
-            subjectName: "Algorytmy i struktury danych",
-            lectures: [
-                "1. Złożoności (1/4), iteratory.",
-                "2. Złożoności (2/4), listy wiązane.",
-                "3. Złożoności (3/4), stosy i kolejki zwykłe.",
-                "4. Złożoności (4/4), techniki rozwiązywania problemów.",
-                "5. Komparatory, sortowania proste.",
-                "6. Sortowania efektywne. Kopiec."
-            ]
-        },
-        {
-            id: "5",
-            subjectName: "Cyberbezpieczeństwo",
-            lectures: [
-                "1. Wprowadzenie do celu i zakresu zadań cyberbezpieczeństwa.",
-                "2. Podstawowe zagadnienia z zakresu kryptologii.",
-                "3. Symetryczne algorytmy szyfrujące.",
-                "4. Elementy kryptoanalizy.",
-                "5. Algorytmy strumieniowe.",
-                "6. Algorytmy asymetryczne"
-            ]
-        }
+        // {
+        //     id: "1",
+        //     subjectName: "Bazy danych",
+        //     lectures: [
+        //         "1. Podstawowe pojęcia i terminologia baz danych. Architektura systemu bazy danych.",
+        //         "2. Modele danych. Cechy dobrze zaprojektowanej bazy danych.",
+        //         "3. Projektowanie konceptualne.",
+        //         "4. Diagram obiektowo-związkowy ERD.",
+        //         "5. Projektowanie logiczne. Transformacja ERD do schematu baz danych.",
+        //         "6. Perspektywy. Model fizyczny bazy danych."
+        //     ]
+        // },
+        // {
+        //     id: "2",
+        //     subjectName: "Aplikacje mobilne na platformę Android",
+        //     lectures: [
+        //         "1. Prezentacja organizacji i programu kursu. Wprowadzenie do tematyki przedmiotu. Przedstawienie platformy Android i narzędzi wytwórczych. ",
+        //         "2. Elementy składowe architektury aplikacji Android i podstawy konstrukcji aplikacji, cykle życia omawianych elementów.",
+        //         "3. Podstawy interfejsu graficznego aplikacji – układy graficzne, kontrolki obsługa zdarzeń wejściowych interfejsu. ",
+        //         "4. Przekazywanie akcji i danych – intencje, współdziałanie aktywności,użycie aktywności systemowych. Obsługa zmiany konfiguracji. ",
+        //         "5. Tworzenie elementów typu menu aplikacji.",
+        //         "6. Elementy interfejsu wymagające adaptera treści."
+        //     ]
+        // },
+        // {
+        //     id: "3",
+        //     subjectName: "Architektura komputerów",
+        //     lectures: [
+        //         "1. Wprowadzenie do architektury komputerów, klasyfikacja architektur komputerowych. Architektury Harvard, Princeton, Harvard-Princeton, architektura zestawu instrukcji (ISA).",
+        //         "2. Sposoby reprezentacji danych w systemach komputerowych, kodowanie liczb całkowitych, zmiennoprzecinkowych, IEEE 754, porządek bajtów w słowach.",
+        //         "3. Architektura RISC vs CISC, podobieństwa, różnice, przykładowe realizacje obu architektur. Architektura i organizacja przykładowego procesora typu RISC.",
+        //         "4. Wprowadzenie do programowania niskopoziomowego. Kompilacja, asemblacja, linkowanie. Organizacja programu w asemblerze",
+        //         "5. Programowanie w asemblerze I. ",
+        //         "6. Programowanie w asemblerze II."
+        //     ]
+        // },
+        // {
+        //     id: "4",
+        //     subjectName: "Algorytmy i struktury danych",
+        //     lectures: [
+        //         "1. Złożoności (1/4), iteratory.",
+        //         "2. Złożoności (2/4), listy wiązane.",
+        //         "3. Złożoności (3/4), stosy i kolejki zwykłe.",
+        //         "4. Złożoności (4/4), techniki rozwiązywania problemów.",
+        //         "5. Komparatory, sortowania proste.",
+        //         "6. Sortowania efektywne. Kopiec."
+        //     ]
+        // },
+        // {
+        //     id: "5",
+        //     subjectName: "Cyberbezpieczeństwo",
+        //     lectures: [
+        //         "1. Wprowadzenie do celu i zakresu zadań cyberbezpieczeństwa.",
+        //         "2. Podstawowe zagadnienia z zakresu kryptologii.",
+        //         "3. Symetryczne algorytmy szyfrujące.",
+        //         "4. Elementy kryptoanalizy.",
+        //         "5. Algorytmy strumieniowe.",
+        //         "6. Algorytmy asymetryczne"
+        //     ]
+        // }
     ];
     filteredSubjectLectureList: SubjectLecture[] = [];
 
@@ -122,7 +122,14 @@ export class SearchComponent implements OnInit {
             const filteredSubjectLecture: SubjectLecture = {
                 id: subjectLecture.id,
                 subjectName: subjectLecture.subjectName,
-                lectures: subjectLecture.lectures
+                lectures: subjectLecture.lectures,
+                level: subjectLecture.level,
+                cycle: subjectLecture.cycle,
+                specialization: subjectLecture.specialization,
+                name: subjectLecture.name,
+                semester: subjectLecture.semester,
+                subjectId: subjectLecture.subjectId,
+                moduleId: subjectLecture.moduleId
             };
             filteredSubjectLectureList.push(filteredSubjectLecture);
         });
