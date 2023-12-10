@@ -20,6 +20,7 @@ export class SearchComponent implements OnInit {
 
     subjectLectureList: SubjectLecture[] = [
         {
+            id: "1",
             subjectName: "Bazy danych",
             lectures: [
                 "1. Podstawowe pojęcia i terminologia baz danych. Architektura systemu bazy danych.",
@@ -31,6 +32,7 @@ export class SearchComponent implements OnInit {
             ]
         },
         {
+            id: "2",
             subjectName: "Aplikacje mobilne na platformę Android",
             lectures: [
                 "1. Prezentacja organizacji i programu kursu. Wprowadzenie do tematyki przedmiotu. Przedstawienie platformy Android i narzędzi wytwórczych. ",
@@ -42,6 +44,7 @@ export class SearchComponent implements OnInit {
             ]
         },
         {
+            id: "3",
             subjectName: "Architektura komputerów",
             lectures: [
                 "1. Wprowadzenie do architektury komputerów, klasyfikacja architektur komputerowych. Architektury Harvard, Princeton, Harvard-Princeton, architektura zestawu instrukcji (ISA).",
@@ -53,6 +56,7 @@ export class SearchComponent implements OnInit {
             ]
         },
         {
+            id: "4",
             subjectName: "Algorytmy i struktury danych",
             lectures: [
                 "1. Złożoności (1/4), iteratory.",
@@ -64,6 +68,7 @@ export class SearchComponent implements OnInit {
             ]
         },
         {
+            id: "5",
             subjectName: "Cyberbezpieczeństwo",
             lectures: [
                 "1. Wprowadzenie do celu i zakresu zadań cyberbezpieczeństwa.",
@@ -115,6 +120,7 @@ export class SearchComponent implements OnInit {
         let filteredSubjectLectureList: SubjectLecture[] = [];
         subjectLectureList.forEach(subjectLecture => {
             const filteredSubjectLecture: SubjectLecture = {
+                id: subjectLecture.id,
                 subjectName: subjectLecture.subjectName,
                 lectures: subjectLecture.lectures
             };
