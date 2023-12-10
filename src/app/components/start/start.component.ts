@@ -32,7 +32,8 @@ export class StartComponent implements OnInit{
 
     constructor(private router: Router,
                 private programShortcutService: ProgramShortcutService,
-                private startService: StartService, private translate: TranslateService) {
+                private startService: StartService,
+                private translate: TranslateService) {
     }
 
     async ngOnInit() {
@@ -41,14 +42,12 @@ export class StartComponent implements OnInit{
         this.levelsObject.map(levelObject => {
             this.levels.push(levelObject.levelName)
         });
-        console.log(this.levels);
     }
 
     getDegrees() {
         if (this.levelSelected != null) {
             this.degrees = [];
             this.level = this.makeLevelNumber(this.levelSelected);
-            console.log(this.level);
             this.startService.getDegrees(this.level).subscribe({
                 next: degreesGiven => {
                     degreesGiven.map(degree => this.degrees.push(degree));
@@ -64,7 +63,6 @@ export class StartComponent implements OnInit{
             this.startService.getCycles(this.level!, this.replaceWrongSigns(this.degreeSelected)!)
                 .subscribe({
                     next: cyclesGiven => {
-                        console.log(cyclesGiven);
                         cyclesGiven.map(cycle => this.cycles.push(cycle));
                     },
                     complete: () => {
@@ -76,22 +74,20 @@ export class StartComponent implements OnInit{
         }
     }
 
-    getSpecializations() {
+    async getSpecializations() {
         if (this.cycleSelected != null) {
             this.specializations = [];
-            this.startService.getSpecializations(
+            const specializationsGiven = await this.startService.getSpecializations(
                 this.level!,
                 this.replaceWrongSigns(this.degreeSelected)!,
                 this.makeCycleDisplayedNumber(this.cycleSelected)!
-            ).subscribe({
-                next: specializationsGiven => {
-                    specializationsGiven.map(specialization => this.specializations.push(specialization));
-                }
-            });
+            );
+            specializationsGiven.map(specialization => this.specializations.push(specialization));
         }
     }
 
-    navigateTo(endOfQuestions: boolean) {
+    async navigateTo(endOfQuestions: boolean) {
+        await this.getSpecializations();
         if (this.specializations.length === 0 || endOfQuestions) {
 
             sessionStorage.removeItem("specializationSelected");
@@ -106,7 +102,7 @@ export class StartComponent implements OnInit{
                 + '/' + this.replaceWrongSigns(this.specializationSelected);
 
             this.getChosenProgram();
-            this.router.navigateByUrl(url);
+            this.router.navigateByUrl(url).then();
         }
     }
 
@@ -147,10 +143,8 @@ export class StartComponent implements OnInit{
     }
 
     makeLevelNumber(levelSelected: string): number {
-        console.log(levelSelected);
         let levelNumber: number = -1;
         this.levelsObject.forEach((levelObj: Level) => {
-            console.log(levelObj.levelName);
             if(levelObj.levelName === levelSelected) {
                 levelNumber = levelObj.number;
             }
