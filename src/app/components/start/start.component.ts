@@ -1,28 +1,26 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {StartService} from "../../services/http/start.service";
 import {ChosenProgram} from "../../model/chosen-program";
+import {Level} from "../../model/level";
+import {TranslateService} from "@ngx-translate/core";
+import {firstValueFrom} from "rxjs";
 
 @Component({
     selector: 'app-start',
     templateUrl: './start.component.html',
     styleUrls: ['./start.component.css']
 })
-export class StartComponent {
+export class StartComponent implements OnInit{
 
-    degrees: string[] = [
-        "Informatyka Stosowana"
-    ];
-
-    cycles: string[] = [
-        "2020/2021",
-        "2021/2022",
-        "2022/2023",
-        "2023/2024"
-    ];
-
+    levels: string[] = [];
+    degrees: string[] = [];
+    cycles: number[] = [];
     specializations: string[] = [];
+
+    levelsObject: Level[] = []
+    cyclesDisplay: string[] = [];
 
     levelSelected?: string;
     level?: number;
@@ -34,12 +32,23 @@ export class StartComponent {
 
     constructor(private router: Router,
                 private programShortcutService: ProgramShortcutService,
-                private startService: StartService) {
+                private startService: StartService, private translate: TranslateService) {
+    }
+
+    async ngOnInit() {
+        await firstValueFrom(this.translate.get("translation"));
+        this.levelsObject = this.startService.getLevels();
+        this.levelsObject.map(levelObject => {
+            this.levels.push(levelObject.levelName)
+        });
+        console.log(this.levels);
     }
 
     getDegrees() {
         if (this.levelSelected != null) {
-            this.level = this.findLevel(this.levelSelected)
+            this.degrees = [];
+            this.level = this.makeLevelNumber(this.levelSelected);
+            console.log(this.level);
             this.startService.getDegrees(this.level).subscribe({
                 next: degreesGiven => {
                     degreesGiven.map(degree => this.degrees.push(degree));
@@ -48,22 +57,20 @@ export class StartComponent {
         }
     }
 
-    findLevel(levelSelected: string): number {
-        if (levelSelected.includes("I ") || levelSelected.includes("1")) {
-            return 1;
-        } else if (levelSelected.includes("II ") || levelSelected.includes("2")) {
-            return 2;
-        } else {
-            return 0;
-        }
-    }
-
     getCycles() {
         if (this.degreeSelected != null) {
+            this.cycles = [];
+            this.cyclesDisplay = [];
             this.startService.getCycles(this.level!, this.replaceWrongSigns(this.degreeSelected)!)
                 .subscribe({
                     next: cyclesGiven => {
+                        console.log(cyclesGiven);
                         cyclesGiven.map(cycle => this.cycles.push(cycle));
+                    },
+                    complete: () => {
+                        this.cycles.forEach((cycle: Number) => {
+                            this.cyclesDisplay.push(cycle.toString() + "/" + (Number(cycle)+1).toString());
+                        });
                     }
                 });
         }
@@ -71,10 +78,11 @@ export class StartComponent {
 
     getSpecializations() {
         if (this.cycleSelected != null) {
+            this.specializations = [];
             this.startService.getSpecializations(
                 this.level!,
                 this.replaceWrongSigns(this.degreeSelected)!,
-                this.replaceWrongSigns(this.cycleSelected)!
+                this.makeCycleDisplayedNumber(this.cycleSelected)!
             ).subscribe({
                 next: specializationsGiven => {
                     specializationsGiven.map(specialization => this.specializations.push(specialization));
@@ -109,7 +117,7 @@ export class StartComponent {
         this.startService.getChosenProgram(
             this.level!,
             this.replaceWrongSigns(this.degreeSelected)!,
-            this.replaceWrongSigns(this.cycleSelected)!,
+            this.makeCycleDisplayedNumber(this.cycleSelected!)!,
             this.replaceWrongSigns(this.specializationSelected)!
         ).subscribe({
             next: chosenProgramGiven => {
@@ -133,4 +141,21 @@ export class StartComponent {
                 .join("_");
         } else return undefined;
     }
+
+    makeCycleDisplayedNumber(cycleDisplayed: string): number {
+        return Number(cycleDisplayed.split("/")[0]);
+    }
+
+    makeLevelNumber(levelSelected: string): number {
+        console.log(levelSelected);
+        let levelNumber: number = -1;
+        this.levelsObject.forEach((levelObj: Level) => {
+            console.log(levelObj.levelName);
+            if(levelObj.levelName === levelSelected) {
+                levelNumber = levelObj.number;
+            }
+        });
+        return levelNumber;
+    }
+
 }
