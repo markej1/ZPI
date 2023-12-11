@@ -56,7 +56,7 @@ export class SubjectService {
                             ZZU: "",
                             CNPS: "",
                             crediting: ""
-                        }, group_of_courses: "TAK",kind_of_subject: "Obowiązkowy", programme_content: [], link: ""},
+                        }, group_of_courses: "TAK",programme_content: [], link: ""},
                     {id: 2, name: "IOS", lecture: {
                             ECTS: "5",
                             ZZU: "3",
@@ -82,7 +82,7 @@ export class SubjectService {
                             ZZU: "",
                             CNPS: "",
                             crediting: ""
-                        }, group_of_courses: "TAK", kind_of_subject: "Obowiązkowy", programme_content: [
+                        }, group_of_courses: "TAK", programme_content: [
                             "Złożoności (1/4), iteratory.",
                             "Złożoności (2/4), listy wiązane.",
                             "Złożoności (3/4), stosy i kolejki zwykłe.",
@@ -121,7 +121,7 @@ export class SubjectService {
                             ZZU: "3",
                             CNPS: "40",
                             crediting: "egzamin"
-                        }, group_of_courses: "TAK", kind_of_subject: "Obowiązkowy", programme_content: [], link: ""},
+                        }, group_of_courses: "TAK", programme_content: [], link: ""},
                     {id: 4, name: "IOS",lecture: {
                             ECTS: "5",
                             ZZU: "3",
@@ -147,7 +147,7 @@ export class SubjectService {
                             ZZU: "3",
                             CNPS: "40",
                             crediting: "egzamin"
-                        }, group_of_courses: "TAK", kind_of_subject: "Obowiązkowy", programme_content: [], link: ""},
+                        }, group_of_courses: "TAK", programme_content: [], link: ""},
                     {id: 5, name: "Aplikacje mobilne na platformę android", lecture: {
                             ECTS: "5",
                             ZZU: "3",
@@ -173,7 +173,7 @@ export class SubjectService {
                             ZZU: "3",
                             CNPS: "40",
                             crediting: "egzamin"
-                        }, group_of_courses: "TAK", kind_of_subject: "Obowiązkowy", programme_content: [], link: ""}
+                        }, group_of_courses: "TAK", programme_content: [], link: ""}
                 ], exam: "E", block_type: "blok kierunkowy", ects: "4", hours: "22000"
             },
             {name: "Organizacja systemów komputerowych", subjects: [
@@ -202,7 +202,7 @@ export class SubjectService {
                             ZZU: "3",
                             CNPS: "40",
                             crediting: "egzamin"
-                        }, group_of_courses: "TAK", kind_of_subject: "Obowiązkowy", programme_content: [], link: ""},
+                        }, group_of_courses: "TAK", programme_content: [], link: ""},
                 ], exam: "E", block_type: "przedmiot kierunkowy", ects: "3", hours: "21000"
             },
             // {name: "Algorytmy i struktury danych", subjects: [

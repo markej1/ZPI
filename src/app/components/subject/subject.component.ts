@@ -77,9 +77,7 @@ export class SubjectComponent {
     openSubjectCard() {
         this.sendData();
         this.dialog.closeAll();
-        const dialogRef = this.dialog.open(SubjectCardComponent, {
-            height: '85%'
-        });
+        const dialogRef = this.dialog.open(SubjectCardComponent);
     }
 
     // getNavigationRoute(): string[] {
