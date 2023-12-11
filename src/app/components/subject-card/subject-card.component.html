@@ -55,6 +55,14 @@
                 <td>{{ subject?.project?.ECTS }}</td>
                 <td>{{ subject?.seminar?.ECTS }}</td>
             </tr>
+            <tr>
+                <td class="table-header">{{ 'GroupOfCourses'  | translate }}</td>
+                <td><section *ngIf="subject?.lecture?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.classes?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.laboratory?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.project?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.seminar?.courseGroup">X</section></td>
+            </tr>
         </table>
 
         <div *ngIf="subject?.programme_content?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>

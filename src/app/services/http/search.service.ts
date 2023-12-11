@@ -50,7 +50,8 @@ export class SearchService {
             ECTS: card.detalis.ects.toString(),
             ZZU: card.detalis.zzu.toString(),
             CNPS: card.detalis.cnps.toString(),
-            crediting: ""
+            crediting: "",
+            courseGroup: card.detalis.inGroupCourse
         }
     }
 
