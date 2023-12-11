@@ -1,5 +1,5 @@
 export interface SubjectLecture {
-    id: string,
+    id: number,
     subjectName: string,
     lectures: string[],
     level: number,

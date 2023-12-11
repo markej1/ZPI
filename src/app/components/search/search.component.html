@@ -1,7 +1,12 @@
 <app-start-top-menu></app-start-top-menu>
 <section id="search_section">
 
-    <mat-autocomplete #auto="matAutocomplete" class="mat-autocomplete-search-panel">
+    <mat-autocomplete
+        #auto="matAutocomplete"
+        class="mat-autocomplete-search-panel"
+        (optionSelected)="openCardWindow()"
+        [displayWith]="displaySubjectName"
+    >
 
         <p *ngIf="filteredSubjectList.length !== 0">{{'SearchName' | translate}}:</p>
         <mat-option
@@ -9,14 +14,14 @@
             *ngFor="let filteredSubject of filteredSubjectList"
             [value]="filteredSubject"
         >
-            {{filteredSubject}}
+            {{filteredSubject.subjectName}}
         </mat-option>
 
         <p *ngIf="filteredSubjectLectureList.length !== 0">{{'SearchLectures' | translate}}:</p>
         <mat-option
             class="mat-option-search"
             *ngFor="let filteredSubjectLecture of filteredSubjectLectureList"
-            [value]="filteredSubjectLecture.subjectName"
+            [value]="filteredSubjectLecture"
         >
             {{filteredSubjectLecture.subjectName}}
         </mat-option>
@@ -31,6 +36,7 @@
         matInput
         [matAutocomplete]="auto"
         [formControl]="subjectWritten"
+        [(ngModel)]="chosenSubjectLecture"
     >
 
 

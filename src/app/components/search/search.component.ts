@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl} from "@angular/forms";
 import {SubjectLecture} from "../../model/subject-lecture";
 import {SearchService} from "../../services/http/search.service";
+import {MatDialog} from "@angular/material/dialog";
+import {SubjectCardComponent} from "../subject-card/subject-card.component";
 
 @Component({
     selector: 'app-search',
@@ -10,33 +12,34 @@ import {SearchService} from "../../services/http/search.service";
 })
 export class SearchComponent implements OnInit {
 
-    subjectList: string[] = [];
-    filteredSubjectList: string[] = [];
+    subjectList: SubjectLecture[] = [];
+    filteredSubjectList: SubjectLecture[] = [];
 
     subjectLectureList: SubjectLecture[] = [];
     filteredSubjectLectureList: SubjectLecture[] = [];
 
     subjectWritten = new FormControl('');
 
-    constructor(private searchService: SearchService) {
+    chosenSubjectLecture?: SubjectLecture;
+
+    constructor(private searchService: SearchService, private dialog: MatDialog) {
         this.getSubjectLectureList();
     }
 
     ngOnInit() {
         this.subjectWritten.valueChanges.subscribe(value => {
-            console.log(value);
             this.filteredSubjectList = this.subjectList.sort();
             this.filteredSubjectLectureList =
                 this.createFilteredSubjectLectureList(this.subjectLectureList);
                     // .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             if (value != null) {
                 this.filteredSubjectList = this.filteredSubjectList.filter(subject =>
-                    subject?.toLowerCase().includes(value.toLowerCase())
+                    subject?.subjectName.toString().toLowerCase().includes(value.toString().toLowerCase())
                 );
 
                 this.filteredSubjectLectureList.forEach(subjectLecture => {
                     subjectLecture.lectures = subjectLecture.lectures.filter(lecture =>
-                        lecture?.toLowerCase().includes(value.toLowerCase())
+                        lecture?.toString().toLowerCase().includes(value.toString().toLowerCase())
                     );
                 });
 
@@ -90,15 +93,29 @@ export class SearchComponent implements OnInit {
                     if (subjectLectureMock.subjectName !== "" && subjectLectureMock.id != undefined) {
                         this.subjectLectureList.push(subjectLectureMock);
                     }
-                })
-                this.subjectLectureList.map(subjectLecture => this.subjectList.push(subjectLecture.subjectName));
-                this.filteredSubjectList = this.subjectList.sort();
+                });
+                this.subjectLectureList.map(subjectLecture => this.subjectList.push(subjectLecture));
+                this.filteredSubjectList = this.createFilteredSubjectLectureList(this.subjectList);
                 this.filteredSubjectLectureList =
                     this.createFilteredSubjectLectureList(this.subjectLectureList);
                 // .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
-                console.log(this.subjectLectureList);
+                console.log(this.filteredSubjectList);
             }
         });
+    }
+
+    openCardWindow() {
+        this.dialog.open(SubjectCardComponent, {
+            height: "85%",
+            data: {
+                name: this.chosenSubjectLecture?.subjectName
+            }
+        });
+        console.log(this.chosenSubjectLecture);
+    }
+
+    displaySubjectName(subjectLecture: SubjectLecture): string {
+        return subjectLecture.subjectName;
     }
 
 }
