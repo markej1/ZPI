@@ -28,7 +28,7 @@
         </table>
 
         <section id="buttons">
-            <button [routerLink]="['/plan/all']">{{'Plan' | translate}}</button>
+            <button (click)="navigate()">{{'Plan' | translate}}</button>
         </section>
 
         <button id="website_button">

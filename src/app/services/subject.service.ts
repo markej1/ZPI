@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Subject, Subject as MySubject} from "../model/subject";
+import {Subject as MySubject} from "../model/subject";
 import {Block} from "../model/block";
 import {HttpClient} from "@angular/common/http";
 import {Program} from "../model/program";
@@ -42,57 +42,9 @@ export class SubjectService {
     }
 
     getAllBlocks(): Observable<Program[]> {
-        return this._httpClient.get<Program[]>(`https://susel.pythonanywhere.com/list-subjects/1/Informatyka_Stosowana/2023/`)
+        //level: number, field: string, cycle: number, specialization: string
+        return this._httpClient.get<Program[]>(`${this._url}/list-subjects/1/Informatyka_Stosowana/2023/`)
     }
-
-    // getAllBlocks(): Block[] {
-    //     let isLoadingResults: boolean = true;
-    //     let blocks: Block[] = []
-    //     let semesters: Subject[][] = []
-    //     let program =
-    //         this._httpClient.get<Program[]>(
-    //             `https://susel.pythonanywhere.com/list-subjects/1/Informatyka_Stosowana/2023/`
-    //         ).subscribe(value => {
-    //             semesters.push(value[0]["1"]);
-    //             semesters.push(value[0]["2"]);
-    //             semesters.push(value[0]["3"]);
-    //             semesters.push(value[0]["4"]);
-    //             semesters.push(value[0]["5"]);
-    //             semesters.push(value[0]["6"]);
-    //             semesters.push(value[0]["7"]);
-    //
-    //             let semesterId = 1
-    //             semesters.forEach(semester => {
-    //                 semester.forEach(subject => {
-    //                     let tempBlock: Block | undefined = blocks.find(block => block.name === subject.module);
-    //                     if(tempBlock === undefined) {
-    //                         blocks.push({
-    //                             ects: subject.ects,
-    //                             exam: subject.hasExam ? "E" : "",
-    //                             hours: subject.hours,
-    //                             semester: semesterId,
-    //                             subjects: [subject],
-    //                             name: subject.module ?? subject.name,
-    //                             block_type: subject.category
-    //                         });
-    //                     } else {
-    //                         tempBlock.subjects.push(subject);
-    //                     }
-    //                 });
-    //                 semesterId += 1
-    //             });
-    //             isLoadingResults = false;
-    //         });
-    //
-    //     blocks.forEach(a => {
-    //         if(a.subjects.length > 1) {
-    //             console.log(a)
-    //         }
-    //     });
-    //
-    //     this.allBlocks = blocks;
-    //     return blocks;
-    // }
 
     getBlocksBySemester(semester: number): Block[] {
         let resultBlock: Block[] = []
