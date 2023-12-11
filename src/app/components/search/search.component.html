@@ -4,7 +4,7 @@
     <mat-autocomplete
         #auto="matAutocomplete"
         class="mat-autocomplete-search-panel"
-        (optionSelected)="openCardWindow()"
+        (optionSelected)="fetchCardData()"
         [displayWith]="displaySubjectName"
     >
 

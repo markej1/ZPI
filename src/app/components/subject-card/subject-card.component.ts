@@ -12,17 +12,17 @@ import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 export class SubjectCardComponent implements OnInit {
 
     name: string = "";
-    kindOfSubject: string = "";
+    groupOfCourses: string = "";
+    subject?: Subject;
 
     constructor(private subjectService: SubjectService, @Inject(MAT_DIALOG_DATA) public answerData: any) {
     }
 
-    subject?: Subject;
-
     ngOnInit() {
         this.subject =  this.subjectService.getSelectedSubject();
         this.name = this.answerData.name;
-        this.kindOfSubject = this.answerData.kindOfSubject;
+        this.groupOfCourses = this.answerData.groupOfCourses;
+        this.subject = this.answerData.subject;
     }
 
 

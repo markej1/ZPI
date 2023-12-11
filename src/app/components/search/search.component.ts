@@ -4,6 +4,9 @@ import {SubjectLecture} from "../../model/subject-lecture";
 import {SearchService} from "../../services/http/search.service";
 import {MatDialog} from "@angular/material/dialog";
 import {SubjectCardComponent} from "../subject-card/subject-card.component";
+import {Card} from "../../model/card";
+import {Subject} from "../../model/subject";
+import {Course} from "../../model/course";
 
 @Component({
     selector: 'app-search',
@@ -104,14 +107,68 @@ export class SearchComponent implements OnInit {
         });
     }
 
-    openCardWindow() {
+    async fetchCardData() {
+        const cardList: Card[] = [];
+        let subject: Subject;
+        let lecture: Course | null = null;
+        let classes: Course | null = null;
+        let laboratory: Course | null = null;
+        let seminar: Course | null = null;
+        let project: Course | null = null;
+
+        if (this.chosenSubjectLecture?.specialization === "") {
+            const cardListGiven = await this.searchService.getCardDetails(
+                this.chosenSubjectLecture?.level,
+                this.chosenSubjectLecture?.name,
+                this.chosenSubjectLecture?.cycle,
+                this.chosenSubjectLecture?.moduleId,
+                this.chosenSubjectLecture?.subjectId
+            );
+            cardListGiven.forEach((cardGiven) => cardList.push(cardGiven));
+        } else {
+            const cardSpecializationListGiven = await this.searchService.getCardDetailsSpecialization(
+                this.chosenSubjectLecture?.level!,
+                this.chosenSubjectLecture?.name!,
+                this.chosenSubjectLecture?.cycle!,
+                this.chosenSubjectLecture?.specialization!,
+                this.chosenSubjectLecture?.moduleId!,
+                this.chosenSubjectLecture?.subjectId!
+            );
+            cardSpecializationListGiven.forEach((cardGiven) => cardList.push(cardGiven));
+        }
+
+        const courses: Course[] = this.searchService.getCardCourseList(cardList);
+        courses.map((course: Course, index: number)=> {
+            if (cardList[index].type === "Lecture") { lecture = course; }
+            else if (cardList[index].type === "Classes") { classes = course; }
+            else if (cardList[index].type === "Laboratory") { laboratory = course; }
+            else if (cardList[index].type === "Seminar") { seminar = course; }
+            else if (cardList[index].type === "Project") { project = course; }
+        });
+        subject = {
+            id: this.chosenSubjectLecture?.id!,
+            name: this.chosenSubjectLecture?.subjectName!,
+            group_of_courses: this.searchService.isGroupOfCourseString(cardList),
+            programme_content: this.chosenSubjectLecture?.lectures!,
+            link: ""
+        };
+        if (lecture != null) { subject.lecture = lecture; }
+        if (classes != null) { subject.classes = classes; }
+        if (laboratory != null) { subject.laboratory = laboratory; }
+        if (seminar != null) { subject.seminar = seminar; }
+        if (project != null) { subject.project = project; }
+
+        this.openDialogWindow(subject);
+    }
+
+    openDialogWindow(subject: Subject) {
         this.dialog.open(SubjectCardComponent, {
             height: "85%",
             data: {
-                name: this.chosenSubjectLecture?.subjectName
+                name: this.chosenSubjectLecture?.subjectName,
+                subject: subject
             }
         });
-        console.log(this.chosenSubjectLecture);
     }
 
     displaySubjectName(subjectLecture: SubjectLecture): string {

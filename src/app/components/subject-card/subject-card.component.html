@@ -8,10 +8,10 @@
         <div class="title">{{ 'SubjectCard' | translate }}</div>
         <div class="description">
             <div>
-                {{ 'SubjectName' | translate }} <span class="left-text">{{ name }}</span>
+                {{ 'SubjectName' | translate }} <span class="left-text">{{ subject?.name }}</span>
             </div>
             <div>
-                {{ 'SubjectKind' | translate }} <span class="left-text">{{ kindOfSubject }}</span>
+                {{ 'GroupOfCourses' | translate }} <span class="left-text">{{ subject?.group_of_courses }}</span>
             </div>
         </div>
         <table>
@@ -57,11 +57,11 @@
             </tr>
         </table>
 
-        <div>{{ 'ProgrammeContent' | translate }}</div>
+        <div *ngIf="subject?.programme_content?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
         <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">
             {{ i + 1 }}. {{ p }}
         </span>
-        {{ 'Link' | translate }}
+        <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
         <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
     </div>
 </div>
