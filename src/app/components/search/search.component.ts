@@ -31,10 +31,11 @@ export class SearchComponent implements OnInit {
 
     ngOnInit() {
         this.subjectWritten.valueChanges.subscribe(value => {
-            this.filteredSubjectList = this.subjectList.sort();
+            this.filteredSubjectList = this.subjectList
+                .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             this.filteredSubjectLectureList =
-                this.createFilteredSubjectLectureList(this.subjectLectureList);
-                    // .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
+                this.createFilteredSubjectLectureList(this.subjectLectureList)
+                    .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             if (value != null) {
                 this.filteredSubjectList = this.filteredSubjectList.filter(subject =>
                     subject?.subjectName.toString().toLowerCase().includes(value.toString().toLowerCase())
@@ -98,10 +99,11 @@ export class SearchComponent implements OnInit {
                     }
                 });
                 this.subjectLectureList.map(subjectLecture => this.subjectList.push(subjectLecture));
-                this.filteredSubjectList = this.createFilteredSubjectLectureList(this.subjectList);
+                this.filteredSubjectList = this.createFilteredSubjectLectureList(this.subjectList)
+                    .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
                 this.filteredSubjectLectureList =
-                    this.createFilteredSubjectLectureList(this.subjectLectureList);
-                // .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
+                    this.createFilteredSubjectLectureList(this.subjectLectureList)
+                        .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
                 console.log(this.filteredSubjectList);
             }
         });
