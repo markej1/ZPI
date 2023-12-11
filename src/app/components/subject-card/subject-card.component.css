@@ -64,8 +64,14 @@ table tr:first-child th:last-child {
 }
 
 button {
-    margin-right: 0px;
+    margin-right: 0;
     margin-left: auto;
+}
+
+span {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 10px;
 }
 
 
