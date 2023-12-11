@@ -19,7 +19,7 @@
     margin-bottom: 5%;
 }
 
-table {
+#information {
     border-collapse: collapse;
     border-radius: 20px;
     border-style: hidden;
@@ -74,4 +74,10 @@ span {
     grid-gap: 10px;
 }
 
+.curriculum_content {
+    border: none;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
 

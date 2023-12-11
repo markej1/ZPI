@@ -14,7 +14,7 @@
                 {{ 'GroupOfCourses' | translate }} <span class="left-text">{{ subject?.group_of_courses }}</span>
             </div>
         </div>
-        <table>
+        <table id="information">
             <tr>
                 <td class="table-header"></td>
                 <th class="table-header">{{ 'Lecture' | translate }}</th>
@@ -67,7 +67,12 @@
 
         <div *ngIf="subject?.programme_content?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
         <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">
-            {{ i + 1 }}. {{ p }}
+            <table id="curriculum">
+                <tr class="curriculum_content">
+                    <td class="curriculum_content">{{ i + 1 }}.</td>
+                    <td class="curriculum_content">{{ p }}</td>
+                </tr>
+            </table>
         </span>
         <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
         <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
