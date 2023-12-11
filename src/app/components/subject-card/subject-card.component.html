@@ -11,7 +11,7 @@
                 {{ 'SubjectName' | translate }} <span class="left-text">{{ subject?.name }}</span>
             </div>
             <div>
-                {{ 'SubjectKind' | translate }} <span class="left-text">{{ subject?.kind_of_subject }}</span>
+<!--                {{ 'SubjectKind' | translate }} <span class="left-text">{{ subject?.kind_of_subject }}</span>-->
             </div>
         </div>
         <table>
@@ -66,11 +66,11 @@
         </table>
 
         <div>{{ 'ProgrammeContent' | translate }}</div>
-        <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">
-            <div>{{ i + 1 }}.</div> <div>{{ p }}</div>
-        </span>
+<!--        <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">-->
+<!--            <div>{{ i + 1 }}.</div> <div>{{ p }}</div>-->
+<!--        </span>-->
         {{ 'Link' | translate }}
-        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
+<!--        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>-->
     </div>
 </div>
 

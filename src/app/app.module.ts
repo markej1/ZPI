@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {importProvidersFrom, NgModule} from '@angular/core';
 import {BrowserModule, provideProtractorTestingSupport} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -29,6 +29,7 @@ import {MatRippleModule} from "@angular/material/core";
 import { SubjectSelectComponent } from './components/subject-select/subject-select.component';
 import {SubjectCardComponent} from "./components/subject-card/subject-card.component";
 import { SubjectAllComponent } from './components/subject-all/subject-all.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
     declarations: [
@@ -68,11 +69,13 @@ import { SubjectAllComponent } from './components/subject-all/subject-all.compon
                 useFactory: httpTranslateLoader,
                 deps: [HttpClient]
             }
-        })
+        }),
+        MatProgressSpinnerModule
     ],
     providers: [
         provideProtractorTestingSupport(),
-        provideRouter(routeConfig)
+        provideRouter(routeConfig),
+        importProvidersFrom(HttpClientModule)
     ],
     bootstrap: [AppComponent]
 })
