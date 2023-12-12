@@ -123,6 +123,7 @@ export class SearchComponent implements OnInit {
         let seminar: Course | null = null;
         let project: Course | null = null;
 
+        this.loaderService.setLoading1(true);
         if (this.chosenSubjectLecture?.specialization === "") {
             const cardListGiven = await this.searchService.getCardDetails(
                 this.chosenSubjectLecture?.level,
@@ -143,6 +144,7 @@ export class SearchComponent implements OnInit {
             );
             cardSpecializationListGiven.forEach((cardGiven) => cardList.push(cardGiven));
         }
+        this.loaderService.setLoading1(false);
 
         const courses: Course[] = this.searchService.getCardCourseList(cardList);
         courses.map((course: Course, index: number)=> {
