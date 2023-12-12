@@ -8,6 +8,7 @@ export class LoaderService {
     private loading1: boolean = false;
     private loading2: boolean = false;
     private loading3: boolean = false;
+    private loading4: boolean = false;
 
 
     getLoading1(): boolean {
@@ -32,5 +33,13 @@ export class LoaderService {
 
     setLoading3(value: boolean) {
         this.loading3 = value;
+    }
+
+    getLoading4(): boolean {
+        return this.loading4;
+    }
+
+    setLoading4(value: boolean) {
+        this.loading4 = value;
     }
 }

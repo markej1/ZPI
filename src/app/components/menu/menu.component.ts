@@ -3,6 +3,7 @@ import {ChosenProgram} from "../../model/chosen-program";
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {Router} from "@angular/router";
 import {SemesterService} from "../../services/semester.service";
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
     selector: 'app-menu',
@@ -12,10 +13,11 @@ import {SemesterService} from "../../services/semester.service";
 export class MenuComponent implements OnInit {
 
     chosenProgram: ChosenProgram = {
-        officialName: "Informatyka Stosowana",
-        profile: "ogólnoakademicki",
-        levelOfStudy: "pierwszy",
-        formOfStudy: "stacjonarna",
+        field_name: "Informatyka Stosowana",
+        is_general_academic: "ogólnoakademicki",
+        education_level: "pierwszy",
+        is_full_time: "stacjonarna",
+        language: "polski",
         semestersAmount: 7
     }
 
@@ -26,7 +28,8 @@ export class MenuComponent implements OnInit {
     constructor(
         private programShortcutService: ProgramShortcutService,
         private semesterService: SemesterService,
-        private router: Router
+        private router: Router,
+        public loaderService: LoaderService
     ) {
         this.specializationChosen = this.programShortcutService.getSpecialization();
         this.semesterService.setSemestersAmount(this.chosenProgram.semestersAmount);

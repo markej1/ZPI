@@ -118,24 +118,48 @@ export class StartComponent implements OnInit{
 
     getChosenProgram() {
         if (this.specializationSelected == null) {
-            this.specializationSelected = "";
+            this.loaderService.setLoading4(true);
+            this.startService.getChosenProgram(
+                this.level!,
+                this.replaceWrongSigns(this.degreeSelected)!,
+                this.makeCycleDisplayedNumber(this.cycleSelected!)!
+            ).subscribe({
+                next: chosenProgramGiven => {
+                    this.chosenProgram = {
+                        field_name: chosenProgramGiven.field_name,
+                        is_general_academic: chosenProgramGiven.is_general_academic,
+                        education_level: chosenProgramGiven.education_level,
+                        is_full_time: chosenProgramGiven.is_full_time,
+                        language: chosenProgramGiven.language,
+                        semestersAmount: chosenProgramGiven.semestersAmount
+                    };
+                },
+                complete: () => {
+                    this.loaderService.setLoading4(false);
+                }
+            });
+        } else {
+            this.startService.getChosenProgramSpecialization(
+                this.level!,
+                this.replaceWrongSigns(this.degreeSelected)!,
+                this.makeCycleDisplayedNumber(this.cycleSelected!)!,
+                this.replaceWrongSigns(this.specializationSelected)!
+            ).subscribe({
+                next: chosenProgramGiven => {
+                    this.chosenProgram = {
+                        field_name: chosenProgramGiven.field_name,
+                        is_general_academic: chosenProgramGiven.is_general_academic,
+                        education_level: chosenProgramGiven.education_level,
+                        is_full_time: chosenProgramGiven.is_full_time,
+                        language: chosenProgramGiven.language,
+                        semestersAmount: chosenProgramGiven.semestersAmount
+                    };
+                },
+                complete: () => {
+                    this.loaderService.setLoading4(false);
+                }
+            });
         }
-        this.startService.getChosenProgram(
-            this.level!,
-            this.replaceWrongSigns(this.degreeSelected)!,
-            this.makeCycleDisplayedNumber(this.cycleSelected!)!,
-            this.replaceWrongSigns(this.specializationSelected)!
-        ).subscribe({
-            next: chosenProgramGiven => {
-                this.chosenProgram = {
-                    officialName: chosenProgramGiven.officialName,
-                    profile: chosenProgramGiven.profile,
-                    levelOfStudy: chosenProgramGiven.levelOfStudy,
-                    formOfStudy: chosenProgramGiven.formOfStudy,
-                    semestersAmount: chosenProgramGiven.semestersAmount
-                };
-            }
-        })
     }
 
     replaceWrongSigns(text?: string): string | undefined {

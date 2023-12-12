@@ -33,7 +33,7 @@ mat-option {
     border-radius: 45px;
 }
 
-#loading {
+.spinner {
     position: absolute;
     top: 50%;
     left: 50%;

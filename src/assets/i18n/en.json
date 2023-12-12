@@ -52,5 +52,6 @@
   "First": "1st",
   "Second": "2nd",
   "EmptyCard": "There is no card of the chosen subject.",
-  "EmptyCardLink": "Go to website:"
+  "EmptyCardLink": "Go to website:",
+  "StudyLanguage": "Language of studies"
 }
