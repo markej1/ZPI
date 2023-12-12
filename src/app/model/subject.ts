@@ -19,15 +19,16 @@ export interface Subject {
     ects: number,
     hasExam: boolean,
     hours: string
-  
+
+    id?: number
     lecture?: Course;
     classes?: Course;
     seminar?: Course;
     laboratory?: Course;
     project?: Course;
-//     group_of_courses: string;
+    group_of_courses: string;
 //     programme_content: string[];
-//     link: string;
+    link?: string;
 }
 
 
