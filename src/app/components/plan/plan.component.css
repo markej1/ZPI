@@ -1,46 +1,73 @@
 .plan-all-semesters {
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
     grid-gap: 15px;
     position: absolute;
     top: 75px;
-    margin: 15px;
+    right: 0;
+    left: 0;
+    bottom: 75px;
+    overflow: auto;
+    justify-items: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .plan {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-template-rows: repeat(2, 1fr);
     grid-gap: 12px;
     position: absolute;
     top: 75px;
     bottom: 75px;
-    margin: 15px;
     right: 0;
     left: 0;
     overflow: auto;
+    justify-items: center;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 ::ng-deep .mat-ripple {
     cursor: pointer;
 }
 
-@media only screen and (min-width: 972px) {
-    .plan {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
+.tile {
+    display: flex;
+    align-items: center;
+    justify-items: center;
 
-@media only screen and (min-width: 1275px) {
-    .plan {
-        grid-template-columns: repeat(4, 1fr);
-    }
 }
 
 @media only screen and (min-height: 796px) {
     .plan {
         grid-template-rows: repeat(3, 1fr);
     }
+}
+
+mat-spinner {
+    position: absolute;
+    z-index: 100;
+}
+
+.mat-mdc-progress-spinner {
+    --mdc-circular-progress-active-indicator-color: var(--primary-color);
+}
+
+.loading-shade {
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+    bottom: 80px;
+    background: rgba(0, 0, 0, 0.12);
+    z-index: 101;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
