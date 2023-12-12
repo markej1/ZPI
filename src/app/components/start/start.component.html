@@ -19,7 +19,10 @@
                     <h2>{{'ChooseLevel' | translate}}</h2>
 
                     <label>
-                        <select [(ngModel)]="levelSelected">
+                        <select
+                            [(ngModel)]="levelSelected"
+                            (change)="getDegrees()"
+                        >
                             <option>{{'First' | translate}} {{'Level' | translate}}</option>
                             <option>{{'Second' | translate}} {{'Level' | translate}}</option>
                         </select>
@@ -32,7 +35,10 @@
                     <h2>{{'ChooseDegree' | translate}}</h2>
 
                     <label>
-                        <select [(ngModel)]="degreeSelected">
+                        <select
+                            [(ngModel)]="degreeSelected"
+                            (change)="getCycles()"
+                        >
                             <option
                                     *ngFor="let degree of degrees"
                                     [value]="degree"
@@ -54,7 +60,7 @@
                                 (ngModelChange)="navigateTo(false)"
                         >
                             <option
-                                    *ngFor="let cycle of cycles"
+                                    *ngFor="let cycle of cyclesDisplay"
                                     [value]="cycle"
                             >
                                 {{ cycle }}
