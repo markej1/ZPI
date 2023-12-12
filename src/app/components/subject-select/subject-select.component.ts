@@ -31,7 +31,8 @@ export class SubjectSelectComponent implements OnInit {
                 block_type: this.block?.block_type,
                 subjects: [subject],
                 ects: this.block?.ects,
-                hours: this.block?.hours
+                hours: this.block?.hours,
+                semester: this.block?.semester
             }
             this.tempBlockList?.push(tempBlock);
         });

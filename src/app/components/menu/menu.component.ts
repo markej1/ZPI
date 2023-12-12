@@ -40,4 +40,22 @@ export class MenuComponent implements OnInit {
         this.menuUrl = this.router.url;
     }
 
+    replaceWrongSigns(text?: string): string | undefined {
+        if (text!=null) {
+            return text
+                .split(" ")
+                .join("_")
+                .split("/")
+                .join("_");
+        } else return undefined;
+    }
+
+    navigate() {
+        const url: string = '/plan/' + this.replaceWrongSigns(this.programShortcutService.getDegreeSelected())
+            + '/' + this.replaceWrongSigns(this.programShortcutService.getCycleSelected())
+            + '/' + this.replaceWrongSigns(this.programShortcutService.getSpecialization());
+
+        this.router.navigateByUrl(url);
+    }
+
 }

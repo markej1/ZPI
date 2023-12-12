@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {importProvidersFrom, NgModule} from '@angular/core';
 import {BrowserModule, provideProtractorTestingSupport} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
@@ -74,7 +74,8 @@ import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
     ],
     providers: [
         provideProtractorTestingSupport(),
-        provideRouter(routeConfig)
+        provideRouter(routeConfig),
+        importProvidersFrom(HttpClientModule)
     ],
     bootstrap: [AppComponent]
 })
