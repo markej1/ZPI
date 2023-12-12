@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {Subject as MySubject} from "../model/subject";
 import {Block} from "../model/block";
 
-
-
 @Injectable({
   providedIn: 'root'
 })
