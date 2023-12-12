@@ -6,6 +6,7 @@ import {ChosenProgram} from "../../model/chosen-program";
 import {Level} from "../../model/level";
 import {TranslateService} from "@ngx-translate/core";
 import {firstValueFrom} from "rxjs";
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
     selector: 'app-start',
@@ -33,7 +34,8 @@ export class StartComponent implements OnInit{
     constructor(private router: Router,
                 private programShortcutService: ProgramShortcutService,
                 private startService: StartService,
-                private translate: TranslateService) {
+                private translate: TranslateService,
+                public loaderService: LoaderService) {
     }
 
     async ngOnInit() {
@@ -48,9 +50,13 @@ export class StartComponent implements OnInit{
         if (this.levelSelected != null) {
             this.degrees = [];
             this.level = this.makeLevelNumber(this.levelSelected);
+            this.loaderService.setLoading1(true);
             this.startService.getDegrees(this.level).subscribe({
                 next: degreesGiven => {
                     degreesGiven.map(degree => this.degrees.push(degree));
+                },
+                complete: () => {
+                    this.loaderService.setLoading1(false);
                 }
             });
         }
@@ -60,6 +66,7 @@ export class StartComponent implements OnInit{
         if (this.degreeSelected != null) {
             this.cycles = [];
             this.cyclesDisplay = [];
+            this.loaderService.setLoading2(true);
             this.startService.getCycles(this.level!, this.replaceWrongSigns(this.degreeSelected)!)
                 .subscribe({
                     next: cyclesGiven => {
@@ -69,6 +76,7 @@ export class StartComponent implements OnInit{
                         this.cycles.forEach((cycle: Number) => {
                             this.cyclesDisplay.push(cycle.toString() + "/" + (Number(cycle)+1).toString());
                         });
+                        this.loaderService.setLoading2(false);
                     }
                 });
         }
@@ -77,12 +85,14 @@ export class StartComponent implements OnInit{
     async getSpecializations() {
         if (this.cycleSelected != null) {
             this.specializations = [];
+            this.loaderService.setLoading3(true);
             const specializationsGiven = await this.startService.getSpecializations(
                 this.level!,
                 this.replaceWrongSigns(this.degreeSelected)!,
                 this.makeCycleDisplayedNumber(this.cycleSelected)!
             );
             specializationsGiven.map(specialization => this.specializations.push(specialization));
+            this.loaderService.setLoading3(false);
         }
     }
 

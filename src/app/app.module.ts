@@ -29,6 +29,7 @@ import {MatRippleModule} from "@angular/material/core";
 import { SubjectSelectComponent } from './components/subject-select/subject-select.component';
 import {SubjectCardComponent} from "./components/subject-card/subject-card.component";
 import { SubjectAllComponent } from './components/subject-all/subject-all.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 @NgModule({
     declarations: [
@@ -68,7 +69,8 @@ import { SubjectAllComponent } from './components/subject-all/subject-all.compon
                 useFactory: httpTranslateLoader,
                 deps: [HttpClient]
             }
-        })
+        }),
+        MatProgressSpinnerModule
     ],
     providers: [
         provideProtractorTestingSupport(),
