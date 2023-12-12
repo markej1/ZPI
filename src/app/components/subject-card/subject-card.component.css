@@ -81,3 +81,10 @@ span {
     vertical-align: top;
 }
 
+#not-exist {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+

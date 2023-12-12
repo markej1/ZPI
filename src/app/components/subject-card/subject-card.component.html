@@ -4,7 +4,7 @@
     </button>
 </div>
 <div mat-dialog-content class="mat-dialog">
-    <div class="container">
+    <div class="container" *ngIf="exists">
         <div class="title">{{ 'SubjectCard' | translate }}</div>
         <div class="description">
             <div>
@@ -75,6 +75,11 @@
             </table>
         </span>
         <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
+        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
+    </div>
+    <div *ngIf="!exists" id="not-exist">
+        <div>{{ 'EmptyCard' | translate }}</div>
+        <div *ngIf="subject?.link !== ''">{{ 'EmptyCardLink' | translate }}</div>
         <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
     </div>
 </div>

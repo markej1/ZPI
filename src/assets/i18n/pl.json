@@ -50,5 +50,7 @@
   "All": "Wszystko",
   "Level": "stopień",
   "First": "I",
-  "Second": "II"
+  "Second": "II",
+  "EmptyCard": "Nie istnieje karta tego przedmiotu.",
+  "EmptyCardLink": "Przejdź do strony:"
 }

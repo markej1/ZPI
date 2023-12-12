@@ -165,7 +165,6 @@ export class SearchComponent implements OnInit {
 
     openDialogWindow(subject: Subject) {
         this.dialog.open(SubjectCardComponent, {
-            height: "85%",
             data: {
                 name: this.chosenSubjectLecture?.subjectName,
                 subject: subject
