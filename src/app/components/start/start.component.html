@@ -32,7 +32,7 @@
 
                 <section class="grid_options_item" id="degree_choice" *ngIf="levelSelected != null">
 
-                    <section *ngIf="!this.loaderService.getLoading1()">
+                    <section *ngIf="!this.loaderService.getLoading1() && visible2">
 
                         <h2>{{'ChooseDegree' | translate}}</h2>
 
@@ -60,7 +60,7 @@
 
                 <section class="grid_options_item" id="cycle_choice" *ngIf="degreeSelected != null">
 
-                    <section *ngIf="!this.loaderService.getLoading2()">
+                    <section *ngIf="!this.loaderService.getLoading2() && visible3">
 
                         <h2>{{'ChooseCycle' | translate}}</h2>
 
@@ -91,7 +91,7 @@
                          *ngIf="cycleSelected != null && specializations != []"
                 >
 
-                    <section *ngIf="!this.loaderService.getLoading3()">
+                    <section *ngIf="!this.loaderService.getLoading3() && visible4">
 
                         <h2>{{'ChooseSpecialization' | translate}}</h2>
 

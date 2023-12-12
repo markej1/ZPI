@@ -31,6 +31,10 @@ export class StartComponent implements OnInit{
 
     chosenProgram?: ChosenProgram;
 
+    visible2?: boolean = false;
+    visible3?: boolean = false;
+    visible4?: boolean = false;
+
     constructor(private router: Router,
                 private programShortcutService: ProgramShortcutService,
                 private startService: StartService,
@@ -57,6 +61,12 @@ export class StartComponent implements OnInit{
                 },
                 complete: () => {
                     this.loaderService.setLoading1(false);
+                    this.visible2 = true;
+                    this.visible3 = false;
+                    this.visible4 = false;
+                    this.degreeSelected = undefined;
+                    this.cycleSelected = undefined;
+                    this.specializationSelected = undefined;
                 }
             });
         }
@@ -77,6 +87,10 @@ export class StartComponent implements OnInit{
                             this.cyclesDisplay.push(cycle.toString() + "/" + (Number(cycle)+1).toString());
                         });
                         this.loaderService.setLoading2(false);
+                        this.visible3 = true;
+                        this.visible4 = false;
+                        this.cycleSelected = undefined;
+                        this.specializationSelected = undefined;
                     }
                 });
         }
@@ -93,6 +107,8 @@ export class StartComponent implements OnInit{
             );
             specializationsGiven.map(specialization => this.specializations.push(specialization));
             this.loaderService.setLoading3(false);
+            this.visible4 = true;
+            this.specializationSelected = undefined;
         }
     }
 

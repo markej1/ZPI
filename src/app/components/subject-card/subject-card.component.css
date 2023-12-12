@@ -71,12 +71,12 @@ button {
 span {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 10px;
+    grid-gap: 0;
 }
 
 .curriculum_content {
     border: none;
-    padding: 8px;
+    padding-inline: 8px;
     text-align: left;
     vertical-align: top;
 }

@@ -65,8 +65,8 @@
             </tr>
         </table>
 
-        <div *ngIf="subject?.programme_content?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
-        <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">
+        <div *ngIf="subject?.curriculumContent?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
+        <span class="programme-content" *ngFor="let p of subject?.curriculumContent; index as i">
             <table id="curriculum">
                 <tr class="curriculum_content">
                     <td class="curriculum_content">{{ i + 1 }}.</td>
