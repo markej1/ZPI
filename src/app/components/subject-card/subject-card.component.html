@@ -11,7 +11,10 @@
                 {{ 'SubjectName' | translate }} <span class="left-text">{{ subject?.name }}</span>
             </div>
             <div>
+
 <!--                {{ 'SubjectKind' | translate }} <span class="left-text">{{ subject?.kind_of_subject }}</span>-->
+
+<!--                 {{ 'GroupOfCourses' | translate }} <span class="left-text">{{ subject?.group_of_courses }}</span> -->
             </div>
         </div>
         <table>
@@ -55,22 +58,21 @@
                 <td>{{ subject?.project?.ECTS }}</td>
                 <td>{{ subject?.seminar?.ECTS }}</td>
             </tr>
-            <tr>
-                <td class="table-header">{{ 'GroupOfCourses' | translate }}</td>
-                <td>X</td>
-                <td>X</td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
         </table>
 
-        <div>{{ 'ProgrammeContent' | translate }}</div>
+<!--         <div>{{ 'ProgrammeContent' | translate }}</div> -->
 <!--        <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">-->
 <!--            <div>{{ i + 1 }}.</div> <div>{{ p }}</div>-->
 <!--        </span>-->
-        {{ 'Link' | translate }}
+<!--         {{ 'Link' | translate }} -->
 <!--        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>-->
+
+        <div *ngIf="subject?.programme_content?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
+        <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">
+            {{ i + 1 }}. {{ p }}
+        </span>
+        <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
+        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
     </div>
 </div>
 

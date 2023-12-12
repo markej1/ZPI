@@ -1,13 +1,13 @@
-import {Classes, Laboratory, Lecture, Project, Seminar} from "./course";
+import {Course} from "./course";
 
 export interface Subject {
     code: string;
     name: string;
-    lecture: Lecture | undefined;
-    classes: Classes | undefined;
-    seminar: Seminar | undefined;
-    laboratory: Laboratory | undefined;
-    project: Project | undefined;
+//     lecture: Lecture | undefined;
+//     classes: Classes | undefined;
+//     seminar: Seminar | undefined;
+//     laboratory: Laboratory | undefined;
+//     project: Project | undefined;
     // group_of_courses: string;
     // kind_of_subject: string;
     curriculumContent: string[];
@@ -19,6 +19,15 @@ export interface Subject {
     ects: number,
     hasExam: boolean,
     hours: string
+  
+    lecture?: Course;
+    classes?: Course;
+    seminar?: Course;
+    laboratory?: Course;
+    project?: Course;
+//     group_of_courses: string;
+//     programme_content: string[];
+//     link: string;
 }
 
 

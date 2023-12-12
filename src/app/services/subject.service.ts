@@ -33,6 +33,7 @@ export class SubjectService {
         return this.block;
     }
 
+
     getLoadedBlocks(): Block[] {
         return this.allBlocks
     }
@@ -40,6 +41,7 @@ export class SubjectService {
     setLoadedBlocks(blockList: Block[]) {
         this.allBlocks = blockList
     }
+
 
     getAllBlocks(): Observable<Program[]> {
         //level: number, field: string, cycle: number, specialization: string
