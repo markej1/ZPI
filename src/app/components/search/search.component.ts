@@ -7,6 +7,7 @@ import {SubjectCardComponent} from "../subject-card/subject-card.component";
 import {Card} from "../../model/card";
 import {Subject} from "../../model/subject";
 import {Course} from "../../model/course";
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
     selector: 'app-search',
@@ -25,7 +26,7 @@ export class SearchComponent implements OnInit {
 
     chosenSubjectLecture?: SubjectLecture;
 
-    constructor(private searchService: SearchService, private dialog: MatDialog) {
+    constructor(private searchService: SearchService, private dialog: MatDialog, public loaderService: LoaderService) {
         this.getSubjectLectureList();
     }
 
@@ -77,6 +78,7 @@ export class SearchComponent implements OnInit {
 
     getSubjectLectureList() {
         const subjectLectureListMock: SubjectLecture[] = [];
+        this.loaderService.setLoading1(true);
         this.searchService.getSubjectLectures().subscribe({
             next: subjectLecturesGiven => {
                 subjectLecturesGiven.map(subjectLectureGiven => {
@@ -105,6 +107,9 @@ export class SearchComponent implements OnInit {
                     this.createFilteredSubjectLectureList(this.subjectLectureList)
                         .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
                 console.log(this.filteredSubjectList);
+            },
+            complete: () => {
+                this.loaderService.setLoading1(false);
             }
         });
     }
