@@ -10,5 +10,6 @@ export interface CardDetails {
     inGroupCourse: boolean,
     zzu: number,
     hasCurriculum: boolean,
-    curriculumContent?: string[]
+    curriculumContent?: string[],
+    crediting: string
 }
