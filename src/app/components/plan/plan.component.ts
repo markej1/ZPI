@@ -39,13 +39,13 @@ export class PlanComponent implements DoCheck, OnInit {
             this.changeCycleString(this.route.snapshot.paramMap.get('cycle')),
             this.route.snapshot.paramMap.get('specialization')
         ).subscribe(value => {
-            semesters.push(value[0]["1"]);
-            semesters.push(value[0]["2"]);
-            semesters.push(value[0]["3"]);
-            semesters.push(value[0]["4"]);
-            semesters.push(value[0]["5"]);
-            semesters.push(value[0]["6"]);
-            semesters.push(value[0]["7"]);
+            if(value[0]["1"] != undefined) semesters.push(value[0]["1"]);
+            if(value[0]["2"] != undefined)semesters.push(value[0]["2"]);
+            if(value[0]["3"] != undefined)semesters.push(value[0]["3"]);
+            if(value[0]["4"] != undefined)semesters.push(value[0]["4"]);
+            if(value[0]["5"] != undefined)semesters.push(value[0]["5"]);
+            if(value[0]["6"] != undefined)semesters.push(value[0]["6"]);
+            if(value[0]["7"] != undefined)semesters.push(value[0]["7"]);
 
             this.semesterService.setSemestersAmount(semesters.length)
 
