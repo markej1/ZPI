@@ -12,14 +12,7 @@ import {LoaderService} from "../../services/loader.service";
 })
 export class MenuComponent implements OnInit {
 
-    chosenProgram: ChosenProgram = {
-        field_name: "Informatyka Stosowana",
-        is_general_academic: "ogólnoakademicki",
-        education_level: "pierwszy",
-        is_full_time: "stacjonarna",
-        language: "polski",
-        semestersAmount: 7
-    }
+    chosenProgram?: ChosenProgram;
 
     specializationChosen?: string;
 
@@ -31,13 +24,20 @@ export class MenuComponent implements OnInit {
         private router: Router,
         public loaderService: LoaderService
     ) {
-        this.specializationChosen = this.programShortcutService.getSpecialization();
-        this.semesterService.setSemestersAmount(this.chosenProgram.semestersAmount);
-        this.semesterService.setDisplayedSemesters(false);
     }
 
     ngOnInit() {
+        this.specializationChosen = this.programShortcutService.getSpecialization();
+        this.semesterService.setDisplayedSemesters(false);
         this.menuUrl = this.router.url;
+        this.chosenProgram = {
+            field_name: this.programShortcutService.getDegreeSelected()!,
+            is_general_academic: this.programShortcutService.getIsGeneralAcademic()! === "true",
+            education_level: this.programShortcutService.getEducationLevel()!,
+            is_full_time: this.programShortcutService.getIsFullTime()! === "true",
+            language: this.programShortcutService.getLanguage()!
+        };
+        console.log(this.chosenProgram);
     }
 
     replaceWrongSigns(text?: string): string | undefined {

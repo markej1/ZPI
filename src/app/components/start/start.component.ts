@@ -147,10 +147,13 @@ export class StartComponent implements OnInit{
                         education_level: chosenProgramGiven.education_level,
                         is_full_time: chosenProgramGiven.is_full_time,
                         language: chosenProgramGiven.language,
-                        semestersAmount: chosenProgramGiven.semestersAmount
                     };
                 },
                 complete: () => {
+                    this.programShortcutService.setEducationLevel(this.chosenProgram?.education_level);
+                    this.programShortcutService.setIsFullTime(this.chosenProgram?.is_full_time.toString());
+                    this.programShortcutService.setIsGeneralAcademic(this.chosenProgram?.is_general_academic.toString());
+                    this.programShortcutService.setLanguage(this.chosenProgram?.language);
                     this.loaderService.setLoading4(false);
                 }
             });
@@ -168,10 +171,13 @@ export class StartComponent implements OnInit{
                         education_level: chosenProgramGiven.education_level,
                         is_full_time: chosenProgramGiven.is_full_time,
                         language: chosenProgramGiven.language,
-                        semestersAmount: chosenProgramGiven.semestersAmount
                     };
                 },
                 complete: () => {
+                    this.programShortcutService.setEducationLevel(this.chosenProgram?.education_level);
+                    this.programShortcutService.setIsFullTime(this.chosenProgram?.is_full_time.toString());
+                    this.programShortcutService.setIsGeneralAcademic(this.chosenProgram?.is_general_academic.toString());
+                    this.programShortcutService.setLanguage(this.chosenProgram?.language);
                     this.loaderService.setLoading4(false);
                 }
             });
