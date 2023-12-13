@@ -10,8 +10,8 @@
     overflow: auto;
     justify-items: center;
     align-items: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 .plan {
@@ -27,8 +27,8 @@
     overflow: auto;
     justify-items: center;
     align-items: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 ::ng-deep .mat-ripple {

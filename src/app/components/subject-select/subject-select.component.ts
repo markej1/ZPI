@@ -18,9 +18,6 @@ export class SubjectSelectComponent implements OnInit {
 
     ngOnInit() {
         this.createTempBlocks();
-
-        console.log(this.block);
-        console.log(this.tempBlockList);
     }
 
     createTempBlocks() {
@@ -36,5 +33,6 @@ export class SubjectSelectComponent implements OnInit {
             }
             this.tempBlockList?.push(tempBlock);
         });
+        this.tempBlockList?.sort((a, b) => a.name.localeCompare(b.name));
     }
 }

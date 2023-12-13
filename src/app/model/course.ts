@@ -3,4 +3,5 @@ export interface Course {
     ZZU: string
     CNPS: string
     crediting: string
+    courseGroup?: boolean
 }

@@ -3,6 +3,8 @@ import {SubjectService} from "../../services/subject.service";
 import {Block} from "../../model/block";
 import {SemesterService} from "../../services/semester.service";
 import {Subject} from "../../model/subject";
+import {ProgramShortcutService} from "../../services/program-shortcut.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-plan',
@@ -16,9 +18,13 @@ export class PlanComponent implements DoCheck, OnInit {
     chosenSemester?: string;
     allSemesters = true;
     isLoadingResults: boolean = false;
+    semesterAmount: number = 1;
 
-    constructor(private semesterService: SemesterService) {
-        // this.subjectList = this.subjectService.getAllBlocks();
+    constructor(
+        private semesterService: SemesterService,
+        private programShortcutService: ProgramShortcutService,
+        private route: ActivatedRoute
+    ) {
         this.semesterService.setDisplayedSemesters(true);
     }
 
@@ -27,7 +33,12 @@ export class PlanComponent implements DoCheck, OnInit {
         let semesters: Subject[][] = []
 
         this.isLoadingResults = true;
-        this.subjectService.getAllBlocks().subscribe(value => {
+        this.subjectService.getAllBlocks(
+            this.changeLevelString(this.route.snapshot.paramMap.get('level')),
+            this.route.snapshot.paramMap.get('name'),
+            this.changeCycleString(this.route.snapshot.paramMap.get('cycle')),
+            this.route.snapshot.paramMap.get('specialization')
+        ).subscribe(value => {
             semesters.push(value[0]["1"]);
             semesters.push(value[0]["2"]);
             semesters.push(value[0]["3"]);
@@ -35,6 +46,8 @@ export class PlanComponent implements DoCheck, OnInit {
             semesters.push(value[0]["5"]);
             semesters.push(value[0]["6"]);
             semesters.push(value[0]["7"]);
+
+            this.semesterService.setSemestersAmount(semesters.length)
 
             let semesterId = 1
             semesters.forEach(semester => {
@@ -60,7 +73,7 @@ export class PlanComponent implements DoCheck, OnInit {
         });
 
         this.subjectService.setLoadedBlocks(blocks);
-        this.subjectList = blocks;
+        this.subjectList = blocks.sort((a, b) => a.name.localeCompare(b.name));
     }
 
     ngDoCheck() {
@@ -73,9 +86,21 @@ export class PlanComponent implements DoCheck, OnInit {
         let semesterNumber: number | undefined = number ? parseInt(number[0]) : undefined;
 
         if(semesterNumber) {
-            this.subjectList = this.subjectService.getBlocksBySemester(semesterNumber);
+            this.subjectList = this.subjectService.getBlocksBySemester(semesterNumber).sort((a, b) => a.name.localeCompare(b.name));
         } else {
-            this.subjectList = this.subjectService.getLoadedBlocks();
+            this.subjectList = this.subjectService.getLoadedBlocks().sort((a, b) => a.name.localeCompare(b.name));
         }
+    }
+
+    changeLevelString(text: string | null): string {
+        if (text === 'I_stopień') return '1'
+        else return '2'
+    }
+
+    changeCycleString(text: string | null): string {
+        if(text !== null) {
+            return text.split('_')[0];
+        }
+        return ""
     }
 }

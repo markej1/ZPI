@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, OnInit} from '@angular/core';
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {HelpScreenComponent} from "../help-screen/help-screen.component";
 import {MatDialog} from "@angular/material/dialog";
@@ -11,7 +11,7 @@ import {TranslateService} from "@ngx-translate/core";
     templateUrl: './margin.component.html',
     styleUrls: ['./margin.component.css']
 })
-export class MarginComponent implements OnInit {
+export class MarginComponent implements OnInit, DoCheck {
 
     levelChosen?: string;
     degreeChosen?: string;
@@ -33,12 +33,12 @@ export class MarginComponent implements OnInit {
         this.degreeChosen = this.programShortcutService.getDegreeSelected();
         this.cycleChosen = this.programShortcutService.getCycleSelected();
 
-        this.semestersAmount = this.semesterService.getSemestersAmount();
-        if (this.semestersAmount != null) {
-            for (let i = 0; i < this.semestersAmount; i++) {
-                this.semesterNumbers.push(i+1);
-            }
-        }
+        // this.semestersAmount = this.semesterService.getSemestersAmount();
+        // if (this.semestersAmount != null) {
+        //     for (let i = 0; i < this.semestersAmount; i++) {
+        //         this.semesterNumbers.push(i+1);
+        //     }
+        // }
 
         this.displayedSemester = this.semesterService.getDisplayedSemesters();
 
@@ -47,6 +47,17 @@ export class MarginComponent implements OnInit {
     ngOnInit() {
         this.semesterService.setSemesterChosen(this.translate.instant("All"));
         this.semesterChosen = this.semesterService.getSemesterChosen();
+    }
+
+    ngDoCheck() {
+        this.semestersAmount = this.semesterService.getSemestersAmount()
+
+        if (this.semestersAmount != null) {
+            this.semesterNumbers = []
+            for (let i = 0; i < this.semestersAmount; i++) {
+                this.semesterNumbers.push(i+1);
+            }
+        }
     }
 
     openDialog() {

@@ -6,7 +6,12 @@ import {SearchComponent} from "./components/search/search.component";
 
 const routeConfig: Routes = [
     {
-        path: 'plan/:name/:cycle/:specialization',
+        path: 'plan/:level/:name/:cycle/:specialization',
+        component: PlanComponent,
+        title: 'Plan studiów'
+    },
+    {
+        path: 'plan/:level/:name/:cycle',
         component: PlanComponent,
         title: 'Plan studiów'
     },

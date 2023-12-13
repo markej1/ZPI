@@ -69,7 +69,8 @@
 
         <div *ngIf="subject?.curriculumContent?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
         <span class="programme-content" *ngFor="let p of subject?.curriculumContent; index as i">
-            {{ i + 1 }}. {{ p }}
+            <div>{{ i + 1 }}.</div> <div>{{ p }}</div>
+<!--            {{ i + 1 }}. {{ p }}-->
         </span>
         <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
         <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
