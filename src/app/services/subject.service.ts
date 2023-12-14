@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import {Subject as MySubject} from "../model/subject";
+import {Subject, Subject as MySubject} from "../model/subject";
 import {Block} from "../model/block";
 import {HttpClient} from "@angular/common/http";
 import {Program} from "../model/program";
 import {Observable} from "rxjs";
+import {Card} from "../model/card";
+import {Course} from "../model/course";
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +42,13 @@ export class SubjectService {
         this.allBlocks = blockList
     }
 
-
-    getAllBlocks(): Observable<Program[]> {
-        //level: number, field: string, cycle: number, specialization: string
-        return this._httpClient.get<Program[]>(`${this._url}/list-subjects/1/Informatyka_Stosowana/2023/`)
+    getAllBlocks(level?: string | null, field?: string | null, cycle?: string | null, specialization?: string | null): Observable<Program[]> {
+        // return this._httpClient.get<Program[]>(`${this._url}/list-subjects/1/Informatyka_Stosowana/2023/`)
+        if(specialization == null) {
+            return this._httpClient.get<Program[]>(`${this._url}/list-subjects/${level}/${field}/${cycle}/`)
+        } else {
+            return this._httpClient.get<Program[]>(`${this._url}/list-subjects/${level}/${field}/${cycle}/${specialization}/`)
+        }
     }
 
     getBlocksBySemester(semester: number): Block[] {
@@ -58,7 +63,4 @@ export class SubjectService {
         return resultBlock;
     }
 
-    // getSubjectDetails(subject: Subject) {
-    //     let details: Observable<> = this._httpClient.get(this._url + `/desc/${subject.moduleId}/${subject.subjectId}/`)
-    // }
 }

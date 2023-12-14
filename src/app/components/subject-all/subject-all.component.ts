@@ -14,22 +14,36 @@ export class SubjectAllComponent {
     @Input() block!: Block;
 
     changeColor(): string {
-        let color = ""
-        if(this.block.block_type === "Field of study" && this.block.subjects.length === 1) {
+        let color: string
+        if(this.block.block_type === "Field Of Study" && this.block.subjects.length === 1) {
             color = '#FEE5A5';
         } else if(this.block.block_type === "Specialization" && this.block.subjects.length === 1) {
             color = "#FCA8A3";
-        } else if(this.block.block_type === "Basic science" && this.block.subjects.length === 1) {
+        } else if(
+            (this.block.block_type === "Basic science" || this.block.block_type === "Physics" || this.block.block_type === "Mathematics")
+            && this.block.subjects.length === 1
+        ) {
             color = "#A5D9FE";
-        } else if(this.block.block_type === "General education" && this.block.subjects.length === 1) {
+        } else if(
+            (this.block.block_type === "General education" || this.block.block_type === "Information technologies" || this.block.block_type === "Foreign languages"
+                || this.block.block_type === "Liberal-managerial" || this.block.block_type === "Sporting classes")
+            && this.block.subjects.length === 1
+        ) {
             color = "#85DD88";
-        } else if(this.block.block_type === "Field of study" && this.block.subjects.length > 1) {
+        } else if(this.block.block_type === "Field Of Study" && this.block.subjects.length > 1) {
             color = "#DCB142";
         } else if(this.block.block_type === "Specialization" && this.block.subjects.length > 1) {
             color = "#FF675E";
-        } else if(this.block.block_type === "Basic science" && this.block.subjects.length > 1) {
+        } else if(
+            (this.block.block_type === "Basic science" || this.block.block_type === "Physics" || this.block.block_type === "Mathematics")
+            && this.block.subjects.length > 1
+        ) {
             color = "#1494BC";
-        } else if(this.block.block_type === "General education" && this.block.subjects.length > 1) {
+        } else if(
+            (this.block.block_type === "General education" || this.block.block_type === "Information technologies" || this.block.block_type === "Foreign languages"
+                || this.block.block_type === "Liberal-managerial" || this.block.block_type === "Sporting classes")
+            && this.block.subjects.length > 1
+        ) {
             color = "#4DA524";
         } else {
             color = "white"
