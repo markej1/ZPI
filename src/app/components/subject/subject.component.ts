@@ -5,6 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {SubjectCardComponent} from "../subject-card/subject-card.component";
 import {SubjectSelectComponent} from "../subject-select/subject-select.component";
 import {ActivatedRoute} from "@angular/router";
+import {ProgramShortcutService} from "../../services/program-shortcut.service";
 
 @Component({
     selector: 'app-subject',
@@ -53,11 +54,18 @@ export class SubjectComponent {
         return color;
     }
 
-    constructor(private subjectService: SubjectService, public dialog: MatDialog) {}
+    constructor(private subjectService: SubjectService, public dialog: MatDialog, private programShortcutService: ProgramShortcutService) {}
 
     sendData() {
         if (this.isSubject()) {
             this.subjectService.selectSubject(this.block.subjects[0]);
+            this.subjectService.saveSubjectDetails(
+                this.block.subjects[0],
+                this.getLevel(this.programShortcutService.getLevelSelected()),
+                this.programShortcutService.getDegreeSelected()?.split(" ").join("_"),
+                this.programShortcutService.getCycleSelected()?.split("/")[0],
+                this.programShortcutService.getSpecialization()?.split(" ").join("_")
+            )
         } else {
             this.subjectService.selectBlock(this.block);
         }
@@ -88,5 +96,13 @@ export class SubjectComponent {
 
     isSubject(): boolean {
         return this.block.subjects.length == 1;
+    }
+
+    getLevel(text: string | undefined): string {
+        if(text == "I stopień") {
+            return "1"
+        } else {
+            return "2"
+        }
     }
 }

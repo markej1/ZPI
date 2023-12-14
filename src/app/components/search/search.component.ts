@@ -167,7 +167,10 @@ export class SearchComponent implements OnInit {
             height: "85%",
             data: {
                 name: this.chosenSubjectLecture?.subjectName,
-                subject: subject
+                subject: subject,
+                level: this.chosenSubjectLecture?.level,
+                cycle: this.chosenSubjectLecture?.cycle,
+                search: true
             }
         });
     }

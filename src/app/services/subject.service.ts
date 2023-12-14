@@ -63,4 +63,75 @@ export class SubjectService {
         return resultBlock;
     }
 
+    saveSubjectDetails(subject: Subject, level: string | undefined, field: string | undefined, cycle: string | undefined, specialization: string | undefined) {
+        let url: string
+
+        if(specialization == undefined) {
+            url = `${this._url}/desc/${level}/${field}/${cycle}/${subject.moduleId}/${subject.subjectId}/`
+        } else {
+            url = `${this._url}/desc/${level}/${field}/${cycle}/${subject.moduleId}/${subject.subjectId}/${specialization}/`
+        }
+
+        this._httpClient
+            .get<Card[]>(url)
+            .subscribe(cards => {
+                cards.forEach(card => {
+                    switch(card.type) {
+                        case "Lecture": {
+                            subject.lecture = {
+                                CNPS: card.detalis.cnps.toString(),
+                                ECTS: card.detalis.ects.toString(),
+                                ZZU: card.detalis.zzu.toString(),
+                                courseGroup: card.detalis.inGroupCourse,
+                                crediting: card.detalis.crediting
+                            }
+                            break;
+                        }
+                        case "Classes": {
+                            subject.classes = {
+                                CNPS: card.detalis.cnps.toString(),
+                                ECTS: card.detalis.ects.toString(),
+                                ZZU: card.detalis.zzu.toString(),
+                                courseGroup: card.detalis.inGroupCourse,
+                                crediting: card.detalis.crediting
+                            }
+                            break;
+                        }
+                        case "Laboratory": {
+                            subject.laboratory = {
+                                CNPS: card.detalis.cnps.toString(),
+                                ECTS: card.detalis.ects.toString(),
+                                ZZU: card.detalis.zzu.toString(),
+                                courseGroup: card.detalis.inGroupCourse,
+                                crediting: card.detalis.crediting
+                            }
+                            break;
+                        }
+                        case "Seminar": {
+                            subject.seminar = {
+                                CNPS: card.detalis.cnps.toString(),
+                                ECTS: card.detalis.ects.toString(),
+                                ZZU: card.detalis.zzu.toString(),
+                                courseGroup: card.detalis.inGroupCourse,
+                                crediting: card.detalis.crediting
+                            }
+                            break;
+                        }
+                        case "Project": {
+                            subject.project = {
+                                CNPS: card.detalis.cnps.toString(),
+                                ECTS: card.detalis.ects.toString(),
+                                ZZU: card.detalis.zzu.toString(),
+                                courseGroup: card.detalis.inGroupCourse,
+                                crediting: card.detalis.crediting
+                            }
+                            break;
+                        }
+                    }
+                })
+            })
+
+    }
+
+
 }

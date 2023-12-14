@@ -73,7 +73,7 @@
 <!--            {{ i + 1 }}. {{ p }}-->
         </span>
         <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
-        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
+        <a class="link" href="{{getLink()}}">{{ getLink() }}</a>
     </div>
 </div>
 
