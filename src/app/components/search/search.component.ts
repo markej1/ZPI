@@ -155,7 +155,7 @@ export class SearchComponent implements OnInit {
             else if (cardList[index].type === "Project") { project = course; }
         });
         subject = {
-            category: "", code: "", ects: 0, hasExam: false, hours: "", module: "", moduleId: "", subjectId: "",
+            category: "", code: "", ects: 0, ectsString: "", hasExam: false, hours: "", module: "", moduleId: "", subjectId: "",
             id: this.chosenSubjectLecture?.id!,
             name: this.chosenSubjectLecture?.subjectName!,
             group_of_courses: this.searchService.isGroupOfCourseString(cardList),

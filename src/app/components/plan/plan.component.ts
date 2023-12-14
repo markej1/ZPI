@@ -5,6 +5,8 @@ import {SemesterService} from "../../services/semester.service";
 import {Subject} from "../../model/subject";
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {ActivatedRoute} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
+import {CommunicationService} from "../../services/communication.service";
 
 @Component({
   selector: 'app-plan',
@@ -23,7 +25,9 @@ export class PlanComponent implements DoCheck, OnInit {
     constructor(
         private semesterService: SemesterService,
         private programShortcutService: ProgramShortcutService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private translate: TranslateService,
+        private communicationService: CommunicationService
     ) {
         this.semesterService.setDisplayedSemesters(true);
     }
@@ -48,6 +52,8 @@ export class PlanComponent implements DoCheck, OnInit {
             if(value[0]["7"] != undefined)semesters.push(value[0]["7"]);
 
             this.semesterService.setSemestersAmount(semesters.length)
+            this.semesterService.setSemesterChosen(this.translate.instant("All"));
+            this.communicationService.notifyNgOnInitCompleted()
 
             let semesterId = 1
             semesters.forEach(semester => {
@@ -56,6 +62,7 @@ export class PlanComponent implements DoCheck, OnInit {
                     if(tempBlock === undefined) {
                         blocks.push({
                             ects: subject.ects,
+                            ectsString: subject.ectsString,
                             exam: subject.hasExam ? "E" : "",
                             hours: subject.hours,
                             semester: semesterId,

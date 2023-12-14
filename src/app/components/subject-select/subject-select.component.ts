@@ -28,6 +28,7 @@ export class SubjectSelectComponent implements OnInit {
                 block_type: this.block?.block_type,
                 subjects: [subject],
                 ects: this.block?.ects,
+                ectsString: this.block?.ectsString,
                 hours: this.block?.hours,
                 semester: this.block?.semester
             }

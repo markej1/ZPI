@@ -72,11 +72,11 @@
             </table>
         </span>
         <div>{{ 'Link' | translate }}</div>
-        <a class="link" href="{{subject?.link}}"></a>
+        <a class="link" href="{{getLink()}}">{{ getLink() }}</a>
     </div>
     <div *ngIf="!exists" id="not-exist">
         <div>{{ 'EmptyCardLink' | translate }}</div>
-        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
+        <a class="link" href="{{getLink()}}">{{ getLink() }}</a>
     </div>
 </div>
 
