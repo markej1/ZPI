@@ -74,12 +74,11 @@
                 </tr>
             </table>
         </span>
-        <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
-        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
+        <div>{{ 'Link' | translate }}</div>
+        <a class="link" href="{{subject?.link}}"></a>
     </div>
     <div *ngIf="!exists" id="not-exist">
-        <div>{{ 'EmptyCard' | translate }}</div>
-        <div *ngIf="subject?.link !== ''">{{ 'EmptyCardLink' | translate }}</div>
+        <div>{{ 'EmptyCardLink' | translate }}</div>
         <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
     </div>
 </div>

@@ -30,7 +30,7 @@ export class SubjectCardComponent implements OnInit {
         this.groupOfCourses = this.answerData.groupOfCourses;
         this.subject = this.answerData.subject;
 
-        if (this.subject?.lecture?.ZZU === "0" && this.subject?.lecture?.CNPS === "0" && this.subject?.lecture?.ECTS === "0") {
+        if (this.subject?.curriculumContent.length === 0) {
             this.exists = false;
         }
         if (this.subject == undefined) {
@@ -40,7 +40,7 @@ export class SubjectCardComponent implements OnInit {
         if (this.exists) {
             this.dialogRef.updateSize("85%", "85%");
         } else {
-            this.dialogRef.updateSize("40%", "35%");
+            this.dialogRef.updateSize("50%", "35%");
         }
     }
 
