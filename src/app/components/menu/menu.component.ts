@@ -47,11 +47,12 @@ export class MenuComponent implements OnInit {
                 .join("_")
                 .split("/")
                 .join("_");
-        } else return undefined;
+        } else return "";
     }
 
     navigate() {
-        const url: string = '/plan/' + this.replaceWrongSigns(this.programShortcutService.getDegreeSelected())
+        const url: string = '/plan/' + this.replaceWrongSigns(this.programShortcutService.getLevelSelected())
+            + '/' + this.replaceWrongSigns(this.programShortcutService.getDegreeSelected())
             + '/' + this.replaceWrongSigns(this.programShortcutService.getCycleSelected())
             + '/' + this.replaceWrongSigns(this.programShortcutService.getSpecialization());
 
