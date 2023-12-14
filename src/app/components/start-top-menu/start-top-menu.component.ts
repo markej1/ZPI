@@ -23,7 +23,7 @@ export class StartTopMenuComponent implements AfterViewInit {
 
     constructor(private appComponent: AppComponent, private languageService: LanguageService) {
         const languageChosen = this.languageService.getLanguageChanged();
-        this.languageChanged = languageChosen !== 'pl';
+        this.languageChanged = languageChosen === 'en';
     }
 
     switchLanguage() {

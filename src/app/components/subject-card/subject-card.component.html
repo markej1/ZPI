@@ -4,20 +4,14 @@
     </button>
 </div>
 <div mat-dialog-content class="mat-dialog">
-    <div class="container">
+    <div class="container" *ngIf="exists">
         <div class="title">{{ 'SubjectCard' | translate }}</div>
         <div class="description">
             <div>
                 {{ 'SubjectName' | translate }} <span class="left-text">{{ subject?.name }}</span>
             </div>
-            <div>
-
-<!--                {{ 'SubjectKind' | translate }} <span class="left-text">{{ subject?.kind_of_subject }}</span>-->
-
-<!--                 {{ 'GroupOfCourses' | translate }} <span class="left-text">{{ subject?.group_of_courses }}</span> -->
-            </div>
         </div>
-        <table>
+        <table id="information">
             <tr>
                 <td class="table-header"></td>
                 <th class="table-header">{{ 'Lecture' | translate }}</th>
@@ -58,22 +52,31 @@
                 <td>{{ subject?.project?.ECTS }}</td>
                 <td>{{ subject?.seminar?.ECTS }}</td>
             </tr>
+            <tr>
+                <td class="table-header">{{ 'GroupOfCourses'  | translate }}</td>
+                <td><section *ngIf="subject?.lecture?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.classes?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.laboratory?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.project?.courseGroup">X</section></td>
+                <td><section *ngIf="subject?.seminar?.courseGroup">X</section></td>
+            </tr>
         </table>
-
-<!--         <div>{{ 'ProgrammeContent' | translate }}</div> -->
-<!--        <span class="programme-content" *ngFor="let p of subject?.programme_content; index as i">-->
-<!--            <div>{{ i + 1 }}.</div> <div>{{ p }}</div>-->
-<!--        </span>-->
-<!--         {{ 'Link' | translate }} -->
-<!--        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>-->
 
         <div *ngIf="subject?.curriculumContent?.length !== 0">{{ 'ProgrammeContent' | translate }}</div>
         <span class="programme-content" *ngFor="let p of subject?.curriculumContent; index as i">
-            <div>{{ i + 1 }}.</div> <div>{{ p }}</div>
-<!--            {{ i + 1 }}. {{ p }}-->
+            <table id="curriculum">
+                <tr class="curriculum_content">
+                    <td class="curriculum_content">{{ i + 1 }}.</td>
+                    <td class="curriculum_content">{{ p }}</td>
+                </tr>
+            </table>
         </span>
-        <div *ngIf="subject?.link !== ''">{{ 'Link' | translate }}</div>
-        <a class="link" href="{{getLink()}}">{{ getLink() }}</a>
+        <div>{{ 'Link' | translate }}</div>
+        <a class="link" href="{{subject?.link}}"></a>
+    </div>
+    <div *ngIf="!exists" id="not-exist">
+        <div>{{ 'EmptyCardLink' | translate }}</div>
+        <a class="link" href="{{subject?.link}}">{{ subject?.link }}</a>
     </div>
 </div>
 

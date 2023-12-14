@@ -43,13 +43,16 @@
     "ECTSPointsSplit": "Number of ECTS points",
     "SubjectNameHelp": "Subject name",
     "Exam": "Exam",
-  "Prerequirements": "Prerequirements",
-  "Title": "Title after studies",
-  "Figure": "Figure of graduate, possibilities of employment",
   "Semester": "Semester",
   "All": "All",
   "Level": "level",
   "First": "1st",
-  "Second": "2nd"
-
+  "Second": "2nd",
+  "EmptyCard": "There is no card of the chosen subject.",
+  "EmptyCardLink": "To see subject card, go to website:",
+  "StudyLanguage": "Language of studies",
+    "IsFullTimeTrue": "full-time studies",
+    "IsFullTimeFalse": "part-time studies",
+    "IsGeneralAcademicTrue": "general academic",
+    "IsGeneralAcademicFalse": "practical"
 }

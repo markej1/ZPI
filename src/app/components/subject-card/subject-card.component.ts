@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {SubjectService} from "../../services/subject.service";
 import {Subject} from "../../model/subject";
-import {MAT_DIALOG_DATA} from "@angular/material/dialog";
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 
 @Component({
@@ -16,15 +16,33 @@ export class SubjectCardComponent implements OnInit {
     groupOfCourses: string = "";
     subject?: Subject;
     isSearched: boolean = false;
+    exists?: boolean = true;
 
-    constructor(private subjectService: SubjectService, @Inject(MAT_DIALOG_DATA) public answerData: any, private programShortcutService: ProgramShortcutService) {
-    }
+    constructor(
+        private subjectService: SubjectService,
+        @Inject(MAT_DIALOG_DATA) public answerData: any,
+        private dialogRef: MatDialogRef<any>,
+        private programShortcutService: ProgramShortcutService
+    ) {}
 
     ngOnInit() {
         this.subject =  this.subjectService.getSelectedSubject();
         this.name = this.answerData.name;
         this.groupOfCourses = this.answerData.groupOfCourses;
         this.subject = this.answerData.subject;
+
+        if (this.subject?.curriculumContent.length === 0) {
+            this.exists = false;
+        }
+        if (this.subject == undefined) {
+            this.exists = false;
+        }
+
+        if (this.exists) {
+            this.dialogRef.updateSize("85%", "85%");
+        } else {
+            this.dialogRef.updateSize("50%", "35%");
+        }
         if(this.answerData.search) this.isSearched = this.answerData.search;
         // this.subject?.link = this.getLink();
     }

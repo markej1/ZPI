@@ -43,12 +43,16 @@
     "ECTSPointsSplit": "Liczba punktów ECTS z podziałem na formy",
     "SubjectNameHelp": "Nazwa przedmiotu",
     "Exam": "Przedmiot kończy się egzaminem",
-  "Prerequirements": "Wymagania wstępne",
-  "Title": "Tytuł zawodowy nadawany po zakończeniu studiów",
-  "Figure": "Sylwetka absolwenta, możliwości zatrudnienia",
   "Semester": "Semestr",
   "All": "Wszystko",
   "Level": "stopień",
   "First": "I",
-  "Second": "II"
+  "Second": "II",
+  "EmptyCard": "Nie istnieje karta tego przedmiotu.",
+  "EmptyCardLink": "Aby przejrzeć kartę przedmiotu, przejdź do strony:",
+  "StudyLanguage": "Język studiów",
+    "IsFullTimeTrue": "stacjonarna",
+    "IsFullTimeFalse": "niestacjonarna",
+    "IsGeneralAcademicTrue": "ogólnoakademicki",
+    "IsGeneralAcademicFalse": "praktyczny"
 }
