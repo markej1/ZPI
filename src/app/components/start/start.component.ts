@@ -108,7 +108,6 @@ export class StartComponent implements OnInit{
             specializationsGiven.map(specialization => this.specializations.push(specialization));
             this.loaderService.setLoading3(false);
             this.visible4 = true;
-            this.specializationSelected = undefined;
         }
     }
 
@@ -127,60 +126,54 @@ export class StartComponent implements OnInit{
                 + '/' + this.replaceWrongSigns(this.cycleSelected)
                 + '/' + this.replaceWrongSigns(this.specializationSelected);
 
-            this.getChosenProgram();
+            await this.getChosenProgram();
             this.router.navigateByUrl(url).then();
         }
     }
 
-    getChosenProgram() {
+    async getChosenProgram() {
+        this.loaderService.setLoading4(true);
         if (this.specializationSelected == null) {
-            this.loaderService.setLoading4(true);
-            this.startService.getChosenProgram(
+            this.chosenProgram = await this.startService.getChosenProgram(
                 this.level!,
                 this.replaceWrongSigns(this.degreeSelected)!,
                 this.makeCycleDisplayedNumber(this.cycleSelected!)!
-            ).subscribe({
-                next: chosenProgramGiven => {
-                    this.chosenProgram = {
-                        field_name: chosenProgramGiven.field_name,
-                        is_general_academic: chosenProgramGiven.is_general_academic,
-                        education_level: chosenProgramGiven.education_level,
-                        is_full_time: chosenProgramGiven.is_full_time,
-                        language: chosenProgramGiven.language,
-                    };
-                },
-                complete: () => {
-                    this.programShortcutService.setEducationLevel(this.chosenProgram?.education_level);
-                    this.programShortcutService.setIsFullTime(this.chosenProgram?.is_full_time.toString());
-                    this.programShortcutService.setIsGeneralAcademic(this.chosenProgram?.is_general_academic.toString());
-                    this.programShortcutService.setLanguage(this.chosenProgram?.language);
-                    this.loaderService.setLoading4(false);
-                }
-            });
+            );
+            this.programShortcutService.setEducationLevel(
+                this.chosenProgram?.education_level,
+                this.chosenProgram?.inPolish
+            );
+            this.programShortcutService.setIsFullTime(
+                this.chosenProgram?.is_full_time,
+                this.chosenProgram?.inPolish
+            );
+            this.programShortcutService.setIsGeneralAcademic(
+                this.chosenProgram?.is_general_academic,
+                this.chosenProgram?.inPolish
+            );
+            this.programShortcutService.setLanguage(this.chosenProgram?.language);
+            this.loaderService.setLoading4(false);
         } else {
-            this.startService.getChosenProgramSpecialization(
+            this.chosenProgram = await this.startService.getChosenProgramSpecialization(
                 this.level!,
                 this.replaceWrongSigns(this.degreeSelected)!,
                 this.makeCycleDisplayedNumber(this.cycleSelected!)!,
                 this.replaceWrongSigns(this.specializationSelected)!
-            ).subscribe({
-                next: chosenProgramGiven => {
-                    this.chosenProgram = {
-                        field_name: chosenProgramGiven.field_name,
-                        is_general_academic: chosenProgramGiven.is_general_academic,
-                        education_level: chosenProgramGiven.education_level,
-                        is_full_time: chosenProgramGiven.is_full_time,
-                        language: chosenProgramGiven.language,
-                    };
-                },
-                complete: () => {
-                    this.programShortcutService.setEducationLevel(this.chosenProgram?.education_level);
-                    this.programShortcutService.setIsFullTime(this.chosenProgram?.is_full_time.toString());
-                    this.programShortcutService.setIsGeneralAcademic(this.chosenProgram?.is_general_academic.toString());
-                    this.programShortcutService.setLanguage(this.chosenProgram?.language);
-                    this.loaderService.setLoading4(false);
-                }
-            });
+            );
+            this.programShortcutService.setEducationLevel(
+                this.chosenProgram?.education_level,
+                this.chosenProgram?.inPolish
+            );
+            this.programShortcutService.setIsFullTime(
+                this.chosenProgram?.is_full_time,
+                this.chosenProgram?.inPolish
+            );
+            this.programShortcutService.setIsGeneralAcademic(
+                this.chosenProgram?.is_general_academic,
+                this.chosenProgram?.inPolish
+            );
+            this.programShortcutService.setLanguage(this.chosenProgram?.language);
+            this.loaderService.setLoading4(false);
         }
     }
 

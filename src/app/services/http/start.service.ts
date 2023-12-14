@@ -41,15 +41,15 @@ export class StartService {
     }
 
     getChosenProgram(level: number, degree: string, cycle: number) {
-        return this.http.get<ChosenProgram>("https://susel.pythonanywhere.com/chosen-program/" + level + "/"
-            + degree + "/" + cycle + "/");
+        return firstValueFrom(this.http.get<ChosenProgram>("https://susel.pythonanywhere.com/chosen-program/"
+            + level + "/" + degree + "/" + cycle + "/"));
     }
 
     getChosenProgramSpecialization(
         level: number, degree: string, cycle: number, specialization: string
     ) {
-        return this.http.get<ChosenProgram>("https://susel.pythonanywhere.com/chosen-program/" + level + "/"
-            + degree + "/" + cycle + "/" + specialization + "/");
+        return firstValueFrom(this.http.get<ChosenProgram>("https://susel.pythonanywhere.com/chosen-program/"
+            + level + "/" + degree + "/" + cycle + "/" + specialization + "/"));
     }
 
 }

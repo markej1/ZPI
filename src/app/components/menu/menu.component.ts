@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {ChosenProgram} from "../../model/chosen-program";
 import {ProgramShortcutService} from "../../services/program-shortcut.service";
 import {Router} from "@angular/router";
 import {SemesterService} from "../../services/semester.service";
@@ -12,7 +11,11 @@ import {LoaderService} from "../../services/loader.service";
 })
 export class MenuComponent implements OnInit {
 
-    chosenProgram?: ChosenProgram;
+    field_name?: string
+    is_general_academic?: string
+    education_level?: string
+    is_full_time?: string
+    language?: string
 
     specializationChosen?: string;
 
@@ -30,18 +33,15 @@ export class MenuComponent implements OnInit {
         this.specializationChosen = this.programShortcutService.getSpecialization();
         this.semesterService.setDisplayedSemesters(false);
         this.menuUrl = this.router.url;
-        this.chosenProgram = {
-            field_name: this.programShortcutService.getDegreeSelected()!,
-            is_general_academic: this.programShortcutService.getIsGeneralAcademic()! === "true",
-            education_level: this.programShortcutService.getEducationLevel()!,
-            is_full_time: this.programShortcutService.getIsFullTime()! === "true",
-            language: this.programShortcutService.getLanguage()!
-        };
-        console.log(this.chosenProgram);
+        this.field_name = this.programShortcutService.getDegreeSelected()!;
+        this.is_general_academic = this.programShortcutService.getIsGeneralAcademic()!;
+        this.education_level = this.programShortcutService.getEducationLevel()!;
+        this.is_full_time = this.programShortcutService.getIsFullTime()!;
+        this.language = this.programShortcutService.getLanguage()!;
     }
 
     replaceWrongSigns(text?: string): string | undefined {
-        if (text!=null) {
+        if (text != null) {
             return text
                 .split(" ")
                 .join("_")

@@ -7,7 +7,7 @@
         <table id="information_table">
             <tr>
                 <td>{{'Degree' | translate}}:</td>
-                <td>{{chosenProgram?.field_name}}</td>
+                <td>{{field_name}}</td>
             </tr>
             <tr *ngIf="specializationChosen != null">
                 <td>{{'Specialization' | translate}}:</td>
@@ -15,19 +15,19 @@
             </tr>
             <tr>
                 <td>{{'Profile' | translate}}:</td>
-                <td>{{chosenProgram?.is_general_academic}}</td>
+                <td>{{is_general_academic}}</td>
             </tr>
             <tr>
                 <td>{{'LevelStudy' | translate}}:</td>
-                <td>{{chosenProgram?.education_level}}</td>
+                <td>{{education_level}}</td>
             </tr>
             <tr>
                 <td>{{'Form' | translate}}:</td>
-                <td>{{chosenProgram?.is_full_time}}</td>
+                <td>{{is_full_time}}</td>
             </tr>
             <tr>
                 <td>{{'StudyLanguage' | translate}}:</td>
-                <td>{{chosenProgram?.language}}</td>
+                <td>{{language}}</td>
             </tr>
         </table>
 

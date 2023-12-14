@@ -5,5 +5,6 @@ export interface ChosenProgram {
     education_level: string;
     is_full_time: boolean;
     language: string;
+    inPolish: boolean;
 
 }
