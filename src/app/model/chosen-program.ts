@@ -1,9 +1,10 @@
 export interface ChosenProgram {
 
-    officialName: string;
-    profile: string;
-    levelOfStudy: string;
-    formOfStudy: string;
-    semestersAmount: number;
+    field_name: string;
+    is_general_academic: boolean;
+    education_level: string;
+    is_full_time: boolean;
+    language: string;
+    inPolish: boolean;
 
 }

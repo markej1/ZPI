@@ -7,6 +7,7 @@ import {SubjectCardComponent} from "../subject-card/subject-card.component";
 import {Card} from "../../model/card";
 import {Subject} from "../../model/subject";
 import {Course} from "../../model/course";
+import {LoaderService} from "../../services/loader.service";
 
 @Component({
     selector: 'app-search',
@@ -25,16 +26,17 @@ export class SearchComponent implements OnInit {
 
     chosenSubjectLecture?: SubjectLecture;
 
-    constructor(private searchService: SearchService, private dialog: MatDialog) {
+    constructor(private searchService: SearchService, private dialog: MatDialog, public loaderService: LoaderService) {
         this.getSubjectLectureList();
     }
 
     ngOnInit() {
         this.subjectWritten.valueChanges.subscribe(value => {
-            this.filteredSubjectList = this.subjectList.sort();
+            this.filteredSubjectList = this.subjectList
+                .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             this.filteredSubjectLectureList =
-                this.createFilteredSubjectLectureList(this.subjectLectureList);
-                    // .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
+                this.createFilteredSubjectLectureList(this.subjectLectureList)
+                    .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
             if (value != null) {
                 this.filteredSubjectList = this.filteredSubjectList.filter(subject =>
                     subject?.subjectName.toString().toLowerCase().includes(value.toString().toLowerCase())
@@ -76,6 +78,7 @@ export class SearchComponent implements OnInit {
 
     getSubjectLectureList() {
         const subjectLectureListMock: SubjectLecture[] = [];
+        this.loaderService.setLoading1(true);
         this.searchService.getSubjectLectures().subscribe({
             next: subjectLecturesGiven => {
                 subjectLecturesGiven.map(subjectLectureGiven => {
@@ -98,11 +101,15 @@ export class SearchComponent implements OnInit {
                     }
                 });
                 this.subjectLectureList.map(subjectLecture => this.subjectList.push(subjectLecture));
-                this.filteredSubjectList = this.createFilteredSubjectLectureList(this.subjectList);
+                this.filteredSubjectList = this.createFilteredSubjectLectureList(this.subjectList)
+                    .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
                 this.filteredSubjectLectureList =
-                    this.createFilteredSubjectLectureList(this.subjectLectureList);
-                // .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
+                    this.createFilteredSubjectLectureList(this.subjectLectureList)
+                        .sort((a, b) => a.subjectName.localeCompare(b.subjectName));
                 console.log(this.filteredSubjectList);
+            },
+            complete: () => {
+                this.loaderService.setLoading1(false);
             }
         });
     }
@@ -116,6 +123,7 @@ export class SearchComponent implements OnInit {
         let seminar: Course | null = null;
         let project: Course | null = null;
 
+        this.loaderService.setLoading1(true);
         if (this.chosenSubjectLecture?.specialization === "") {
             const cardListGiven = await this.searchService.getCardDetails(
                 this.chosenSubjectLecture?.level,
@@ -130,12 +138,13 @@ export class SearchComponent implements OnInit {
                 this.chosenSubjectLecture?.level!,
                 this.chosenSubjectLecture?.name!,
                 this.chosenSubjectLecture?.cycle!,
-                this.chosenSubjectLecture?.specialization!,
                 this.chosenSubjectLecture?.moduleId!,
-                this.chosenSubjectLecture?.subjectId!
+                this.chosenSubjectLecture?.subjectId!,
+                this.chosenSubjectLecture?.specialization!
             );
             cardSpecializationListGiven.forEach((cardGiven) => cardList.push(cardGiven));
         }
+        this.loaderService.setLoading1(false);
 
         const courses: Course[] = this.searchService.getCardCourseList(cardList);
         courses.map((course: Course, index: number)=> {
@@ -164,7 +173,6 @@ export class SearchComponent implements OnInit {
 
     openDialogWindow(subject: Subject) {
         this.dialog.open(SubjectCardComponent, {
-            height: "85%",
             data: {
                 name: this.chosenSubjectLecture?.subjectName,
                 subject: subject

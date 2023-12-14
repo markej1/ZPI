@@ -20,8 +20,8 @@
 
                     <label>
                         <select
-                            [(ngModel)]="levelSelected"
-                            (change)="getDegrees()"
+                                [(ngModel)]="levelSelected"
+                                (change)="getDegrees()"
                         >
                             <option>{{'First' | translate}} {{'Level' | translate}}</option>
                             <option>{{'Second' | translate}} {{'Level' | translate}}</option>
@@ -32,41 +32,57 @@
 
                 <section class="grid_options_item" id="degree_choice" *ngIf="levelSelected != null">
 
-                    <h2>{{'ChooseDegree' | translate}}</h2>
+                    <section *ngIf="!this.loaderService.getLoading1() && visible2">
 
-                    <label>
-                        <select
-                            [(ngModel)]="degreeSelected"
-                            (change)="getCycles()"
-                        >
-                            <option
-                                    *ngFor="let degree of degrees"
-                                    [value]="degree"
+                        <h2>{{'ChooseDegree' | translate}}</h2>
+
+                        <label>
+                            <select
+                                    [(ngModel)]="degreeSelected"
+                                    (change)="getCycles()"
                             >
-                                {{ degree }}
-                            </option>
-                        </select>
-                    </label>
+                                <option
+                                        *ngFor="let degree of degrees"
+                                        [value]="degree"
+                                >
+                                    {{ degree }}
+                                </option>
+                            </select>
+                        </label>
+
+                    </section>
+
+                    <section *ngIf="this.loaderService.getLoading1()" class="spinner">
+                        <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+                    </section>
 
                 </section>
 
                 <section class="grid_options_item" id="cycle_choice" *ngIf="degreeSelected != null">
 
-                    <h2>{{'ChooseCycle' | translate}}</h2>
+                    <section *ngIf="!this.loaderService.getLoading2() && visible3">
 
-                    <label>
-                        <select
-                                [(ngModel)]="cycleSelected"
-                                (ngModelChange)="navigateTo(false)"
-                        >
-                            <option
-                                    *ngFor="let cycle of cyclesDisplay"
-                                    [value]="cycle"
+                        <h2>{{'ChooseCycle' | translate}}</h2>
+
+                        <label>
+                            <select
+                                    [(ngModel)]="cycleSelected"
+                                    (ngModelChange)="navigateTo(false)"
                             >
-                                {{ cycle }}
-                            </option>
-                        </select>
-                    </label>
+                                <option
+                                        *ngFor="let cycle of cyclesDisplay"
+                                        [value]="cycle"
+                                >
+                                    {{ cycle }}
+                                </option>
+                            </select>
+                        </label>
+
+                    </section>
+
+                    <section *ngIf="this.loaderService.getLoading2()" class="spinner">
+                        <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+                    </section>
 
                 </section>
 
@@ -75,22 +91,30 @@
                          *ngIf="cycleSelected != null && specializations != []"
                 >
 
-                    <h2>{{'ChooseSpecialization' | translate}}</h2>
+                    <section *ngIf="!this.loaderService.getLoading3() && visible4">
 
-                    <label>
-                        <select
-                                [(ngModel)]="specializationSelected"
-                                (ngModelChange)="navigateTo(true)"
-                        >
-                            <option
-                                    *ngFor="let specialization of specializations"
-                                    [value]="specialization"
+                        <h2>{{'ChooseSpecialization' | translate}}</h2>
+
+                        <label>
+                            <select
+                                    [(ngModel)]="specializationSelected"
+                                    (ngModelChange)="navigateTo(true)"
                             >
-                                {{ specialization }}
-                            </option>
-                        </select>
+                                <option
+                                        *ngFor="let specialization of specializations"
+                                        [value]="specialization"
+                                >
+                                    {{ specialization }}
+                                </option>
+                            </select>
 
-                    </label>
+                        </label>
+
+                    </section>
+
+                    <section *ngIf="this.loaderService.getLoading3()" class="spinner">
+                        <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+                    </section>
 
                 </section>
             </section>

@@ -19,7 +19,7 @@
     margin-bottom: 5%;
 }
 
-table {
+#information {
     border-collapse: collapse;
     border-radius: 20px;
     border-style: hidden;
@@ -71,7 +71,21 @@ button {
 span {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-gap: 10px;
+    grid-gap: 0;
 }
 
+.curriculum_content {
+    border: none;
+    padding-inline: 8px;
+    text-align: left;
+    vertical-align: top;
+    white-space: pre-line;
+}
+
+#not-exist {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
