@@ -138,9 +138,9 @@ export class SearchComponent implements OnInit {
                 this.chosenSubjectLecture?.level!,
                 this.chosenSubjectLecture?.name!,
                 this.chosenSubjectLecture?.cycle!,
-                this.chosenSubjectLecture?.specialization!,
                 this.chosenSubjectLecture?.moduleId!,
-                this.chosenSubjectLecture?.subjectId!
+                this.chosenSubjectLecture?.subjectId!,
+                this.chosenSubjectLecture?.specialization!
             );
             cardSpecializationListGiven.forEach((cardGiven) => cardList.push(cardGiven));
         }

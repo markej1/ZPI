@@ -79,6 +79,7 @@ span {
     padding-inline: 8px;
     text-align: left;
     vertical-align: top;
+    white-space: pre-line;
 }
 
 #not-exist {

@@ -12,7 +12,6 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 export class SubjectCardComponent implements OnInit {
 
     name: string = "";
-    groupOfCourses: string = "";
     subject?: Subject;
 
     exists?: boolean = true;
@@ -27,7 +26,6 @@ export class SubjectCardComponent implements OnInit {
     ngOnInit() {
         this.subject =  this.subjectService.getSelectedSubject();
         this.name = this.answerData.name;
-        this.groupOfCourses = this.answerData.groupOfCourses;
         this.subject = this.answerData.subject;
 
         if (this.subject?.curriculumContent.length === 0) {
